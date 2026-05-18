@@ -33,12 +33,12 @@ export function CopyTrading() {
   return (
     <section id="copy-trading" className="py-32 bg-dk relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-12 relative z-10">
-        
+
         {/* First: Centered Heading */}
         <div className="text-center mb-20">
           <div className="text-nn font-black text-[10px] uppercase tracking-[0.4em] mb-6">Social Ecosystem</div>
           <h2 className="text-5xl md:text-7xl text-white leading-[0.95] uppercase mb-8 max-w-4xl mx-auto">
-            Top Traders. <br/>
+            Top Traders. <br />
             <span className="text-nn">Copy Their Profits.</span>
           </h2>
           <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto">
@@ -47,7 +47,7 @@ export function CopyTrading() {
         </div>
 
         {/* Second: Big Centered Image */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,16 +55,16 @@ export function CopyTrading() {
         >
           <div className="absolute inset-0 bg-nn/10 blur-[150px] rounded-full scale-90 opacity-40" />
           <div className="relative z-10">
-            <img 
-              src="/assets/copy-trading.png" 
-              alt="Copy Trading Terminal" 
+            <img
+              src="/assets/copy-trading.png"
+              alt="Copy Trading Terminal"
               className="w-full h-auto object-cover drop-shadow-[0_40px_80px_rgba(0,0,0,0.4)]"
             />
           </div>
         </motion.div>
 
         {/* Third: Trader Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 max-w-5xl mx-auto px-4 md:px-0">
           {traders.map((t, i) => (
             <motion.div
               key={t.name}
@@ -72,20 +72,20 @@ export function CopyTrading() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/5 border border-nn/5 rounded-2xl p-4 group hover:bg-white/[0.08] transition-all cursor-pointer"
+              className="bg-white/5 border border-nn/5 rounded-2xl p-3 md:p-4 group hover:bg-white/[0.08] transition-all cursor-pointer"
             >
               <div className="flex flex-col items-center text-center">
-                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-xl object-cover mb-2" />
-                <h4 className="text-white text-xs font-bold tracking-tight mb-0.5">{t.name}</h4>
-                <p className="text-[9px] text-zinc-500 font-medium mb-3">{t.strategy}</p>
-                
-                <div className="w-full h-px bg-white/5 mb-3" />
-                
-                <div className="text-nn font-black text-lg mb-0.5">{t.profit}</div>
-                <div className="text-[8px] text-zinc-500 uppercase font-bold tracking-widest mb-4">30d Return</div>
-                
-                <button className="w-full bg-nn text-dk font-bold px-3 py-2 rounded-lg text-[9px] uppercase tracking-widest transition-all hover:bg-nnl">
-                  Copy Trader
+                <img src={t.image} alt={t.name} className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover mb-2" />
+                <h4 className="text-white text-[10px] md:text-xs font-bold tracking-tight mb-0.5">{t.name}</h4>
+                <p className="text-[8px] md:text-[9px] text-zinc-500 font-medium mb-2 md:mb-3">{t.strategy}</p>
+
+                <div className="w-full h-px bg-white/5 mb-2 md:mb-3" />
+
+                <div className="text-nn font-black text-sm md:text-lg mb-0.5">{t.profit}</div>
+                <div className="text-[7px] md:text-[8px] text-zinc-500 uppercase font-bold tracking-widest mb-3 md:mb-4">30d Return</div>
+
+                <button className="w-full bg-nn text-dk font-bold px-2 py-2 md:px-3 rounded-md md:rounded-lg text-[8px] md:text-[9px] uppercase tracking-widest transition-all hover:bg-nnl">
+                  Copy
                 </button>
               </div>
             </motion.div>

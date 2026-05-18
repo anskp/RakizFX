@@ -82,7 +82,7 @@ export function Markets() {
             Asset Ecosystem
           </motion.div>
           <h2 className="text-5xl md:text-7xl text-black leading-[0.85] uppercase mb-6">
-            Institutional Access to <br/>
+            Institutional Access to <br />
             500+ Global Instruments
           </h2>
           <p className="text-zinc-500 text-xl max-w-2xl mx-auto leading-relaxed font-medium">
@@ -91,20 +91,20 @@ export function Markets() {
         </div>
 
         {/* Bento Grid Markets - Exact Reference Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 auto-rows-[200px]">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 auto-rows-[160px] md:auto-rows-[200px]">
           {/* 1. Gold & Metals - Top Left Wide (Col 1-2, Row 1) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-[#FBF9F6] border border-black/5 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden"
+            className="col-span-2 md:col-span-2 order-1 md:order-none bg-[#FBF9F6] border border-black/5 rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden"
           >
             <div className="relative z-10">
-              <h3 className="text-2xl text-black uppercase font-black tracking-tight drop-shadow-sm">Gold & Metals</h3>
+              <h3 className="text-xl md:text-2xl text-black uppercase font-black tracking-tight drop-shadow-sm">Gold & Metals</h3>
             </div>
             
             {/* Transparent Gold Image */}
-            <div className="absolute right-0 bottom-0 translate-x-0 -translate-y-1 w-48 h-48 opacity-100 z-0 pointer-events-none drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)]">
+            <div className="absolute right-0 bottom-0 translate-x-0 -translate-y-1 w-32 md:w-48 h-32 md:h-48 opacity-100 z-0 pointer-events-none drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)]">
               <img src="/assets/golddddd.png" alt="Gold" className="w-full h-full object-contain" />
             </div>
           </motion.div>
@@ -114,14 +114,14 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-nn/5 border border-nn/10 rounded-3xl p-8 flex flex-col justify-between group"
+            className="col-span-1 md:col-span-1 order-2 md:order-none rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group"
           >
-            <div className="w-10 h-10 rounded-xl bg-nn/20 flex items-center justify-center text-nn">
-              <Zap size={20} />
-            </div>
-            <div>
-              <h3 className="text-sm text-black uppercase mb-1">Energies</h3>
-              <div className="text-nn font-bold text-sm">0.03</div>
+            <img src="/assets/energies.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Energies" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-0 pointer-events-none" />
+            
+            <div className="relative z-10 text-nn font-black text-lg md:text-xl drop-shadow-lg">0.03</div>
+            <div className="relative z-10">
+              <h3 className="text-xs md:text-sm text-white uppercase font-bold drop-shadow-lg mb-1">Energies</h3>
             </div>
           </motion.div>
 
@@ -130,18 +130,15 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:row-span-2 rounded-3xl p-8 flex flex-col relative overflow-hidden"
+            className="col-span-1 row-span-2 md:col-span-1 md:row-span-2 order-3 md:order-none rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col relative overflow-hidden"
           >
-            <img src="/assets/indices (2).png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Indices" />
+            <img src="/assets/indicesss.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Indices" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-0 pointer-events-none" />
             <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 rounded-2xl bg-nn flex items-center justify-center text-dk mb-auto shadow-lg">
-                <Activity size={24} strokeWidth={2.5} />
-              </div>
               <div className="mt-auto">
-                <h3 className="text-2xl text-white uppercase mb-2 drop-shadow-lg font-bold">Indices</h3>
-                <div className="text-nn font-black text-3xl drop-shadow-lg">0.4</div>
-                <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest mt-4 drop-shadow-md">Global Access</p>
+                <h3 className="text-lg md:text-2xl text-white uppercase mb-1 md:mb-2 drop-shadow-lg font-bold">Indices</h3>
+                <div className="text-nn font-black text-xl md:text-3xl drop-shadow-lg">0.4</div>
+                <p className="text-[9px] md:text-[10px] font-bold text-zinc-300 uppercase tracking-widest mt-2 md:mt-4 drop-shadow-md">Global Access</p>
               </div>
             </div>
           </motion.div>
@@ -151,18 +148,15 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:row-span-2 bg-zinc-900 rounded-3xl p-8 flex flex-col group relative overflow-hidden"
+            className="col-span-1 row-span-1 md:col-span-1 md:row-span-2 order-6 md:order-none bg-zinc-900 rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col group relative overflow-hidden"
           >
-            <img src="/assets/Classic Bitcoin Symbol.jpg" className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" alt="Crypto" />
+            <img src="/assets/Classic Bitcoin Symbol.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Crypto" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-0 pointer-events-none" />
             <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 rounded-2xl bg-nn flex items-center justify-center text-dk mb-auto shadow-lg">
-                <Zap size={24} strokeWidth={2.5} />
-              </div>
               <div className="mt-auto">
-                <h3 className="text-2xl text-white uppercase mb-2 drop-shadow-lg font-bold">Crypto</h3>
-                <div className="text-nn font-black text-3xl drop-shadow-lg">$0.50</div>
-                <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest mt-4 drop-shadow-md">24/7 Trade</p>
+                <h3 className="text-lg md:text-2xl text-white uppercase mb-1 md:mb-2 drop-shadow-lg font-bold">Crypto</h3>
+                <div className="text-nn font-black text-xl md:text-3xl drop-shadow-lg">$0.50</div>
+                <p className="text-[9px] md:text-[10px] font-bold text-zinc-300 uppercase tracking-widest mt-2 md:mt-4 drop-shadow-md">24/7 Trade</p>
               </div>
             </div>
           </motion.div>
@@ -172,17 +166,17 @@ export function Markets() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-2 md:row-span-2 bg-zinc-950 rounded-[40px] p-10 flex flex-col justify-center group relative overflow-hidden"
+            className="col-span-2 row-span-2 md:col-span-2 md:row-span-2 order-7 md:order-none bg-zinc-950 rounded-[30px] md:rounded-[40px] p-8 md:p-10 flex flex-col justify-center group relative overflow-hidden"
           >
-            <img src="/assets/trader-bg.jpg" className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700" alt="Forex" />
+            <img src="/assets/trader-bg.jpg" className="absolute inset-0 w-full h-full object-cover opacity-50 z-0" alt="Forex" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
             <div className="relative z-10">
-              <h3 className="text-5xl text-white uppercase mb-6">Forex Core</h3>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px w-12 bg-nn" />
-                <span className="text-nn font-black text-4xl">0.0 pips</span>
+              <h3 className="text-3xl md:text-5xl text-white uppercase mb-4 md:mb-6">Forex Core</h3>
+              <div className="flex items-center gap-4 mb-6 md:mb-8">
+                <div className="h-px w-8 md:w-12 bg-nn" />
+                <span className="text-nn font-black text-2xl md:text-4xl">0.0 pips</span>
               </div>
-              <p className="text-zinc-400 text-sm max-w-xs leading-relaxed">Direct institutional liquidity with millisecond execution.</p>
+              <p className="text-zinc-400 text-xs md:text-sm max-w-[200px] md:max-w-xs leading-relaxed">Direct institutional liquidity with millisecond execution.</p>
             </div>
           </motion.div>
 
@@ -191,14 +185,14 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white border border-black/5 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden"
+            className="col-span-1 md:col-span-1 order-4 md:order-none bg-white border border-black/5 rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden"
           >
             <img src="/assets/oil and investments.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Commodities" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-0 pointer-events-none" />
             
-            <div className="relative z-10 text-nn font-black text-xl drop-shadow-lg">0.04</div>
+            <div className="relative z-10 text-nn font-black text-lg md:text-xl drop-shadow-lg">0.04</div>
             <div className="relative z-10">
-              <h3 className="text-sm text-white uppercase font-bold drop-shadow-lg">Commodities</h3>
+              <h3 className="text-xs md:text-sm text-white uppercase font-bold drop-shadow-lg">Commodities</h3>
             </div>
           </motion.div>
 
@@ -207,13 +201,13 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden"
+            className="col-span-1 md:col-span-1 order-5 md:order-none rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden"
           >
-            <img src="/assets/share.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Shares" />
+            <img src="/assets/sharess.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Shares" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-0 pointer-events-none" />
-            <div className="relative z-10 text-nn font-black text-xl drop-shadow-lg">0.01</div>
+            <div className="relative z-10 text-nn font-black text-lg md:text-xl drop-shadow-lg">0.01</div>
             <div className="relative z-10">
-              <h3 className="text-sm text-white uppercase font-bold drop-shadow-lg">Shares</h3>
+              <h3 className="text-xs md:text-sm text-white uppercase font-bold drop-shadow-lg">Shares</h3>
             </div>
           </motion.div>
 
@@ -222,15 +216,16 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-zinc-950 rounded-3xl p-10 flex items-center justify-between group relative overflow-hidden"
+            className="col-span-2 md:col-span-2 order-8 md:order-none bg-zinc-950 rounded-2xl md:rounded-3xl p-6 md:p-10 flex items-center justify-between group relative overflow-hidden"
           >
-            <img src="/assets/app-ref.jpg" className="absolute inset-0 w-full h-full object-cover opacity-20" alt="ETFs" />
+            <img src="/assets/ETFs (2).png" className="absolute inset-0 w-full h-full object-cover z-0" alt="ETFs" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent z-0 pointer-events-none" />
             <div className="relative z-10 w-full flex items-center justify-between">
               <div>
-                <h3 className="text-2xl text-white uppercase">ETFs CFDs</h3>
-                <p className="text-zinc-500 text-[10px] uppercase tracking-widest mt-1">Diversified Markets</p>
+                <h3 className="text-lg md:text-2xl text-white uppercase">ETFs CFDs</h3>
+                <p className="text-zinc-500 text-[8px] md:text-[10px] uppercase tracking-widest mt-1">Diversified Markets</p>
               </div>
-              <div className="text-nn font-black text-3xl">0.10</div>
+              <div className="text-nn font-black text-xl md:text-3xl">0.10</div>
             </div>
           </motion.div>
         </div>
