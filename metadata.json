@@ -1,0 +1,8 @@
+{
+  "name": "RakizFx Trading",
+  "description": "An institutional-grade forex trading platform landing page with live spreads, copy trading, and advanced charting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
