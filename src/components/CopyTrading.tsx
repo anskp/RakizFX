@@ -51,7 +51,7 @@ export function CopyTrading() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative max-w-5xl mx-auto mb-16 flex justify-center"
+          className="relative max-w-5xl mx-auto mb-16 flex justify-center lg:translate-x-12 md:translate-x-6"
         >
           <div className="relative z-10 w-full flex justify-center">
             <img
