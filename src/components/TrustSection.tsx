@@ -19,28 +19,23 @@ export function TrustSection() {
             <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Multiple methods tailored for Asian traders. Most deposits processed instantly.</p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 mb-10">
             {[
-              { logo: 'https://cdn-icons-png.flaticon.com/512/2830/2830284.png', name: 'Bank Transfer' },
-              { logo: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg', name: 'USDT / BTC' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/196/196578.png', name: 'Visa / MC' },
-              { icon: <Wallet size={18} />, name: 'Skrill' },
-              { icon: <Zap size={18} />, name: 'Neteller' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/814/814513.png', name: 'Local Methods' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/6021/6021946.png', name: 'Perfect Money' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/1086/1086741.png', name: 'SticPay' },
+              { logo: '/icons/bank-svgrepo-com.svg', name: 'Bank Transfer' },
+              { logo: '/icons/visa-svgrepo-com (1).svg', name: 'Visa' },
+              { logo: '/icons/mastercard-old-svgrepo-com.svg', name: 'Mastercard' },
+              { logo: '/icons/google-pay-icon-svgrepo-com.svg', name: 'Google Pay' },
+              { logo: '/icons/icons8-bhim.svg', name: 'BHIM UPI' },
+              { logo: '/icons/bitcoin-svgrepo-com.svg', name: 'Bitcoin' },
+              { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' },
             ].map((p, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -2 }}
-                className="bg-white border border-zinc-100 rounded-2xl w-20 h-14 flex items-center justify-center shadow-sm hover:border-nn/30 transition-all cursor-default"
+                whileHover={{ y: -3, scale: 1.08 }}
+                className="h-10 flex items-center justify-center transition-all cursor-default"
               >
-                <div className="w-10 h-7 flex items-center justify-center text-emerald-500">
-                  {p.logo ? (
-                    <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain" />
-                  ) : (
-                    p.icon
-                  )}
+                <div className="max-w-[80px] max-h-full flex items-center justify-center">
+                  <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain filter opacity-80 hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
             ))}

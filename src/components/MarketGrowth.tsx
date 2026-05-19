@@ -35,7 +35,7 @@ export function MarketGrowth() {
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {/* App Store */}
               <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="w-5 h-5 brightness-0 invert" />
+                <img src="/icons/app-store-svgrepo-com (1).svg" alt="Apple" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
                   <span className="text-sm font-bold text-white tracking-tight">App Store</span>
@@ -44,25 +44,16 @@ export function MarketGrowth() {
 
               {/* Google Play */}
               <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play" className="w-5 h-5 object-contain" />
+                <img src="/icons/google-play-store-svgrepo-com.svg" alt="Google Play" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
                   <span className="text-sm font-bold text-white tracking-tight">Google Play</span>
                 </div>
               </a>
 
-              {/* macOS */}
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="w-5 h-5 brightness-0 invert" />
-                <div className="flex flex-col items-start leading-none text-left">
-                  <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Download for</span>
-                  <span className="text-sm font-bold text-white tracking-tight">macOS</span>
-                </div>
-              </a>
-
               {/* Windows */}
               <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" alt="Windows" className="w-5 h-5" />
+                <img src="/icons/windows-svgrepo-com.svg" alt="Windows" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Download for</span>
                   <span className="text-sm font-bold text-white tracking-tight">Windows</span>
