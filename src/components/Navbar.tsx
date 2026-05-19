@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, BarChart2, Boxes, LineChart, Users, BadgeDollarSign, Wallet, Monitor, Smartphone, LayoutDashboard, Copy, Newspaper, CalendarDays, FileText, PieChart, Activity, Handshake, Percent, Building2, Headset, Briefcase } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
+interface NavLink {
+  name: string;
+  href: string;
+  dropdown?: {
+    title: string;
+    desc: string;
+    icon: React.ReactNode;
+    badge?: string;
+  }[];
+}
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,39 +26,29 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     {
       name: 'Trading',
       href: '/trading',
       dropdown: [
         { title: 'Overview', desc: 'Access 1,000+ CFDs across global markets', icon: <BarChart2 size={20} strokeWidth={1.5} /> },
-        { title: 'All Trading Products', desc: 'Discover our wide range of products to trade', icon: <Boxes size={20} strokeWidth={1.5} /> },
-        { title: 'Markets', desc: 'Access the latest product offerings', icon: <LineChart size={20} strokeWidth={1.5} /> },
-        { title: 'Trading Accounts', desc: 'Tailored for traders of all experience levels', icon: <Users size={20} strokeWidth={1.5} /> },
-        { title: 'Trading Fees', desc: 'Trading costs for executing buy or sell orders', icon: <BadgeDollarSign size={20} strokeWidth={1.5} /> },
-        { title: 'Deposit and Withdrawal', desc: 'Discover all funding and withdrawal methods', icon: <Wallet size={20} strokeWidth={1.5} /> },
+        { title: 'Trading Accounts', desc: 'Standard, Raw Spread, and Islamic accounts', icon: <Users size={20} strokeWidth={1.5} /> },
+        { title: 'Platforms', desc: 'Trade on MT4, MT5, TradingView & WebTrader', icon: <Monitor size={20} strokeWidth={1.5} /> },
+        { title: 'Copy Trading', desc: 'Copy, trade, and earn from top strategy providers', icon: <Copy size={20} strokeWidth={1.5} /> },
+        { title: 'Trading Fees', desc: 'Competitive spreads, commissions, and zero hidden fees', icon: <BadgeDollarSign size={20} strokeWidth={1.5} /> },
+        { title: 'Deposit and Withdrawal', desc: 'Fast & secure deposits and withdrawals', icon: <Wallet size={20} strokeWidth={1.5} /> },
       ]
     },
     {
-      name: 'Platforms',
-      href: '/account',
+      name: 'Market',
+      href: '/market',
       dropdown: [
-        { title: 'Overview', desc: 'Access various platforms for diverse trading options', icon: <Monitor size={20} strokeWidth={1.5} /> },
-        { title: 'RakizFx App', desc: 'Trade global markets anytime, anywhere', icon: <Smartphone size={20} strokeWidth={1.5} /> },
-        { title: 'MetaTrader 5', desc: 'Experience fast execution and advanced signals', icon: <LayoutDashboard size={20} strokeWidth={1.5} /> },
-        { title: 'TradingView', desc: 'Trade smarter on the leading global charting platform', icon: <LineChart size={20} strokeWidth={1.5} /> },
-        { title: 'Copy Trading', desc: 'Copy, trade, and earn in one tap', icon: <Copy size={20} strokeWidth={1.5} /> },
-      ]
-    },
-    {
-      name: 'Analysis',
-      href: '/analysis',
-      dropdown: [
-        { title: 'Overview', desc: 'Get market analysis and stay informed', icon: <Newspaper size={20} strokeWidth={1.5} /> },
-        { title: 'Economic Calendar', desc: 'Track and stay updated on key market events', icon: <CalendarDays size={20} strokeWidth={1.5} /> },
-        { title: 'News and Analysis', desc: 'Stay ahead with the latest news', icon: <FileText size={20} strokeWidth={1.5} /> },
-        { title: 'Client Sentiment', desc: 'Gauge overall market trends and sentiment', icon: <PieChart size={20} strokeWidth={1.5} /> },
-        { title: 'Trading Signal', desc: 'Trade insights driven by technical analysis', icon: <Activity size={20} strokeWidth={1.5} /> },
+        { title: 'Forex', desc: 'Trade major, minor, and exotic currency pairs', icon: <LineChart size={20} strokeWidth={1.5} /> },
+        { title: 'Shares CFDs', desc: 'Trade CFDs on global company blue-chip stocks', icon: <Building2 size={20} strokeWidth={1.5} /> },
+        { title: 'Crypto CFDs', desc: 'Trade popular cryptocurrencies with 24/7 exposure', icon: <Activity size={20} strokeWidth={1.5} /> },
+        { title: 'Indices', desc: 'Speculate on major global stock market indices', icon: <BarChart2 size={20} strokeWidth={1.5} /> },
+        { title: 'Metals & Energies', desc: 'Trade precious safe-haven metals and oil markets', icon: <Boxes size={20} strokeWidth={1.5} /> },
+        { title: 'ETFs & Futures', desc: 'Diversify your portfolio with sector-specific products', icon: <Briefcase size={20} strokeWidth={1.5} /> },
       ]
     },
     {

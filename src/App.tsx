@@ -13,9 +13,7 @@ import { TrustSection } from './components/TrustSection';
 import { Footer } from './components/Footer';
 import TradingEcologyPage from './pages/TradingEcologyPage';
 import TradingPage from './pages/TradingPage';
-import AccountPage from './pages/AccountPage';
 import MarketPage from './pages/MarketPage';
-import AnalysisPage from './pages/AnalysisPage';
 import CompanyPage from './pages/CompanyPage';
 import PartnersPage from './pages/PartnersPage';
 
@@ -47,9 +45,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/trading-ecology" element={<TradingEcologyPage />} />
             <Route path="/trading" element={<TradingPage />} />
-            <Route path="/account" element={<AccountPage />} />
             <Route path="/market" element={<MarketPage />} />
-            <Route path="/analysis" element={<AnalysisPage />} />
             <Route path="/company" element={<CompanyPage />} />
             <Route path="/partners" element={<PartnersPage />} />
           </Routes>

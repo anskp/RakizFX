@@ -1,14 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Monitor } from 'lucide-react';
-
-
 
 export function MarketGrowth() {
   return (
     <section className="py-32 bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter uppercase leading-[0.85]">
             Grow your portfolio <span className="text-primary font-normal italic">with a platform that fits your strategy</span>
           </h2>
@@ -17,41 +14,60 @@ export function MarketGrowth() {
           </p>
         </div>
 
-
-
         {/* Promo Card */}
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0A1A0A] border border-white/5 p-8 md:p-16 lg:p-24 flex flex-col md:flex-row items-center gap-16 group shadow-2xl">
           {/* Background Ambient Glow */}
           <div className="absolute top-0 right-0 w-full h-full bg-primary/10 blur-[150px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
           
           <div className="flex-1 relative z-10 text-center md:text-left">
-            <div className="flex flex-col md:flex-row items-center md:items-center gap-4 mb-8 justify-center md:justify-start">
-               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 shadow-lg overflow-hidden p-1">
-                  <img src="/assets/mt5_icon.jpg" alt="MT5" className="w-full h-full object-contain rounded-lg" />
-               </div>
-               <div className="text-[10px] uppercase font-black tracking-[0.6em] text-primary">Execution Infrastructure</div>
+            <h3 className="text-3xl md:text-5xl text-white mb-6 leading-tight uppercase font-black tracking-tight">
+              Get <span className="text-[#00cfa7]">RakizFx MT5</span> <br/>on Your Preferred Platforms
+            </h3>
+            
+            <p className="text-zinc-400 text-base md:text-lg mb-8 max-w-xl leading-relaxed mx-auto md:mx-0 font-medium">
+              Access your RakizFx MT5 account across devices with a unified, secure experience. Stay connected to your market activity, insights, and portfolio context—anytime, anywhere.
+            </p>
+
+            <div className="text-[#00cfa7] text-sm font-semibold mb-10 tracking-wide">
+              Available on iOS, Android, Windows, and macOS
             </div>
             
-            <h3 className="text-3xl md:text-5xl text-white mb-8 leading-[0.85] uppercase">
-              Powerful Platforms. <br/><span className="text-nn mt-3 block">Built for Performance.</span>
-            </h3>
-            <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-xl leading-relaxed mx-auto md:mx-0">
-              MetaTrader 5 — the industry standard, powered by RakizFx. Capture every opportunity with institutional-grade tools.
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
-              <button className="bg-white/10 border border-white/20 hover:bg-white/20 text-white px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" alt="Windows" className="w-4 h-4 brightness-0 invert" />
-                Windows
-              </button>
-              <button className="bg-white/10 border border-white/20 hover:bg-white/20 text-white px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" alt="Apple" className="w-[14px] h-[14px]" />
-                Mac / iOS
-              </button>
-              <button className="bg-white/10 border border-white/20 hover:bg-white/20 text-white px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android" className="w-[16px] h-[16px] brightness-0 invert" />
-                Android
-              </button>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              {/* App Store */}
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="w-5 h-5 brightness-0 invert" />
+                <div className="flex flex-col items-start leading-none text-left">
+                  <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
+                  <span className="text-sm font-bold text-white tracking-tight">App Store</span>
+                </div>
+              </a>
+
+              {/* Google Play */}
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play" className="w-5 h-5 object-contain" />
+                <div className="flex flex-col items-start leading-none text-left">
+                  <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
+                  <span className="text-sm font-bold text-white tracking-tight">Google Play</span>
+                </div>
+              </a>
+
+              {/* macOS */}
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="w-5 h-5 brightness-0 invert" />
+                <div className="flex flex-col items-start leading-none text-left">
+                  <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Download for</span>
+                  <span className="text-sm font-bold text-white tracking-tight">macOS</span>
+                </div>
+              </a>
+
+              {/* Windows */}
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-950 border border-white/10 rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-lg hover:scale-[1.02]">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" alt="Windows" className="w-5 h-5" />
+                <div className="flex flex-col items-start leading-none text-left">
+                  <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Download for</span>
+                  <span className="text-sm font-bold text-white tracking-tight">Windows</span>
+                </div>
+              </a>
             </div>
           </div>
 

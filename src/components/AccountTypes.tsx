@@ -1,135 +1,148 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Check, ArrowRight, Landmark, Bitcoin, CreditCard, MapPin } from 'lucide-react';
 
 export function AccountTypes() {
-  const [activeId, setActiveId] = React.useState('stp');
-
   const accountsData = [
     {
       id: 'stp',
-      title: 'Stp',
-      label: 'Zero Commission',
-      specs: [
-        'spread from 0.3 pips',
-        'commission: 0',
-        'leverage: 1:1000 (adjustable)',
-        'min depo: 50$'
+      title: 'STP',
+      tagline: 'Zero commission trading for retail participants.',
+      isHighlighted: false,
+      details: [
+        { label: 'Spreads', value: 'Starts from 0.3 pips' },
+        { label: 'Commission', value: '0' },
+        { label: 'Leverage', value: '1:1000 (adjustable)' },
+        { label: 'Min Depo', value: '50$' }
       ],
-      bg: 'STP'
+      buttonText: 'Get Started'
     },
     {
       id: 'raw',
       title: 'Raw ECN',
-      label: 'Lowest Spreads',
-      specs: [
-        'spread from 0.0 pips',
-        'commission: from 3$',
-        'leverage: 1:1000 (adjustable)',
-        'min depo: 50$'
+      tagline: 'True institutional ECN connectivity.',
+      isHighlighted: true,
+      badge: 'RECOMMENDED',
+      details: [
+        { label: 'Spreads', value: 'Starts from 0.0 pips', highlightValue: true },
+        { label: 'Commission', value: 'From 3$' },
+        { label: 'Leverage', value: '1:1000 (adjustable)' },
+        { label: 'Min Depo', value: '50$' }
       ],
-      bg: 'RAW'
+      buttonText: 'Open Raw Account'
     },
     {
       id: 'islamic',
-      title: 'Swap Free',
-      label: 'Islamic Compliant',
-      specs: [
-        'spread from 0.2* pips',
-        'administration fee applied',
-        'leverage: 1:400 (adjustable)',
-        'min depo: 100$'
+      title: 'Swap Free (Islamic)',
+      tagline: 'Islamic compliant swap-free execution.',
+      isHighlighted: false,
+      details: [
+        { label: 'Spreads', value: 'Starts from 0.2* pips' },
+        { label: 'Fee', value: 'Admin fee applied' },
+        { label: 'Leverage', value: '1:400 (adjustable)' },
+        { label: 'Min Depo', value: '100$' }
       ],
-      bg: 'ISLAMIC'
+      buttonText: 'Get Started'
     },
     {
       id: 'vip',
       title: 'Premium / VIP',
-      label: 'Exclusive Benefits',
-      specs: [
-        'spread from 0.0',
-        'leverage: 1:500 (adjustable)',
-        'min depo: 5000$',
-        'commission: from 1.5$'
+      tagline: 'High-volume desks & fund managers.',
+      isHighlighted: false,
+      details: [
+        { label: 'Spreads', value: 'Starts from 0.0' },
+        { label: 'Commission', value: 'From 1.5$' },
+        { label: 'Leverage', value: '1:500 (adjustable)' },
+        { label: 'Min Depo', value: '5000$' }
       ],
-      bg: 'VIP'
+      buttonText: 'Inquire Now'
     },
   ];
 
-
-
   return (
-    <section id="accounts" className="py-40 bg-white relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-12">
-        <div className="text-center mb-32">
-          <div className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-6">Account Types</div>
-          <h2 className="text-5xl md:text-7xl text-black leading-[0.85] uppercase mb-6">
+    <section id="accounts" className="py-32 bg-[#FAF9F6] relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="text-center mb-24">
+          <div className="text-[10px] font-black text-[#004D34] uppercase tracking-[0.3em] mb-4">Account Types</div>
+          <h2 className="text-4xl md:text-6xl text-black leading-[0.85] uppercase mb-4">
             Choose Your <br />
             Trading Edge
           </h2>
-          <p className="text-zinc-500 text-xl font-medium max-w-2xl mx-auto">From beginners to professionals — the account that matches your strategy.</p>
+          <p className="text-zinc-500 text-lg font-medium max-w-2xl mx-auto">From beginners to professionals — the account that matches your strategy.</p>
         </div>
 
-        <div className="flex flex-row gap-2 md:gap-4 h-[400px] md:h-[750px] w-full items-stretch mb-24">
-          {accountsData.map((acc) => {
-            const isActive = activeId === acc.id;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-stretch max-w-7xl mx-auto">
+          {accountsData.map((acc, index) => {
             return (
-              <motion.div
-                key={acc.id}
-                onMouseEnter={() => setActiveId(acc.id)}
-                onClick={() => setActiveId(acc.id)}
-                className={`relative rounded-xl overflow-hidden flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-500 ease-in-out h-full ${
-                  isActive 
-                    ? 'flex-1 md:flex-[4] bg-[#FBF9F6] p-4 md:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.05)] md:shadow-[0_50px_100px_rgba(0,0,0,0.05)] border border-black/5' 
-                    : 'w-10 md:w-auto md:flex-1 shrink-0 bg-[#F7F7F7] hover:bg-[#EFEFEF] border border-black/5 md:border-none'
-                }`}
-              >
-                {/* Background Text */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none overflow-hidden">
-                  <span className={`font-black tracking-tighter leading-none whitespace-nowrap transition-all duration-500 ${isActive ? 'text-[8rem] md:text-[20rem]' : 'text-[4rem] md:text-[12rem]'}`}>
-                    {acc.bg}
-                  </span>
-                </div>
- 
-                {isActive ? (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                    className="relative z-10 w-full flex flex-col justify-center h-full min-w-0"
-                  >
-                    <h4 className="text-3xl md:text-7xl text-black mb-2 md:mb-4 leading-none uppercase truncate">{acc.title}</h4>
-                    <p className="text-[7px] md:text-[12px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-nn mb-4 md:mb-8 leading-none truncate">{acc.label}</p>
-                    
-                    <div className="flex flex-col gap-2 md:gap-5 mb-6 md:mb-12 w-full max-w-md mx-auto items-start text-left">
-                      {acc.specs.map((spec, idx) => (
-                        <div key={idx} className="flex items-center gap-2 md:gap-4 w-full">
-                          <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-nn/10 flex items-center justify-center shrink-0">
-                            <Check size={10} className="text-nn md:w-3 md:h-3" strokeWidth={3} />
-                          </div>
-                          <span className="text-[8px] md:text-[14px] font-bold text-zinc-900 uppercase tracking-wider md:tracking-widest leading-tight whitespace-nowrap md:whitespace-normal truncate md:overflow-visible w-[120px] md:w-auto">{spec}</span>
+              <div key={acc.id} className="relative flex flex-col h-full group">
+                {/* Backing Card Offset Effect for Highlighted Card */}
+                {acc.isHighlighted && (
+                  <div className="absolute inset-0 bg-[#E8E7E4] rounded-[32px] translate-y-4 translate-x-3 -z-10" />
+                )}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`rounded-[32px] p-8 flex flex-col justify-between h-[520px] transition-all duration-300 w-full ${
+                    acc.isHighlighted 
+                      ? 'bg-[#004D34] text-white shadow-[0_25px_50px_rgba(0,77,52,0.15)] md:scale-105 z-10' 
+                      : 'bg-white border border-zinc-200/60 text-zinc-900 shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)]'
+                  }`}
+                >
+                  {/* Top Section */}
+                  <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className={`text-xl md:text-2xl font-extrabold tracking-tight ${acc.isHighlighted ? 'text-white' : 'text-[#004D34]'}`}>
+                        {acc.title}
+                      </h3>
+                      {acc.badge && (
+                        <span className="bg-[#00E676] text-[#004D34] font-extrabold text-[8px] tracking-wider uppercase py-1 px-2.5 rounded-full shrink-0 ml-2">
+                          {acc.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    <p className={`text-xs leading-relaxed mb-8 ${acc.isHighlighted ? 'text-zinc-300/90' : 'text-zinc-500'}`}>
+                      {acc.tagline}
+                    </p>
+
+                    {/* Specifications List */}
+                    <div className="flex flex-col gap-4 mb-8">
+                      {acc.details.map((d, idx) => (
+                        <div key={idx} className="flex justify-between items-center w-full py-1.5 border-b border-zinc-100/10 last:border-0">
+                          <span className="text-[9px] font-black uppercase tracking-wider text-zinc-400">
+                            {d.label}
+                          </span>
+                          <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-wider text-right ${
+                            acc.isHighlighted 
+                              ? d.highlightValue ? 'text-[#00E676]' : 'text-white'
+                              : 'text-[#004D34]'
+                          }`}>
+                            {d.value}
+                          </span>
                         </div>
                       ))}
                     </div>
-
-                    <button className="px-4 md:px-16 py-3 md:py-6 bg-primary text-white rounded-lg md:rounded-xl font-black text-[10px] md:text-lg shadow-[0_20px_50px_rgba(133,190,93,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-2 md:gap-4 mx-auto w-full md:w-auto shrink-0">
-                      Open Account <ArrowRight size={14} className="md:w-[18px] md:h-[18px] shrink-0" />
-                    </button>
-                  </motion.div>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="rotate-[-90deg] flex items-center gap-2 md:gap-4 whitespace-nowrap relative z-10 origin-center">
-                      <span className="text-xs md:text-3xl font-bold tracking-tighter text-black uppercase">{acc.title}</span>
-                      <span className="text-[6px] md:text-[10px] font-black uppercase tracking-widest text-zinc-400">Account</span>
-                    </div>
                   </div>
-                )}
-              </motion.div>
+
+                  {/* Bottom Action Button */}
+                  <div>
+                    {acc.isHighlighted ? (
+                      <button className="w-full bg-white hover:bg-zinc-100 text-[#004D34] font-extrabold py-3.5 px-6 rounded-full text-xs uppercase tracking-wider transition-all shadow-[0_10px_20px_rgba(255,255,255,0.05)]">
+                        {acc.buttonText}
+                      </button>
+                    ) : (
+                      <button className="w-full bg-transparent border border-[#004D34] text-[#004D34] hover:bg-[#004D34]/5 font-extrabold py-3.5 px-6 rounded-full text-xs uppercase tracking-wider transition-all">
+                        {acc.buttonText}
+                      </button>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
             );
           })}
         </div>
-
-
       </div>
     </section>
   );

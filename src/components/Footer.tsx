@@ -74,7 +74,7 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         
         {/* Main Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-16 mb-20">
           
           {/* Column 1: Logo & Contact */}
           <div className="lg:col-span-1">
@@ -125,17 +125,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Analysis */}
-          <div>
-            <h4 className="text-white font-bold text-base mb-6">Analysis</h4>
-            <ul className="flex flex-col gap-4">
-              {['Economic calendar', 'Dow Jones news'].map(link => (
-                <li key={link}><a href="#" className="text-zinc-400 hover:text-white text-sm transition-colors">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 6: Company */}
+          {/* Column 5: Company */}
           <div>
             <h4 className="text-white font-bold text-base mb-6">Company</h4>
             <ul className="flex flex-col gap-4">

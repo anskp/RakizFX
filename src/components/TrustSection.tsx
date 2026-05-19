@@ -33,16 +33,15 @@ export function TrustSection() {
               <motion.div
                 key={i}
                 whileHover={{ y: -2 }}
-                className="bg-white border border-zinc-100 rounded-lg py-3 px-6 flex items-center gap-3 shadow-sm hover:border-nn/30 transition-all cursor-default"
+                className="bg-white border border-zinc-100 rounded-2xl w-20 h-14 flex items-center justify-center shadow-sm hover:border-nn/30 transition-all cursor-default"
               >
-                <div className="w-8 h-5 flex items-center justify-center text-emerald-500">
+                <div className="w-10 h-7 flex items-center justify-center text-emerald-500">
                   {p.logo ? (
                     <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain" />
                   ) : (
                     p.icon
                   )}
                 </div>
-                <span className="font-bold text-[11px] whitespace-nowrap text-zinc-800">{p.name}</span>
               </motion.div>
             ))}
           </div>

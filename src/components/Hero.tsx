@@ -72,12 +72,7 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-nn/5 border border-nn/15 rounded-full text-[10px] font-bold text-nn uppercase tracking-wider mb-8">
-              <span className="w-1.5 h-1.5 bg-nn rounded-full animate-pulse shadow-[0_0_8px_rgba(0,202,115,0.8)]" />
-              Markets Live Now
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-txp leading-[0.9] mb-8 uppercase tracking-tighter">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-txp leading-[0.9] mb-8 uppercase tracking-tighter mt-12">
               {"PRECISION".split("").map((letter, i) => (
                 <motion.span
                   key={i}
@@ -119,7 +114,7 @@ export function Hero() {
               className="flex flex-wrap gap-5"
             >
               <button className="bg-nn hover:bg-nnl text-dk font-bold px-10 py-5 text-[12px] uppercase tracking-[0.3em] rounded-xl transition-all flex items-center gap-4 cursor-pointer shadow-[0_10px_20px_rgba(0,202,115,0.2)]">
-                Download Platform <Download size={18} />
+                Open Live Account <ArrowRight size={18} />
               </button>
               <button className="bg-white/5 border border-white/10 text-white px-10 py-5 text-[12px] uppercase font-bold tracking-[0.3em] hover:bg-white/10 transition-all flex items-center gap-4 cursor-pointer rounded-xl">
                 View Markets
