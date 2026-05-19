@@ -12,40 +12,41 @@ export default function TradingPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-40 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-[10px] uppercase font-black tracking-widest text-zinc-400">Institutional Execution</span>
-            </div>
+      <section id="overview" className="relative pt-48 pb-24 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-[660px] flex items-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 pointer-events-none"
+          style={{ backgroundImage: "url('/assets/tradinghero.png')" }}
+        />
+        {/* Subtle Side-Fade Gradient Mask for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-transparent pointer-events-none" />
 
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tight mb-8 leading-[0.85]">
-              Trade Global Markets <br/>
-              <span className="text-primary font-normal italic">With Confidence</span>
-            </h1>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 w-full">
+          <div className="max-w-2xl text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6 leading-[0.9]">
+                Trade Global Markets <br/>
+                <span className="text-white/40 font-normal italic">With Confidence</span>
+              </h1>
 
-            <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-3xl mx-auto mb-10 leading-relaxed">
-              Access 1,000+ CFD instruments across Forex, Crypto, Stocks, Indices, Commodities, Metals, ETFs, and Futures — all from one powerful multi-asset trading environment.
-            </p>
+              <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
+                Access 1,000+ CFD instruments across Forex, Crypto, Stocks, and Commodities with ultra-fast execution, deep institutional liquidity, and advanced charting tools designed for modern traders.
+              </p>
 
-            <p className="text-zinc-500 text-sm max-w-2xl mx-auto mb-12">
-              Trade with ultra-fast execution, institutional-grade liquidity, advanced charting tools, and seamless account management designed for modern traders.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-5">
-              <button className="bg-primary hover:scale-105 text-black font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-transform shadow-[0_20px_40px_rgba(0,255,120,0.2)]">
-                Start Trading Today
-              </button>
-              <button className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-all">
-                Try Free Demo
-              </button>
-            </div>
-          </motion.div>
+              <div className="flex flex-wrap gap-4 justify-start">
+                <button className="bg-primary hover:scale-105 text-black font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-transform shadow-[0_20px_40px_rgba(0,255,120,0.2)]">
+                  Start Trading Today
+                </button>
+                <button className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-all">
+                  Try Free Demo
+                </button>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Risk Warning Block */}
           <motion.div 

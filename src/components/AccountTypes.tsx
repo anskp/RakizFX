@@ -59,7 +59,7 @@ export function AccountTypes() {
   ];
 
   return (
-    <section id="accounts" className="py-32 bg-[#FAF9F6] relative overflow-hidden">
+    <section id="accounts" className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="text-center mb-24">
           <div className="text-[10px] font-black text-[#004D34] uppercase tracking-[0.3em] mb-4">Account Types</div>

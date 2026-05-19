@@ -16,25 +16,25 @@ export function TradingViewMarkets() {
     script.type = 'text/javascript';
     script.async = true;
     script.innerHTML = JSON.stringify({
-      "colorTheme": "dark",
+      "colorTheme": "light",
       "dateRange": "12M",
       "showChart": true,
       "locale": "en",
       "width": "100%",
       "height": 660,
       "largeChartUrl": "",
-      "isTransparent": true,
+      "isTransparent": false,
       "showSymbolLogo": true,
       "showFloatingTooltip": false,
-      "plotLineColorGrowing": "rgba(133, 190, 93, 1)",
-      "plotLineColorFalling": "rgba(242, 54, 69, 1)",
-      "gridLineColor": "rgba(255, 255, 255, 0.05)",
-      "scaleFontColor": "#636366",
-      "belowLineFillColorGrowing": "rgba(133, 190, 93, 0.12)",
-      "belowLineFillColorFalling": "rgba(242, 54, 69, 0.12)",
-      "belowLineFillColorGrowingBottom": "rgba(133, 190, 93, 0)",
-      "belowLineFillColorFallingBottom": "rgba(242, 54, 69, 0)",
-      "symbolActiveColor": "rgba(133, 190, 93, 0.12)",
+      "plotLineColorGrowing": "rgba(0, 202, 115, 1)",
+      "plotLineColorFalling": "rgba(239, 68, 68, 1)",
+      "gridLineColor": "rgba(0, 0, 0, 0.05)",
+      "scaleFontColor": "#71717a",
+      "belowLineFillColorGrowing": "rgba(0, 202, 115, 0.12)",
+      "belowLineFillColorFalling": "rgba(239, 68, 68, 0.12)",
+      "belowLineFillColorGrowingBottom": "rgba(0, 202, 115, 0)",
+      "belowLineFillColorFallingBottom": "rgba(239, 68, 68, 0)",
+      "symbolActiveColor": "rgba(0, 202, 115, 0.08)",
       "tabs": [
         {
           "title": "Forex",
@@ -95,9 +95,9 @@ export function TradingViewMarkets() {
           </button>
         </div>
 
-        <div className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-4 lg:p-8 shadow-sm relative">
-          <div className="absolute top-0 right-0 p-8">
-            <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest bg-white px-4 py-2 border border-zinc-200 rounded-full">Indicative Pricing Only</span>
+        <div className="relative w-full">
+          <div className="absolute -top-10 right-0 z-10">
+            <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Indicative Pricing Only</span>
           </div>
           <div className="tradingview-widget-container w-full" ref={containerRef}>
             <div className="tradingview-widget-container__widget"></div>

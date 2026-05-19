@@ -15,9 +15,7 @@ export function MarketGrowth() {
         </div>
 
         {/* Promo Card */}
-        <div className="relative overflow-hidden rounded-[3rem] bg-[#0A1A0A] border border-white/5 p-8 md:p-16 lg:p-24 flex flex-col md:flex-row items-center gap-16 group shadow-2xl">
-          {/* Background Ambient Glow */}
-          <div className="absolute top-0 right-0 w-full h-full bg-primary/10 blur-[150px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
+        <div className="relative overflow-hidden rounded-[3rem] bg-[#121212] border border-white/5 p-8 md:p-16 lg:p-24 flex flex-col md:flex-row items-center gap-16 group shadow-2xl">
           
           <div className="flex-1 relative z-10 text-center md:text-left">
             <h3 className="text-3xl md:text-5xl text-white mb-6 leading-tight uppercase font-black tracking-tight">
@@ -64,10 +62,9 @@ export function MarketGrowth() {
 
           <div className="flex-1 relative mt-12 md:mt-0 flex justify-center lg:justify-end">
              <div className="relative w-full lg:w-[130%] lg:translate-x-32">
-                <div className="absolute inset-0 bg-nn/20 blur-[150px] scale-95 opacity-40" />
                 <img 
-                  src="/assets/phone_trade.png" 
-                  alt="TradingView App" 
+                  src="/assets/MT5-Features-Desktop-Mobile-V6-e1758285344952.png" 
+                  alt="RakizFx MT5 App" 
                   className="relative z-10 w-full h-auto drop-shadow-[0_80px_160px_rgba(0,0,0,0.7)] transition-transform duration-1000 group-hover:scale-[1.03]" 
                 />
              </div>

@@ -53,10 +53,9 @@ export function CopyTrading() {
           viewport={{ once: true }}
           className="relative max-w-6xl mx-auto mb-16 -mt-24"
         >
-          <div className="absolute inset-0 bg-nn/10 blur-[150px] rounded-full scale-90 opacity-40" />
           <div className="relative z-10">
             <img
-              src="/assets/copy-trading.png"
+              src="/assets/Frame 2.png"
               alt="Copy Trading Terminal"
               className="w-full h-auto object-cover drop-shadow-[0_40px_80px_rgba(0,0,0,0.4)]"
             />
