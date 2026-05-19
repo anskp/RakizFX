@@ -5,11 +5,11 @@ import CardSwap, { Card } from './ui/CardSwap';
 import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 
 const trustItems = [
-  { icon: ShieldCheck, title: 'Regulated Broker', sub: 'Multi-license security' },
-  { icon: Zap, title: 'Tier-1 Execution', sub: 'Deep market access' },
-  { icon: Building2, title: 'Segregated Funds', sub: 'Top-tier bank protection' },
-  { icon: Activity, title: 'Raw Pricing', sub: 'Institutional liquidity' },
-  { icon: Headset, title: '24/7 Support', sub: 'Multi-lingual team' },
+  { iconSrc: '/icons/Copilot_20260519_185446.png', title: 'Regulated Broker', sub: 'Multi-license security' },
+  { iconSrc: '/icons/Copilot_20260519_184916.png', title: 'Tier-1 Execution', sub: 'Deep market access' },
+  { iconSrc: '/icons/Copilot_20260519_184534.png', title: 'Segregated Funds', sub: 'Top-tier bank protection' },
+  { iconSrc: '/icons/Copilot_20260519_191940.png', title: 'Raw Pricing', sub: 'Institutional liquidity' },
+  { iconSrc: '/icons/Copilot_20260519_183232.png', title: '24/7 Support', sub: 'Multi-lingual team' },
 ];
 
 export function TrustBar() {
@@ -19,8 +19,12 @@ export function TrustBar() {
         <div className="flex items-center justify-between gap-16 min-w-max">
           {trustItems.map((item, i) => (
             <div key={i} className="flex items-center gap-4 shrink-0">
-              <div className="text-primary">
-                <item.icon size={22} strokeWidth={1.5} />
+              <div className="text-primary flex items-center justify-center">
+                {item.iconSrc ? (
+                  <img src={item.iconSrc} alt={item.title} className="w-8 h-8 object-contain" />
+                ) : (
+                  item.icon && <item.icon size={28} strokeWidth={1.5} />
+                )}
               </div>
               <div>
                 <div className="text-white text-[11px] font-black uppercase tracking-widest leading-none mb-1">{item.title}</div>

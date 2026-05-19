@@ -54,7 +54,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-12">
       <div className="absolute inset-0 z-0">
-        <img src="/assets/bg_new.png" alt="Hero Background" className="w-full h-full object-cover" />
+        <img src="/icons/hero.png" alt="Hero Background" className="w-full h-full object-cover" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dk/40 to-dk pointer-events-none z-0" />
 

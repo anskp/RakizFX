@@ -85,7 +85,7 @@ export function Navbar() {
           <img 
             src="/assets/logo_main logo( white text).svg" 
             alt="RakizFx Logo" 
-            className="h-full w-auto block py-2" 
+            className="h-full w-auto block py-2 scale-[1.35] md:scale-[1.5] origin-left transition-transform" 
           />
         </a>
 
