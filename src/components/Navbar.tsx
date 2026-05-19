@@ -89,10 +89,13 @@ export function Navbar() {
 
         {/* Logo */}
         <a href="/" className="flex items-center group h-full">
-          <img
-            src="/assets/Rakiz logo.png"
-            alt="RakizFx Logo"
-            className="h-10 w-auto block"
+          <img 
+            src="/assets/logo_main logo( white text).svg" 
+            alt="RakizFx Logo" 
+            className={cn(
+              "h-full w-auto block py-2 scale-[1.35] md:scale-[1.5] origin-left transition-transform",
+              (isScrolled || isLightBgPage) && "invert"
+            )}
           />
         </a>
 
