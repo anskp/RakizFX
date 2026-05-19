@@ -51,13 +51,13 @@ export function CopyTrading() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative max-w-5xl mx-auto mb-16 flex justify-center lg:translate-x-12 md:translate-x-6"
+          className="relative max-w-6xl mx-auto mb-16 flex justify-center lg:translate-x-12 md:translate-x-6"
         >
           <div className="relative z-10 w-full flex justify-center">
             <img
               src="/assets/Frame 2.png"
               alt="Copy Trading Terminal"
-              className="max-w-4xl w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
+              className="max-w-5xl w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
             />
           </div>
         </motion.div>
