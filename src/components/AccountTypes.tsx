@@ -1,145 +1,176 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
+interface AccountConfig {
+  id: string;
+  badge?: string;
+  subBadge?: string;
+  title: string;
+  tagline: string;
+  price: string;
+  priceLabel: string;
+  isPopular: boolean;
+  isElite?: boolean;
+  details: { label: string; value: string }[];
+  buttonText: string;
+}
+
 export function AccountTypes() {
-  const accountsData = [
+  const accountsData: AccountConfig[] = [
     {
-      id: 'stp',
-      title: 'STP',
-      tagline: 'Zero commission trading for retail participants.',
-      isHighlighted: false,
+      id: 'standard',
+      badge: 'Best for beginners',
+      title: 'Standard',
+      tagline: 'Easy start. Everything you need to begin your trading journey.',
+      price: '$50',
+      priceLabel: 'minimum deposit',
+      isPopular: false,
       details: [
-        { label: 'Spreads', value: 'Starts from 0.3 pips' },
-        { label: 'Commission', value: '0' },
-        { label: 'Leverage', value: '1:1000 (adjustable)' },
-        { label: 'Min Depo', value: '50$' }
+        { label: 'Spread', value: 'Standard spreads' },
+        { label: 'Leverage', value: 'Up to 1:400' },
+        { label: 'Commission', value: 'Zero commission on trades' },
+        { label: 'Swap-free', value: 'Adjustable swap-free option' },
+        { label: 'Funding', value: 'Instant deposit & faster withdrawal' },
+        { label: 'Platform', value: 'MetaTrader 5' },
+        { label: 'Support', value: '24/7 technical support' }
       ],
-      buttonText: 'Get Started'
+      buttonText: 'Open Standard'
     },
     {
-      id: 'raw',
-      title: 'Raw ECN',
-      tagline: 'True institutional ECN connectivity.',
-      isHighlighted: true,
-      badge: 'RECOMMENDED',
+      id: 'pro',
+      badge: 'POPULAR',
+      subBadge: 'Best for regular traders',
+      title: 'Pro',
+      tagline: 'Faster execution, priority support and advanced trading conditions.',
+      price: '$200',
+      priceLabel: 'minimum deposit',
+      isPopular: true,
       details: [
-        { label: 'Spreads', value: 'Starts from 0.0 pips', highlightValue: true },
-        { label: 'Commission', value: 'From 3$' },
-        { label: 'Leverage', value: '1:1000 (adjustable)' },
-        { label: 'Min Depo', value: '50$' }
+        { label: 'Spread', value: 'Low, competitive spreads' },
+        { label: 'Leverage', value: 'Up to 1:500' },
+        { label: 'Commission', value: 'Zero commission on trades' },
+        { label: 'Swap-free', value: 'Adjustable swap-free option' },
+        { label: 'Funding', value: 'Instant deposit & faster withdrawal' },
+        { label: 'Platform', value: 'MetaTrader 5' },
+        { label: 'Support', value: '24×7 priority support' }
       ],
-      buttonText: 'Open Raw Account'
+      buttonText: 'Open Pro'
     },
     {
-      id: 'islamic',
-      title: 'Swap Free (Islamic)',
-      tagline: 'Islamic compliant swap-free execution.',
-      isHighlighted: false,
+      id: 'elite',
+      badge: 'VIP',
+      subBadge: 'Best for VIP / high-volume traders',
+      title: 'Elite',
+      tagline: 'VIP treatment. Exclusive support. Built for serious traders who expect the best.',
+      price: '$2,000',
+      priceLabel: 'minimum deposit',
+      isPopular: false,
+      isElite: true,
       details: [
-        { label: 'Spreads', value: 'Starts from 0.2* pips' },
-        { label: 'Fee', value: 'Admin fee applied' },
-        { label: 'Leverage', value: '1:400 (adjustable)' },
-        { label: 'Min Depo', value: '100$' }
+        { label: 'Spread', value: 'Ultra-low, ultra-competitive spreads' },
+        { label: 'Leverage', value: 'Custom leverage' },
+        { label: 'Commission', value: 'Zero commission on trades' },
+        { label: 'Swap-free', value: 'Adjustable swap-free option' },
+        { label: 'Manager', value: 'Dedicated relationship manager' },
+        { label: 'Withdrawals', value: 'Highest withdrawal priority' },
+        { label: 'VIP perks', value: 'Exclusive events & VIP invitations' },
+        { label: 'Platform', value: 'Advanced trading on MetaTrader 5' },
+        { label: 'Support', value: 'Dedicated 24×7 technical & sales support' }
       ],
-      buttonText: 'Get Started'
-    },
-    {
-      id: 'vip',
-      title: 'Premium / VIP',
-      tagline: 'High-volume desks & fund managers.',
-      isHighlighted: false,
-      details: [
-        { label: 'Spreads', value: 'Starts from 0.0' },
-        { label: 'Commission', value: 'From 1.5$' },
-        { label: 'Leverage', value: '1:500 (adjustable)' },
-        { label: 'Min Depo', value: '5000$' }
-      ],
-      buttonText: 'Inquire Now'
-    },
+      buttonText: 'Open Elite'
+    }
   ];
 
   return (
-    <section id="accounts" className="py-32 bg-white relative overflow-hidden">
+    <section id="accounts" className="py-40 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="text-center mb-24">
           <div className="text-[10px] font-black text-[#004D34] uppercase tracking-[0.3em] mb-4">Account Types</div>
-          <h2 className="text-4xl md:text-6xl text-black leading-[0.85] uppercase mb-4">
+          <h2 className="text-5xl md:text-7xl text-black leading-[0.85] uppercase mb-4 font-black">
             Choose Your <br />
             Trading Edge
           </h2>
           <p className="text-zinc-500 text-lg font-medium max-w-2xl mx-auto">From beginners to professionals — the account that matches your strategy.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-stretch max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8 items-stretch max-w-7xl mx-auto">
           {accountsData.map((acc, index) => {
             return (
-              <div key={acc.id} className="relative flex flex-col h-full group">
-                {/* Backing Card Offset Effect for Highlighted Card */}
-                {acc.isHighlighted && (
-                  <div className="absolute inset-0 bg-[#E8E7E4] rounded-[32px] translate-y-4 translate-x-3 -z-10" />
-                )}
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`rounded-[32px] p-8 flex flex-col justify-between h-[520px] transition-all duration-300 w-full ${
-                    acc.isHighlighted 
-                      ? 'bg-[#004D34] text-white shadow-[0_25px_50px_rgba(0,77,52,0.15)] md:scale-105 z-10' 
-                      : 'bg-white border border-zinc-200/60 text-zinc-900 shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)]'
-                  }`}
-                >
-                  {/* Top Section */}
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className={`text-xl md:text-2xl font-extrabold tracking-tight ${acc.isHighlighted ? 'text-white' : 'text-[#004D34]'}`}>
-                        {acc.title}
-                      </h3>
-                      {acc.badge && (
-                        <span className="bg-[#00E676] text-[#004D34] font-extrabold text-[8px] tracking-wider uppercase py-1 px-2.5 rounded-full shrink-0 ml-2">
-                          {acc.badge}
-                        </span>
-                      )}
-                    </div>
-
-                    <p className={`text-xs leading-relaxed mb-8 ${acc.isHighlighted ? 'text-zinc-300/90' : 'text-zinc-500'}`}>
-                      {acc.tagline}
-                    </p>
-
-                    {/* Specifications List */}
-                    <div className="flex flex-col gap-4 mb-8">
-                      {acc.details.map((d, idx) => (
-                        <div key={idx} className="flex justify-between items-center w-full py-1.5 border-b border-zinc-100/10 last:border-0">
-                          <span className="text-[9px] font-black uppercase tracking-wider text-zinc-400">
-                            {d.label}
-                          </span>
-                          <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-wider text-right ${
-                            acc.isHighlighted 
-                              ? d.highlightValue ? 'text-[#00E676]' : 'text-white'
-                              : 'text-[#004D34]'
-                          }`}>
-                            {d.value}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Bottom Action Button */}
-                  <div>
-                    {acc.isHighlighted ? (
-                      <button className="w-full bg-white hover:bg-zinc-100 text-[#004D34] font-extrabold py-3.5 px-6 rounded-full text-xs uppercase tracking-wider transition-all shadow-[0_10px_20px_rgba(255,255,255,0.05)]">
-                        {acc.buttonText}
-                      </button>
-                    ) : (
-                      <button className="w-full bg-transparent border border-[#004D34] text-[#004D34] hover:bg-[#004D34]/5 font-extrabold py-3.5 px-6 rounded-full text-xs uppercase tracking-wider transition-all">
-                        {acc.buttonText}
-                      </button>
+              <motion.div
+                key={acc.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -8 }}
+                className={`relative overflow-hidden rounded-[3rem] p-8 md:p-10 flex flex-col justify-between transition-all duration-500 w-full bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border ${
+                  acc.isPopular 
+                    ? 'border-[#004D34] shadow-[0_20px_50px_rgba(0,77,52,0.06)]' 
+                    : 'border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)]'
+                }`}
+              >
+                {/* Top Section */}
+                <div>
+                  <div className="flex flex-col items-start gap-1 mb-4">
+                    {/* Badge */}
+                    {acc.badge && (
+                      <span className={`font-black text-[9px] tracking-wider uppercase py-1 px-3 rounded-full inline-block ${
+                        acc.isPopular 
+                          ? 'bg-[#004D34] text-white' 
+                          : 'bg-[#CDEEDB] text-[#004D34]'
+                      }`}>
+                        {acc.badge}
+                      </span>
+                    )}
+                    {acc.subBadge && (
+                      <span className="text-[10px] text-zinc-400 font-bold mt-1">
+                        {acc.subBadge}
+                      </span>
                     )}
                   </div>
-                </motion.div>
-              </div>
+
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] tracking-tight mb-3">
+                    {acc.title}
+                  </h3>
+
+                  <p className="text-xs text-zinc-500 leading-relaxed mb-6 font-medium">
+                    {acc.tagline}
+                  </p>
+
+                  {/* Price Block */}
+                  <div className="my-6 py-4 border-t border-b border-zinc-100/80 flex items-baseline gap-2">
+                    <span className="text-4xl md:text-5xl font-black text-[#004D34] font-mono tracking-tight">{acc.price}</span>
+                    <span className="text-zinc-400 text-[10px] font-black uppercase tracking-wider">{acc.priceLabel}</span>
+                  </div>
+
+                  {/* Specifications List */}
+                  <div className="flex flex-col gap-4 mb-10">
+                    {acc.details.map((d, idx) => (
+                      <div key={idx} className="flex justify-between items-center w-full py-2 border-b border-zinc-100 last:border-0">
+                        <span className="text-[9px] font-black uppercase tracking-wider text-zinc-400">
+                          {d.label}
+                        </span>
+                        <span className="text-[10px] md:text-[11px] font-extrabold text-[#004D34] text-right">
+                          {d.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom Action Button */}
+                <div>
+                  {acc.isPopular ? (
+                    <button className="w-full bg-[#004D34] hover:bg-[#00ca73] hover:text-black text-white font-extrabold py-4 px-6 rounded-2xl text-xs uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(0,77,52,0.15)] cursor-pointer">
+                      {acc.buttonText}
+                    </button>
+                  ) : (
+                    <button className="w-full bg-transparent border border-[#004D34] text-[#004D34] hover:bg-[#004D34] hover:text-white font-extrabold py-4 px-6 rounded-2xl text-xs uppercase tracking-widest transition-all cursor-pointer">
+                      {acc.buttonText}
+                    </button>
+                  )}
+                </div>
+              </motion.div>
             );
           })}
         </div>
