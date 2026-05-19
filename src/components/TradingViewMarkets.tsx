@@ -78,9 +78,9 @@ export function TradingViewMarkets() {
   }, []);
 
   return (
-    <section className="py-40 bg-white relative overflow-hidden">
+    <section className="pt-12 pb-32 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24">
+        <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-16">
           <div className="max-w-3xl text-center lg:text-left">
             <h2 className="text-5xl md:text-7xl text-black uppercase mb-6 leading-tight">
               Every market is <br/>

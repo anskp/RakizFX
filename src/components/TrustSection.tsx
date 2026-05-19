@@ -7,7 +7,7 @@ export function TrustSection() {
   return (
     <>
       {/* Payments Section */}
-      <section id="payments" className="py-16 bg-[#f4f7f6] text-black">
+      <section id="payments" className="pt-0 pb-16 bg-white text-black">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -55,15 +55,15 @@ export function TrustSection() {
       </section>
 
       {/* Regulation Section */}
-      <section id="regulation" className="py-20 bg-[#121212] relative overflow-hidden">
+      <section id="regulation" className="pt-4 pb-20 bg-white relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-nn/30" />
-              <div className="text-nn font-bold text-[10px] uppercase tracking-widest">Trust & Regulation</div>
-              <div className="h-[1px] w-8 bg-nn/30" />
+              <div className="h-[1px] w-8 bg-[#004D34]/20" />
+              <div className="text-[#00ca73] font-bold text-[10px] uppercase tracking-widest">Trust & Regulation</div>
+              <div className="h-[1px] w-8 bg-[#004D34]/20" />
             </div>
-            <h2 className="text-3xl md:text-4xl text-white mb-4">Your Funds Are Safe With Us</h2>
+            <h2 className="text-3xl md:text-4xl text-[#004D34] font-black mb-4 uppercase">Your Funds Are Safe With Us</h2>
             <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Strict regulatory frameworks with segregated client funds.</p>
           </div>
 
@@ -76,10 +76,10 @@ export function TrustSection() {
               <motion.div
                 key={i}
                 whileHover={{ y: -2 }}
-                className="bg-[#1c1c1c] border border-white/5 rounded-full py-4 px-8 flex items-center gap-4 shadow-sm hover:border-nn/30 transition-all cursor-default"
+                className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-full py-4 px-8 flex items-center gap-4 cursor-default text-[#004D34]"
               >
-                <div className="text-nn">{p.icon}</div>
-                <span className="font-bold text-[13px] text-white whitespace-nowrap uppercase tracking-wide">{p.name}</span>
+                <div className="text-[#00ca73]">{p.icon}</div>
+                <span className="font-bold text-[13px] text-zinc-800 whitespace-nowrap uppercase tracking-wide">{p.name}</span>
               </motion.div>
             ))}
           </div>
@@ -87,7 +87,7 @@ export function TrustSection() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#121212]">
+      <section className="pt-4 pb-20 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}

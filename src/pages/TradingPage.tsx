@@ -18,8 +18,8 @@ export default function TradingPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 pointer-events-none"
           style={{ backgroundImage: "url('/assets/tradinghero.png')" }}
         />
-        {/* Subtle Side-Fade Gradient Mask for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-transparent pointer-events-none" />
+        {/* Transparent bottom gradient for page transition only */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#121212] pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 w-full">
           <div className="max-w-2xl text-left">
@@ -30,7 +30,7 @@ export default function TradingPage() {
             >
               <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6 leading-[0.9]">
                 Trade Global Markets <br/>
-                <span className="text-white/40 font-normal italic">With Confidence</span>
+                <span className="text-primary font-normal italic">With Confidence</span>
               </h1>
 
               <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
@@ -121,24 +121,24 @@ export default function TradingPage() {
       </section>
 
       {/* 3. Trading Overview Bento Grid */}
-      <section id="markets" className="py-24 bg-[#121212] text-white border-b border-white/5">
+      <section id="markets" className="py-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Overview</div>
+            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Overview</div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
-              Access 1,000+ CFD Instruments <br/><span className="text-white/40">Across Global Markets</span>
+              Access 1,000+ CFD Instruments <br/><span className="text-zinc-400 font-bold">Across Global Markets</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
               Trade the world’s most popular financial instruments with competitive conditions and powerful execution technology.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Available Markets Column */}
-            <div className="lg:col-span-7 bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between">
               <div>
-                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-6">Available Markets</h3>
-                <p className="text-zinc-500 text-sm mb-10 max-w-md">
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#004D34] mb-6">Available Markets</h3>
+                <p className="text-zinc-600 text-sm mb-10 max-w-md">
                   Diversify your trading portfolio across a complete suite of underlying financial asset categories with high-speed execution.
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default function TradingPage() {
                   'Forex', 'Shares', 'Indices', 'Commodities', 
                   'Metals', 'Energies', 'Cryptocurrencies', 'ETFs', 'Futures'
                 ].map((market, idx) => (
-                  <span key={idx} className="bg-white/5 border border-white/10 px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider text-zinc-300 hover:border-primary/30 transition-all cursor-default">
+                  <span key={idx} className="bg-zinc-50 border border-zinc-200 px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider text-zinc-800 hover:border-primary/30 transition-all cursor-default">
                     {market}
                   </span>
                 ))}
@@ -156,8 +156,8 @@ export default function TradingPage() {
             </div>
 
             {/* What You Get Column */}
-            <div className="lg:col-span-5 bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
-              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-6">What You Get</h3>
+            <div className="lg:col-span-5 bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#004D34] mb-6">What You Get</h3>
               
               <ul className="space-y-4">
                 {[
@@ -165,7 +165,7 @@ export default function TradingPage() {
                   'Real-time pricing', 'Negative balance protection', 
                   'Professional trading tools', 'Multi-device trading access'
                 ].map((benefit, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-zinc-300 font-medium">
+                  <li key={idx} className="flex items-center gap-4 text-zinc-800 font-medium">
                     <CheckCircle className="text-primary shrink-0" size={16} />
                     <span className="text-sm">{benefit}</span>
                   </li>
@@ -299,18 +299,18 @@ export default function TradingPage() {
       </section>
 
       {/* 7. Security Section */}
-      <section id="security" className="py-24 relative overflow-hidden bg-[#121212] text-white border-t border-white/5">
+      <section id="security" className="py-24 relative overflow-hidden bg-white text-black border-t border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-[10px] uppercase font-black tracking-widest text-zinc-400">Institutional Security</span>
+              <div className="inline-flex items-center gap-2 bg-[#CDEEDB] border border-[#CDEEDB] rounded-full px-4 py-1.5 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#00ca73]" />
+                <span className="text-[10px] uppercase font-black tracking-widest text-[#004D34]">Institutional Security</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
-                Your Security <br/><span className="text-primary font-normal italic">Comes First</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
+                Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg mb-8 leading-relaxed font-medium">
+              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 We use advanced encryption systems, secure payment processing, and strict account protection measures to safeguard your trading environment.
               </p>
             </div>
@@ -323,10 +323,10 @@ export default function TradingPage() {
                 "Negative balance protection",
                 "Secure payment gateways"
               ].map((feature, idx) => (
-                <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-2xl p-6 flex items-start gap-4">
-                  <CheckCircle className="text-primary shrink-0 mt-0.5" size={16} />
+                <div key={idx} className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-2xl p-6 flex items-start gap-4 cursor-default">
+                  <CheckCircle className="text-[#00ca73] shrink-0 mt-0.5" size={16} />
                   <div>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-wider">{feature}</h4>
+                    <h4 className="text-sm font-black text-zinc-800 uppercase tracking-wider">{feature}</h4>
                   </div>
                 </div>
               ))}

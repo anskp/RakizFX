@@ -31,7 +31,7 @@ const traders = [
 
 export function CopyTrading() {
   return (
-    <section id="copy-trading" className="py-32 bg-white relative overflow-hidden">
+    <section id="copy-trading" className="pt-4 pb-32 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-12 relative z-10">
 
         {/* First: Centered Heading */}
@@ -51,7 +51,7 @@ export function CopyTrading() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative max-w-6xl mx-auto mb-16 flex justify-center lg:translate-x-12 md:translate-x-6"
+          className="relative max-w-6xl mx-auto mb-8 -mt-10 flex justify-center lg:translate-x-12 md:translate-x-6"
         >
           <div className="relative z-10 w-full flex justify-center">
             <img
@@ -63,7 +63,7 @@ export function CopyTrading() {
         </motion.div>
 
         {/* Third: Trader Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 max-w-5xl mx-auto px-4 md:px-0">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto px-4 md:px-0">
           {traders.map((t, i) => (
             <motion.div
               key={t.name}
@@ -71,19 +71,19 @@ export function CopyTrading() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white border border-zinc-200 rounded-2xl p-3 md:p-4 group hover:bg-black hover:border-black hover:shadow-xl transition-all duration-700 cursor-pointer"
+              className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_45px_rgba(0,77,52,0.03)] transition-all duration-500 rounded-[2rem] p-4 md:p-6 group cursor-pointer"
             >
               <div className="flex flex-col items-center text-center">
-                <img src={t.image} alt={t.name} className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover mb-2" />
-                <h4 className="text-zinc-900 group-hover:text-white text-[10px] md:text-xs font-bold tracking-tight mb-0.5 transition-colors duration-700">{t.name}</h4>
-                <p className="text-[8px] md:text-[9px] text-zinc-500 group-hover:text-zinc-400 font-medium mb-2 md:mb-3 transition-colors duration-700">{t.strategy}</p>
+                <img src={t.image} alt={t.name} className="w-12 h-12 md:w-16 md:h-16 rounded-2xl object-cover mb-3 border border-zinc-100 shadow-sm" />
+                <h4 className="text-[#004D34] text-xs md:text-sm font-extrabold tracking-tight mb-0.5">{t.name}</h4>
+                <p className="text-[8px] md:text-[10px] text-zinc-500 font-bold mb-2 md:mb-3">{t.strategy}</p>
 
-                <div className="w-full h-px bg-zinc-200 group-hover:bg-white/10 mb-2 md:mb-3 transition-colors duration-700" />
+                <div className="w-full h-px bg-zinc-100 mb-2 md:mb-3" />
 
-                <div className="text-nn font-black text-sm md:text-lg mb-0.5">{t.profit}</div>
-                <div className="text-[7px] md:text-[8px] text-zinc-400 group-hover:text-zinc-500 uppercase font-bold tracking-widest mb-3 md:mb-4 transition-colors duration-700">30d Return</div>
+                <div className="text-[#00ca73] font-mono font-black text-base md:text-2xl mb-0.5">{t.profit}</div>
+                <div className="text-[7px] md:text-[8px] text-zinc-400 uppercase font-black tracking-widest mb-3 md:mb-4">30d Return</div>
 
-                <button className="w-full bg-nn text-dk font-bold px-2 py-2 md:px-3 rounded-md md:rounded-lg text-[8px] md:text-[9px] uppercase tracking-widest transition-all hover:bg-nnl">
+                <button className="w-full bg-[#004D34] hover:bg-[#00ca73] text-white hover:text-black font-extrabold py-3 px-3 rounded-xl text-[8px] md:text-[10px] uppercase tracking-wider transition-all duration-300 shadow-[0_5px_15px_rgba(0,77,52,0.05)] cursor-pointer">
                   Copy
                 </button>
               </div>

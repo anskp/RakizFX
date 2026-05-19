@@ -73,31 +73,33 @@ export default function MarketPage() {
       
       {/* 1. Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              <span className="text-[10px] uppercase font-black tracking-widest text-zinc-400">Institutional Offerings</span>
-            </div>
+        <div className="absolute inset-0 z-0">
+          <img src="/assets/markethero.png" alt="Market Hero Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#121212] pointer-events-none z-0" />
 
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tight mb-8 leading-[0.85]">
-              Markets <br/>
-              <span className="text-primary font-normal italic">Trade Global Financial Markets</span>
-            </h1>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-left w-full pt-12">
+          <div className="max-w-2xl text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight mb-6 leading-[0.9] mt-6">
+                Markets <br/>
+                <span className="text-primary font-normal italic">Across Global Markets</span>
+              </h1>
 
-            <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-3xl mx-auto mb-12 leading-relaxed">
-              Access a wide range of tradable instruments across the world’s most active markets.
-            </p>
-          </motion.div>
+              <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
+                Access over 1,000+ CFD instruments across Forex, Crypto, Stocks, and Commodities on premium ECN infrastructure.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* 2. Interactive Market Selector Grid */}
-      <section id="instruments" className="py-20 bg-[#121212] text-white border-b border-white/5">
+      <section id="instruments" className="py-20 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           {/* Category Tabs */}
@@ -115,7 +117,7 @@ export default function MarketPage() {
                 className={`flex items-center gap-2.5 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer border ${
                   activeCategory === cat.id 
                     ? 'bg-primary border-primary text-black' 
-                    : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white hover:border-white/20'
+                    : 'bg-zinc-50 border-zinc-200 text-zinc-600 hover:text-black hover:border-zinc-300'
                 }`}
               >
                 {cat.icon}
@@ -125,39 +127,38 @@ export default function MarketPage() {
           </div>
 
           {/* Tab Content Dashboard */}
-          <div className="bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-6 md:p-10 relative overflow-hidden shadow-2xl">
-            
+          <div className="bg-white border border-zinc-200/80 rounded-[2.5rem] p-6 md:p-10 relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.01)]">
             
             {/* Header info based on category */}
             <div className="mb-10 text-center md:text-left">
               {activeCategory === 'forex' && (
                 <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-3">Forex</h3>
-                  <p className="text-zinc-500 text-sm max-w-xl">Trade major, minor, and exotic currency pairs with deep liquidity and competitive spreads. Enjoy 24/5 market access, tight spreads, high liquidity, and fast execution.</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Forex</h3>
+                  <p className="text-zinc-600 text-sm max-w-xl">Trade major, minor, and exotic currency pairs with deep liquidity and competitive spreads. Enjoy 24/5 market access, tight spreads, high liquidity, and fast execution.</p>
                 </>
               )}
               {activeCategory === 'shares' && (
                 <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-3">Shares CFDs</h3>
-                  <p className="text-zinc-500 text-sm max-w-xl">Trade CFDs on global company stocks without owning the underlying asset. Access shares from US Markets, European Markets, and Asian Markets.</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Shares CFDs</h3>
+                  <p className="text-zinc-600 text-sm max-w-xl">Trade CFDs on global company stocks without owning the underlying asset. Access shares from US Markets, European Markets, and Asian Markets.</p>
                 </>
               )}
               {activeCategory === 'crypto' && (
                 <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-3">Crypto CFDs</h3>
-                  <p className="text-zinc-500 text-sm max-w-xl">Trade cryptocurrency price movements without needing a crypto wallet. Leverage volatile market opportunities with 24/7 crypto market exposure and advanced charting tools.</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Crypto CFDs</h3>
+                  <p className="text-zinc-600 text-sm max-w-xl">Trade cryptocurrency price movements without needing a crypto wallet. Leverage volatile market opportunities with 24/7 crypto market exposure and advanced charting tools.</p>
                 </>
               )}
               {activeCategory === 'indices' && (
                 <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-3">Indices</h3>
-                  <p className="text-zinc-500 text-sm max-w-xl">Speculate on the performance of major stock market indices worldwide. Trade top benchmarks with high leverage and tight spreads.</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Indices</h3>
+                  <p className="text-zinc-600 text-sm max-w-xl">Speculate on the performance of major stock market indices worldwide. Trade top benchmarks with high leverage and tight spreads.</p>
                 </>
               )}
               {activeCategory === 'metals_energies' && (
                 <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-3">Metals & Energies</h3>
-                  <p className="text-zinc-500 text-sm max-w-xl">Trade precious metals commonly used as safe-haven assets (Gold, Silver, Platinum, Palladium) and global energy markets with CFDs on Brent, WTI, and Natural Gas.</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Metals & Energies</h3>
+                  <p className="text-zinc-600 text-sm max-w-xl">Trade precious metals commonly used as safe-haven assets (Gold, Silver, Platinum, Palladium) and global energy markets with CFDs on Brent, WTI, and Natural Gas.</p>
                 </>
               )}
             </div>
@@ -166,7 +167,7 @@ export default function MarketPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-white/5 text-[10px] uppercase font-black tracking-widest text-zinc-500">
+                  <tr className="border-b border-zinc-100 text-[10px] uppercase font-black tracking-widest text-zinc-400">
                     <th className="py-4">Instrument</th>
                     <th className="py-4">Description</th>
                     <th className="py-4">Live Price</th>
@@ -175,20 +176,20 @@ export default function MarketPage() {
                     <th className="py-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-zinc-100">
                   {marketData[activeCategory].map((row, idx) => (
-                    <tr key={idx} className="hover:bg-white/[0.01] transition-colors group">
-                      <td className="py-5 font-black text-sm text-white">{row.pair}</td>
+                    <tr key={idx} className="hover:bg-zinc-50/50 transition-colors group">
+                      <td className="py-5 font-black text-sm text-zinc-800">{row.pair}</td>
                       <td className="py-5 text-xs text-zinc-500 font-medium">{row.desc}</td>
-                      <td className="py-5 font-mono text-sm font-bold text-white">{row.price}</td>
-                      <td className={`py-5 font-mono text-xs font-black ${row.isUp ? 'text-primary' : 'text-red-500'}`}>
+                      <td className="py-5 font-mono text-sm font-bold text-zinc-800">{row.price}</td>
+                      <td className={`py-5 font-mono text-xs font-black ${row.isUp ? 'text-[#00ca73]' : 'text-red-500'}`}>
                         {row.change}
                       </td>
                       <td className="py-5 hidden md:table-cell">
-                        {drawSparkline(row.spark, row.isUp ? 'text-primary' : 'text-red-500')}
+                        {drawSparkline(row.spark, row.isUp ? 'text-[#00ca73]' : 'text-red-500')}
                       </td>
                       <td className="py-5 text-right">
-                        <button className="bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:text-black text-white px-4 py-2 rounded-lg text-[10px] uppercase font-black tracking-widest transition-all">
+                        <button className="bg-zinc-50 border border-zinc-200 hover:bg-[#004D34] hover:border-[#004D34] hover:text-white text-[#004D34] px-4 py-2 rounded-lg text-[10px] uppercase font-black tracking-widest transition-all">
                           Trade
                         </button>
                       </td>
@@ -202,33 +203,33 @@ export default function MarketPage() {
 
           {/* 3. ETFs, Futures and Safe-Havens Bento */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-            <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <Briefcase size={20} />
                 </div>
-                <h3 className="text-2xl font-black uppercase text-white mb-4">ETFs</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-8">
+                <h3 className="text-2xl font-black uppercase text-zinc-800 mb-4">ETFs</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
                   Diversify your portfolio with Exchange-Traded Funds from multiple sectors and industries. Invest in a basket of securities with deep liquidity and flexible market tools.
                 </p>
               </div>
-              <div className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors cursor-pointer group">
+              <div className="flex items-center gap-2 text-[#004D34] font-bold text-xs uppercase tracking-widest hover:text-[#00ca73] transition-colors cursor-pointer group">
                 <span>Explore Sector ETFs</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
-            <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <BarChart2 size={20} />
                 </div>
-                <h3 className="text-2xl font-black uppercase text-white mb-4">Futures</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-8">
+                <h3 className="text-2xl font-black uppercase text-zinc-800 mb-4">Futures</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
                   Access futures markets with flexible CFD trading conditions. Speculate on major market-moving commodities, indices, and financial products with deep liquidity support.
                 </p>
               </div>
-              <div className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors cursor-pointer group">
+              <div className="flex items-center gap-2 text-[#004D34] font-bold text-xs uppercase tracking-widest hover:text-[#00ca73] transition-colors cursor-pointer group">
                 <span>View Futures Markets</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
@@ -343,14 +344,15 @@ export default function MarketPage() {
       </section>
 
       {/* 6. Trader Tools Bento Grid */}
-      <section id="tools" className="py-24 bg-[#121212] text-white border-b border-white/5">
+      <section id="tools" className="py-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase">
-              Professional <span className="text-primary font-normal italic">Trading Tools</span>
+            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Ecosystem</div>
+            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight uppercase text-[#004D34]">
+              Professional <span className="text-[#00ca73] font-normal italic">Trading Tools</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
               Enhance your trading experience with advanced market analysis and smart trading utilities.
             </p>
           </div>
@@ -360,9 +362,9 @@ export default function MarketPage() {
               'Economic Calendar', 'Earnings Calendar', 'Market News Feed', 'Technical Analysis', 
               'Trading Calculators', 'VPS Hosting', 'Trading Signals', 'Market Holidays Calendar'
             ].map((tool, idx) => (
-              <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-3xl p-6 hover:bg-white/[0.02] hover:border-primary/20 transition-colors flex flex-col justify-between min-h-[140px]">
-                <div className="text-zinc-600 text-xs font-mono">/ 0{idx + 1}</div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-white leading-snug">{tool}</h4>
+              <div key={idx} className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-6 flex flex-col justify-between min-h-[140px] cursor-default">
+                <div className="text-zinc-400 text-xs font-mono">/ 0{idx + 1}</div>
+                <h4 className="text-sm font-black uppercase tracking-wider text-zinc-800 leading-snug">{tool}</h4>
               </div>
             ))}
           </div>
@@ -469,18 +471,18 @@ export default function MarketPage() {
       </section>
 
       {/* 8. Security Section */}
-      <section id="security" className="py-24 relative overflow-hidden bg-[#121212] text-white border-t border-white/5">
+      <section id="security" className="py-24 relative overflow-hidden bg-white text-black border-t border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                <span className="text-[10px] uppercase font-black tracking-widest text-zinc-400">Institutional Regulation</span>
+              <div className="inline-flex items-center gap-2 bg-[#CDEEDB] border border-[#CDEEDB] rounded-full px-4 py-1.5 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#00ca73]" />
+                <span className="text-[10px] uppercase font-black tracking-widest text-[#004D34]">Institutional Regulation</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
-                Your Security <br/><span className="text-primary font-normal italic">Comes First</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
+                Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg mb-8 leading-relaxed font-medium">
+              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Our strict financial custody architectures safeguard your assets through regulatory segregations, encrypted networks, and real-time ledger reviews.
               </p>
             </div>
@@ -493,10 +495,10 @@ export default function MarketPage() {
                 "Negative balance protection",
                 "Secure payment gateways"
               ].map((feat, idx) => (
-                <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-2xl p-6 flex items-start gap-4">
-                  <CheckCircle className="text-primary shrink-0 mt-0.5" size={16} />
+                <div key={idx} className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-2xl p-6 flex items-start gap-4 cursor-default">
+                  <CheckCircle className="text-[#00ca73] shrink-0 mt-0.5" size={16} />
                   <div>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-wider">{feat}</h4>
+                    <h4 className="text-sm font-black text-zinc-800 uppercase tracking-wider">{feat}</h4>
                   </div>
                 </div>
               ))}

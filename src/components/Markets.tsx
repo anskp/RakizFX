@@ -71,9 +71,9 @@ export function Markets() {
   ];
 
   return (
-    <section id="markets" className="py-40 bg-white flex flex-col items-center overflow-hidden relative">
+    <section id="markets" className="pt-28 pb-16 bg-white flex flex-col items-center overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-12 w-full relative z-10">
-        <div className="text-center mb-32">
+        <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

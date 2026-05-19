@@ -67,22 +67,20 @@ export function AccountTypes() {
       isPopular: false,
       isElite: true,
       details: [
-        { label: 'Spread', value: 'Ultra-low, ultra-competitive spreads' },
+        { label: 'Spread', value: 'Ultra-low, raw spreads' },
         { label: 'Leverage', value: 'Custom leverage' },
         { label: 'Commission', value: 'Zero commission on trades' },
         { label: 'Swap-free', value: 'Adjustable swap-free option' },
-        { label: 'Manager', value: 'Dedicated relationship manager' },
-        { label: 'Withdrawals', value: 'Highest withdrawal priority' },
-        { label: 'VIP perks', value: 'Exclusive events & VIP invitations' },
-        { label: 'Platform', value: 'Advanced trading on MetaTrader 5' },
-        { label: 'Support', value: 'Dedicated 24×7 technical & sales support' }
+        { label: 'VIP perks', value: 'Relationship manager & VIP events' },
+        { label: 'Platform', value: 'Advanced MT5 integration' },
+        { label: 'Support', value: '24/7 dedicated VIP support' }
       ],
       buttonText: 'Open Elite'
     }
   ];
 
   return (
-    <section id="accounts" className="py-40 bg-white relative overflow-hidden">
+    <section id="accounts" className="pt-4 pb-32 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="text-center mb-24">
           <div className="text-[10px] font-black text-[#004D34] uppercase tracking-[0.3em] mb-4">Account Types</div>
@@ -133,7 +131,7 @@ export function AccountTypes() {
                     {acc.title}
                   </h3>
 
-                  <p className="text-xs text-zinc-500 leading-relaxed mb-6 font-medium">
+                  <p className="text-xs text-zinc-500 leading-relaxed mb-6 font-medium min-h-[40px]">
                     {acc.tagline}
                   </p>
 

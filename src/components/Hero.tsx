@@ -52,7 +52,7 @@ function FloatingPaths({ position }: { position: number }) {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-12">
+    <section className="relative min-h-[70vh] lg:min-h-[82vh] flex items-center overflow-hidden pt-36 pb-12">
       <div className="absolute inset-0 z-0">
         <img src="/icons/hero.png" alt="Hero Background" className="w-full h-full object-cover" />
       </div>

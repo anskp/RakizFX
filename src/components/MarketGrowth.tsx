@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 export function MarketGrowth() {
   return (
-    <section className="py-32 bg-white overflow-hidden">
+    <section className="pt-4 pb-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-bold text-black mb-6 tracking-tighter uppercase leading-[0.85]">

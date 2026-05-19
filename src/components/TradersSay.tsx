@@ -40,7 +40,7 @@ export function TradersSay() {
   ];
 
   return (
-    <section className="py-24 bg-[#121212] border-t border-white/5 relative overflow-hidden">
+    <section className="pt-4 pb-24 bg-white border-t border-zinc-100 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Section Heading */}
@@ -51,9 +51,9 @@ export function TradersSay() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Traders Say</div>
-            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white">
-              Trusted Across <span className="text-primary font-normal italic">Asia Pacific</span>
+            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Traders Say</div>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#004D34]">
+              Trusted Across <span className="text-[#00ca73] font-normal italic">Asia Pacific</span>
             </h2>
           </motion.div>
         </div>
@@ -67,36 +67,36 @@ export function TradersSay() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden hover:border-primary/20 hover:bg-white/[0.02] transition-all duration-300 group flex flex-col justify-between"
+              className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_45px_rgba(0,77,52,0.03)] transition-all duration-500 rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between cursor-default"
             >
               {/* Quote Mark Icon */}
-              <div className="absolute top-6 right-8 text-primary/10 group-hover:text-primary/20 transition-colors pointer-events-none">
+              <div className="absolute top-6 right-8 text-[#00ca73]/10 group-hover:text-[#00ca73]/20 transition-colors pointer-events-none">
                 <Quote size={56} strokeWidth={1.5} />
               </div>
 
               <div>
                 {/* Quote Text */}
-                <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-10 font-medium italic relative z-10 pt-4">
+                <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-10 font-medium italic relative z-10 pt-4">
                   "{t.quote}"
                 </p>
               </div>
 
               {/* Author Profile */}
-              <div className="flex items-center gap-4 border-t border-white/5 pt-6 mt-auto">
+              <div className="flex items-center gap-4 border-t border-zinc-100 pt-6 mt-auto">
                 {/* Sharp, elegant trader profile image */}
                 <img 
                   src={t.image} 
                   alt={t.name} 
-                  className="w-12 h-12 rounded-2xl object-cover border border-white/10 shadow-lg shrink-0"
+                  className="w-12 h-12 rounded-2xl object-cover border border-zinc-100 shadow-sm shrink-0"
                 />
                 
                 <div className="overflow-hidden">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-white text-sm uppercase tracking-wide truncate">{t.name}</span>
+                    <span className="font-extrabold text-[#004D34] text-sm uppercase tracking-wide truncate">{t.name}</span>
                     <span className="text-base shrink-0">{t.flag}</span>
                   </div>
-                  <div className="text-zinc-500 text-[10px] uppercase font-black tracking-widest mt-1 truncate">
-                    {t.role} <span className="text-zinc-600 px-1">•</span> {t.location}
+                  <div className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mt-1 truncate">
+                    {t.role} <span className="text-zinc-300 px-1">•</span> {t.location}
                   </div>
                 </div>
               </div>
