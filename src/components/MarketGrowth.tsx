@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 
 export function MarketGrowth() {
   return (
-    <section className="py-32 bg-black overflow-hidden">
+    <section className="py-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter uppercase leading-[0.85]">
+          <h2 className="text-5xl md:text-7xl font-bold text-black mb-6 tracking-tighter uppercase leading-[0.85]">
             Grow your portfolio <span className="text-primary font-normal italic">with a platform that fits your strategy</span>
           </h2>
           <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
@@ -21,14 +21,14 @@ export function MarketGrowth() {
           
           <div className="flex-1 relative z-10 text-center md:text-left">
             <h3 className="text-3xl md:text-5xl text-white mb-6 leading-tight uppercase font-black tracking-tight">
-              Get <span className="text-[#00cfa7]">RakizFx MT5</span> <br/>on Your Preferred Platforms
+              Get <span className="text-primary">RakizFx MT5</span> <br/>on Your Preferred Platforms
             </h3>
             
             <p className="text-zinc-400 text-base md:text-lg mb-8 max-w-xl leading-relaxed mx-auto md:mx-0 font-medium">
               Access your RakizFx MT5 account across devices with a unified, secure experience. Stay connected to your market activity, insights, and portfolio context—anytime, anywhere.
             </p>
 
-            <div className="text-[#00cfa7] text-sm font-semibold mb-10 tracking-wide">
+            <div className="text-primary text-sm font-semibold mb-10 tracking-wide">
               Available on iOS, Android, Windows, and macOS
             </div>
             

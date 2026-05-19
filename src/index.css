@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Cairo:wght@200..1000&display=swap');
+/* Primary: Neue Montreal (via Bunny Fonts) */
+@import url('https://fonts.bunny.net/css?family=neue-montreal:300,400,500,600,700,800&display=swap');
+/* Secondary: Open Sans (via Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Open Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Typography - Primary: Neue Montreal, Secondary: Open Sans */
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-arabic: "Cairo", sans-serif;
-  --font-montreal: "Neue Montreal", "Open Sans", sans-serif;
+  --font-montreal: "neue-montreal", "Neue Montreal", "Open Sans", sans-serif;
   
   /* Demo Theme Colors */
   --color-em: #005645;
@@ -39,32 +43,48 @@
 }
 
 @layer base {
+  /* Body: Open Sans 14pt Regular */
   body {
-    @apply font-sans antialiased bg-dk text-tx text-[14pt] font-normal;
+    @apply font-sans antialiased bg-dk text-tx;
+    font-size: 14pt;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
+  /* Headings: Neue Montreal */
   h1, h2, h3, h4, h5 {
-    @apply font-montreal tracking-tight;
+    font-family: var(--font-montreal);
+    @apply tracking-tight;
   }
 
+  /* H1 — 34pt Bold */
   h1 {
-    @apply font-bold text-[34pt] leading-none;
+    font-size: 34pt;
+    font-weight: 700;
+    line-height: 1;
   }
 
+  /* H2 — 22pt Medium */
   h2 {
-    @apply font-medium text-[22pt];
+    font-size: 22pt;
+    font-weight: 500;
   }
 
+  /* H3 — 18pt Regular */
   h3 {
-    @apply font-normal text-[18pt];
+    font-size: 18pt;
+    font-weight: 400;
   }
 
+  /* H4 / H5 — 16pt / 14pt Bold */
   h4 {
-    @apply font-bold text-[16pt];
+    font-size: 16pt;
+    font-weight: 700;
   }
 
   h5 {
-    @apply font-bold text-[14pt];
+    font-size: 14pt;
+    font-weight: 700;
   }
 
   /* Arabic Font Support */

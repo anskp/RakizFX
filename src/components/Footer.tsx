@@ -9,7 +9,7 @@ export function Payments() {
   ];
 
   return (
-    <section id="payments" className="py-24 bg-black border-b border-white/5">
+    <section id="payments" className="py-24 bg-[#121212] border-b border-white/5">
       <div className="max-w-[1400px] mx-auto px-12">
         <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 transition-all duration-500">
           {partners.map((p) => (
@@ -70,7 +70,7 @@ import { Facebook, Twitter, Linkedin, Youtube, Instagram, Send } from 'lucide-re
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A110D] pt-24 pb-12 border-t border-white/5 relative z-10 font-sans">
+    <footer className="bg-[#121212] pt-24 pb-12 border-t border-white/5 relative z-10 font-sans">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         
         {/* Main Footer Links */}

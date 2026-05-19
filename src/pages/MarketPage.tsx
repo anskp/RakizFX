@@ -69,13 +69,10 @@ export default function MarketPage() {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-40 pb-20 overflow-hidden bg-gradient-to-b from-[#060F09] to-black">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[160px] rounded-full pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-nn/5 blur-[120px] pointer-events-none" />
-
+      <section id="overview" className="relative pt-40 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +97,7 @@ export default function MarketPage() {
       </section>
 
       {/* 2. Interactive Market Selector Grid */}
-      <section className="py-20 bg-black border-y border-white/5">
+      <section id="instruments" className="py-20 bg-[#121212] text-white border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           {/* Category Tabs */}
@@ -129,7 +126,7 @@ export default function MarketPage() {
 
           {/* Tab Content Dashboard */}
           <div className="bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-6 md:p-10 relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 blur-[120px] pointer-events-none" />
+            
             
             {/* Header info based on category */}
             <div className="mb-10 text-center md:text-left">
@@ -206,7 +203,6 @@ export default function MarketPage() {
           {/* 3. ETFs, Futures and Safe-Havens Bento */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
             <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-60 h-60 bg-primary/5 blur-[120px] pointer-events-none" />
               <div>
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <Briefcase size={20} />
@@ -223,7 +219,6 @@ export default function MarketPage() {
             </div>
 
             <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-60 h-60 bg-nn/5 blur-[120px] pointer-events-none" />
               <div>
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <BarChart2 size={20} />
@@ -244,17 +239,17 @@ export default function MarketPage() {
       </section>
 
       {/* 4. Transparent Pricing & Fees */}
-      <section className="py-24 bg-black border-b border-white/5">
+      <section id="pricing" className="py-24 bg-zinc-50 border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
               <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Transparent Pricing</div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
                 We Believe in <br/>
                 <span className="text-primary font-normal italic">Transparent Costs</span>
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg mb-8 leading-relaxed font-medium">
+              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Our pricing system ensures that your trading costs are always transparent and competitive. No hidden markups or sudden fees.
               </p>
 
@@ -263,7 +258,7 @@ export default function MarketPage() {
                   'Competitive spreads', 'Low commissions', 'No hidden fees', 
                   'Swap-free account options', 'Clear overnight financing information'
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-zinc-300">
+                  <li key={idx} className="flex items-center gap-3 text-zinc-700">
                     <CheckCircle className="text-primary shrink-0" size={16} />
                     <span className="text-sm font-semibold">{item}</span>
                   </li>
@@ -278,10 +273,10 @@ export default function MarketPage() {
                 { title: 'Overnight Swaps', desc: 'Clear, transparent swap costs computed directly inside the platform.' },
                 { title: 'Currency Conversion', desc: 'Transparent conversion rates with minimal margins applied on trades.' }
               ].map((fee, idx) => (
-                <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 relative overflow-hidden">
+                <div key={idx} className="bg-white border border-zinc-200 rounded-3xl p-8 relative overflow-hidden shadow-sm">
                   <div className="text-primary font-black text-3xl mb-4 font-mono">0{idx + 1}</div>
-                  <h4 className="text-lg font-black uppercase tracking-tight text-white mb-2">{fee.title}</h4>
-                  <p className="text-zinc-500 text-xs leading-relaxed">{fee.desc}</p>
+                  <h4 className="text-lg font-black uppercase tracking-tight text-black mb-2">{fee.title}</h4>
+                  <p className="text-zinc-600 text-xs leading-relaxed">{fee.desc}</p>
                 </div>
               ))}
             </div>
@@ -291,7 +286,7 @@ export default function MarketPage() {
       </section>
 
       {/* 5. Deposit & Withdrawal Section */}
-      <section className="py-24 bg-[#f4f7f6] text-black">
+      <section id="funding" className="py-24 bg-[#f4f7f6] text-black">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-16">
@@ -348,7 +343,7 @@ export default function MarketPage() {
       </section>
 
       {/* 6. Trader Tools Bento Grid */}
-      <section className="py-24 bg-black border-t border-white/5">
+      <section id="tools" className="py-24 bg-[#121212] text-white border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-20">
@@ -376,7 +371,7 @@ export default function MarketPage() {
       </section>
 
       {/* 7. Economic Calendar & VPS Showcases */}
-      <section className="py-24 bg-gradient-to-b from-black to-[#060F09] border-t border-white/5">
+      <section id="calendar-vps" className="py-24 bg-white border-t border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-24">
           
           {/* Economic Calendar Sub-section */}
@@ -385,16 +380,16 @@ export default function MarketPage() {
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <CalendarDays size={24} />
               </div>
-              <h3 className="text-3xl md:text-5xl font-black uppercase text-white mb-6 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
                 Stay Ahead Of <br/><span className="text-primary font-normal italic">Market Events</span>
               </h3>
-              <p className="text-zinc-400 text-base md:text-lg mb-8 leading-relaxed font-medium">
+              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Track major economic announcements, central bank decisions, inflation reports, employment data, and global market-moving events in real time.
               </p>
             </div>
 
             {/* Mock Calendar Widget */}
-            <div className="bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-6 relative overflow-hidden">
+            <div className="bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-6 relative overflow-hidden shadow-sm">
               <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-6">Today's Key Releases</div>
               <div className="space-y-4">
                 {[
@@ -402,25 +397,25 @@ export default function MarketPage() {
                   { time: '16:00', currency: 'GBP', event: 'BoE Governor Bailey Speaks', impact: 'MEDIUM', forecast: '-', previous: '-' },
                   { time: '20:15', currency: 'EUR', event: 'ECB President Lagarde Speech', impact: 'HIGH', forecast: '-', previous: '-' }
                 ].map((e, idx) => (
-                  <div key={idx} className="flex flex-wrap items-center justify-between border-b border-white/5 pb-4 last:border-0 last:pb-0 gap-3">
+                  <div key={idx} className="flex flex-wrap items-center justify-between border-b border-zinc-200 pb-4 last:border-0 last:pb-0 gap-3">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <span className="font-mono text-zinc-500 text-xs">{e.time}</span>
-                        <span className="bg-white/5 border border-white/10 px-2 py-0.5 rounded text-[10px] font-black">{e.currency}</span>
-                        <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${e.impact === 'HIGH' ? 'bg-red-500/10 text-red-500 border border-red-500/20' : 'bg-yellow-500/10 text-yellow-500 border border-yellow-500/20'}`}>
+                        <span className="bg-white border border-zinc-200 px-2 py-0.5 rounded text-[10px] font-black">{e.currency}</span>
+                        <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${e.impact === 'HIGH' ? 'bg-red-50 text-red-600 border border-red-200' : 'bg-yellow-50 text-yellow-600 border border-yellow-200'}`}>
                           {e.impact}
                         </span>
                       </div>
-                      <div className="text-xs font-bold text-white uppercase tracking-wider">{e.event}</div>
+                      <div className="text-xs font-bold text-black uppercase tracking-wider">{e.event}</div>
                     </div>
                     <div className="flex items-center gap-4 text-[10px] font-mono">
                       <div>
-                        <div className="text-zinc-600 uppercase">Forecast</div>
-                        <div className="font-bold text-white">{e.forecast}</div>
+                        <div className="text-zinc-500 uppercase">Forecast</div>
+                        <div className="font-bold text-black">{e.forecast}</div>
                       </div>
                       <div>
-                        <div className="text-zinc-600 uppercase">Previous</div>
-                        <div className="font-bold text-white">{e.previous}</div>
+                        <div className="text-zinc-500 uppercase">Previous</div>
+                        <div className="font-bold text-black">{e.previous}</div>
                       </div>
                     </div>
                   </div>
@@ -431,7 +426,7 @@ export default function MarketPage() {
 
           {/* VPS Hosting Sub-section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-6 relative overflow-hidden">
+            <div className="order-2 lg:order-1 bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-6 relative overflow-hidden shadow-sm">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-[80px]" />
               <div className="flex items-center justify-between mb-8">
                 <div className="text-xs font-black uppercase tracking-wider text-zinc-500">Dedicated VPS Metrics</div>
@@ -443,14 +438,14 @@ export default function MarketPage() {
                   { label: 'Latency to RakizFX Servers', val: '< 0.8 ms', label2: 'Active EAs Running', val2: '99.99%' },
                   { label: 'Operating System Host', val: 'Windows Server 2022', label2: 'Virtual CPU Cores', val2: '4 Cores' }
                 ].map((row, idx) => (
-                  <div key={idx} className="grid grid-cols-2 gap-4 border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                  <div key={idx} className="grid grid-cols-2 gap-4 border-b border-zinc-200 pb-4 last:border-0 last:pb-0">
                     <div>
                       <div className="text-[10px] uppercase font-bold text-zinc-500 mb-1">{row.label}</div>
-                      <div className="font-mono text-sm font-black text-white">{row.val}</div>
+                      <div className="font-mono text-sm font-black text-black">{row.val}</div>
                     </div>
                     <div>
                       <div className="text-[10px] uppercase font-bold text-zinc-500 mb-1">{row.label2}</div>
-                      <div className="font-mono text-sm font-black text-white">{row.val2}</div>
+                      <div className="font-mono text-sm font-black text-black">{row.val2}</div>
                     </div>
                   </div>
                 ))}
@@ -461,10 +456,10 @@ export default function MarketPage() {
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <Cpu size={24} />
               </div>
-              <h3 className="text-3xl md:text-5xl font-black uppercase text-white mb-6 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
                 Automated Trading <br/><span className="text-primary font-normal italic">With Low Latency</span>
               </h3>
-              <p className="text-zinc-400 text-base md:text-lg mb-8 leading-relaxed font-medium">
+              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Run Expert Advisors and automated strategies 24/7 using dedicated VPS infrastructure with reduced downtime and enhanced execution speed.
               </p>
             </div>
@@ -474,8 +469,8 @@ export default function MarketPage() {
       </section>
 
       {/* 8. Security Section */}
-      <section className="py-24 bg-black border-t border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="security" className="py-24 relative overflow-hidden bg-[#121212] text-white border-t border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
@@ -511,10 +506,9 @@ export default function MarketPage() {
       </section>
 
       {/* 9. CTA Section */}
-      <section className="py-24 px-6 bg-gradient-to-b from-black to-[#050B06]">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
-          <div className="bg-black border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] pointer-events-none rounded-full" />
+          <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
               <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
               <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
@@ -525,13 +519,13 @@ export default function MarketPage() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-5">
-                <button className="bg-primary text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-lg">
+                <button className="bg-primary text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-lg cursor-pointer">
                   Open Live Account
                 </button>
-                <button className="bg-transparent border border-white/20 text-white font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-white/5 transition-colors">
+                <button className="bg-transparent border border-white/20 text-white font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-white/5 transition-colors cursor-pointer">
                   Try Free Demo
                 </button>
-                <button className="bg-white text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-zinc-100 transition-colors shadow-lg">
+                <button className="bg-white text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-zinc-100 transition-colors shadow-lg cursor-pointer">
                   Explore Markets
                 </button>
               </div>
@@ -541,7 +535,7 @@ export default function MarketPage() {
       </section>
 
       {/* 10. Footer Risk Disclaimer */}
-      <section className="py-12 bg-black border-t border-white/5 text-zinc-600 text-xs">
+      <section className="py-12 bg-zinc-50 border-t border-zinc-200 text-zinc-500 text-xs">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center leading-relaxed">
           <p className="max-w-4xl mx-auto">
             Trading CFDs involves significant risk and may not be suitable for all investors. Leveraged products can result in losses exceeding deposits in certain jurisdictions. Please ensure you fully understand the risks involved before trading.

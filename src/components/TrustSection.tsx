@@ -55,7 +55,7 @@ export function TrustSection() {
       </section>
 
       {/* Regulation Section */}
-      <section id="regulation" className="py-20 bg-[#080c0a] relative overflow-hidden">
+      <section id="regulation" className="py-20 bg-[#121212] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -76,7 +76,7 @@ export function TrustSection() {
               <motion.div
                 key={i}
                 whileHover={{ y: -2 }}
-                className="bg-[#0b120e] border border-white/5 rounded-full py-4 px-8 flex items-center gap-4 shadow-sm hover:border-nn/30 transition-all cursor-default"
+                className="bg-[#1c1c1c] border border-white/5 rounded-full py-4 px-8 flex items-center gap-4 shadow-sm hover:border-nn/30 transition-all cursor-default"
               >
                 <div className="text-nn">{p.icon}</div>
                 <span className="font-bold text-[13px] text-white whitespace-nowrap uppercase tracking-wide">{p.name}</span>
@@ -87,13 +87,13 @@ export function TrustSection() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-[#121212]">
         <div className="max-w-[1200px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-black border border-white/5 rounded-[48px] p-10 md:p-20 text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,255,120,0.15)]"
+            className="bg-[#121212] border border-white/5 rounded-[48px] p-10 md:p-20 text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,255,120,0.05)]"
           >
             {/* Custom Neon Wave Background */}
             <NeonWaveBackground />

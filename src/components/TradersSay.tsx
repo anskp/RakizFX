@@ -40,10 +40,7 @@ export function TradersSay() {
   ];
 
   return (
-    <section className="py-24 bg-black border-t border-white/5 relative overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
+    <section className="py-24 bg-[#121212] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Section Heading */}

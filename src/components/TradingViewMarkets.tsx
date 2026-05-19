@@ -78,19 +78,11 @@ export function TradingViewMarkets() {
   }, []);
 
   return (
-    <section className="py-40 bg-zinc-950 relative overflow-hidden">
+    <section className="py-40 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24">
           <div className="max-w-3xl text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-block bg-primary/10 border border-primary/20 px-6 py-2 rounded-full text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-8"
-            >
-              Real-Time Feed
-            </motion.div>
-            <h2 className="text-5xl md:text-7xl text-white uppercase mb-6 leading-tight">
+            <h2 className="text-5xl md:text-7xl text-black uppercase mb-6 leading-tight">
               Every market is <br/>
               waiting for you
             </h2>
@@ -98,14 +90,14 @@ export function TradingViewMarkets() {
               Institutional-grade pricing and analysis powered by TradingView. Access over 500+ instruments with millisecond-perfect execution protocols.
             </p>
           </div>
-          <button className="bg-white/5 border border-white/10 text-white px-12 py-6 text-[12px] uppercase font-bold tracking-[0.3em] hover:bg-primary transition-all flex items-center gap-4 rounded-xl group">
+          <button className="bg-zinc-100 border border-zinc-200 text-zinc-800 px-12 py-6 text-[12px] uppercase font-bold tracking-[0.3em] hover:bg-primary hover:text-black hover:border-primary transition-all flex items-center gap-4 rounded-xl group">
              Explore All Asset Groups <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        <div className="bg-[#080808] border border-white/5 rounded-[2rem] p-4 lg:p-8 shadow-2xl relative">
+        <div className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-4 lg:p-8 shadow-sm relative">
           <div className="absolute top-0 right-0 p-8">
-            <span className="text-[10px] text-zinc-600 font-bold uppercase tracking-widest bg-white/[0.02] px-4 py-2 border border-white/5 rounded-full">Indicative Pricing Only</span>
+            <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest bg-white px-4 py-2 border border-zinc-200 rounded-full">Indicative Pricing Only</span>
           </div>
           <div className="tradingview-widget-container w-full" ref={containerRef}>
             <div className="tradingview-widget-container__widget"></div>

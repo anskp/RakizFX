@@ -9,14 +9,10 @@ import { CopyTrading } from '../components/CopyTrading';
 
 export default function TradingPage() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-40 pb-20 overflow-hidden bg-gradient-to-b from-[#060F09] to-black">
-        {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[160px] rounded-full pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-nn/5 blur-[120px] pointer-events-none" />
-
+      <section id="overview" className="relative pt-40 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -67,13 +63,13 @@ export default function TradingPage() {
       </section>
 
       {/* 2. Why Trade With Us */}
-      <section className="py-24 bg-black border-y border-white/5">
+      <section id="benefits" className="py-24 bg-white border-y border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase">
               Built for <span className="text-primary font-normal italic">Every Trader</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
               Whether you are a beginner exploring the markets or a professional trader managing large-volume positions, our ecosystem is designed to support every trading journey.
             </p>
           </div>
@@ -111,12 +107,12 @@ export default function TradingPage() {
                 desc: "Trade Forex, Shares, Crypto, Metals, Energies, Futures, Indices, and ETFs from one account." 
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-[2rem] p-8 hover:border-primary/20 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.03] flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
+              <div key={idx} className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 hover:border-primary/40 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-3">{item.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-black mb-3">{item.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -124,7 +120,7 @@ export default function TradingPage() {
       </section>
 
       {/* 3. Trading Overview Bento Grid */}
-      <section className="py-24 bg-gradient-to-b from-black to-[#050B06]">
+      <section id="markets" className="py-24 bg-[#121212] text-white border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Overview</div>
@@ -139,7 +135,6 @@ export default function TradingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Available Markets Column */}
             <div className="lg:col-span-7 bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 blur-[120px] pointer-events-none" />
               <div>
                 <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-6">Available Markets</h3>
                 <p className="text-zinc-500 text-sm mb-10 max-w-md">
@@ -161,7 +156,6 @@ export default function TradingPage() {
 
             {/* What You Get Column */}
             <div className="lg:col-span-5 bg-white/[0.01] border border-white/5 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute bottom-0 left-0 w-60 h-60 bg-nn/5 blur-[100px] pointer-events-none" />
               <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-6">What You Get</h3>
               
               <ul className="space-y-4">
@@ -182,14 +176,14 @@ export default function TradingPage() {
       </section>
 
       {/* 4. Trading Accounts */}
-      <section className="py-24 bg-black border-y border-white/5">
+      <section className="py-24 bg-[#FAF9F6] border-y border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Accounts</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
               Account Types <br/><span className="text-primary font-normal italic">Tailored For Every Trader</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
               Choose the trading account that matches your strategy and experience level.
             </p>
           </div>
@@ -199,13 +193,13 @@ export default function TradingPage() {
       </section>
 
       {/* 5. Trading Platforms */}
-      <section className="py-24 bg-black">
+      <section id="platforms" className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase text-black">
               Trade <span className="text-primary font-normal italic">Anytime, Anywhere</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
               Access global markets across desktop, web, and mobile trading platforms.
             </p>
           </div>
@@ -238,15 +232,15 @@ export default function TradingPage() {
                 platform: "iOS & Android"
               }
             ].map((platform, idx) => (
-              <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-3xl p-8 flex flex-col justify-between hover:border-white/10 transition-colors">
+              <div key={idx} className="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 flex flex-col justify-between hover:border-zinc-300 transition-colors group">
                 <div>
-                  <div className="text-primary text-[9px] uppercase font-black tracking-widest mb-4 bg-white/5 border border-white/5 rounded-full px-3.5 py-1 w-max">
+                  <div className="text-primary text-[9px] uppercase font-black tracking-widest mb-4 bg-white border border-zinc-200 rounded-full px-3.5 py-1 w-max">
                     {platform.platform}
                   </div>
-                  <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-4">{platform.title}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed mb-6">{platform.desc}</p>
+                  <h3 className="text-2xl font-bold uppercase tracking-tight text-black mb-4">{platform.title}</h3>
+                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">{platform.desc}</p>
                 </div>
-                <div className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors cursor-pointer group">
+                <div className="flex items-center gap-2 text-black font-bold text-xs uppercase tracking-widest group-hover:text-primary transition-colors cursor-pointer">
                   <span>Launch Platform</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -257,14 +251,14 @@ export default function TradingPage() {
       </section>
 
       {/* 6. Social Trading Section */}
-      <section className="py-24 bg-gradient-to-t from-[#060F09] to-black border-t border-white/5">
+      <section id="copy-trading" className="py-24 bg-zinc-50 border-t border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Social Trading</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase text-black">
               Follow. Copy. <span className="text-primary font-normal italic">Trade.</span>
             </h2>
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
+            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
               Join a growing trading community and automatically copy strategies from experienced traders in real time.
             </p>
           </div>
@@ -288,12 +282,12 @@ export default function TradingPage() {
                 desc: "Engage with traders worldwide, discuss current market trends, and share insights." 
               }
             ].map((card, idx) => (
-              <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-3xl p-6 hover:bg-white/[0.02] transition-colors">
+              <div key={idx} className="bg-white border border-zinc-200 rounded-3xl p-6 hover:shadow-lg transition-all group">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-black mb-4">
                   {idx + 1}
                 </div>
-                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">{card.title}</h3>
-                <p className="text-zinc-500 text-xs leading-relaxed">{card.desc}</p>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-black mb-2">{card.title}</h3>
+                <p className="text-zinc-600 text-xs leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -304,8 +298,8 @@ export default function TradingPage() {
       </section>
 
       {/* 7. Security Section */}
-      <section className="py-24 bg-black border-t border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="security" className="py-24 relative overflow-hidden bg-[#121212] text-white border-t border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
@@ -341,10 +335,9 @@ export default function TradingPage() {
       </section>
 
       {/* 8. CTA Section */}
-      <section className="py-24 px-6 bg-gradient-to-b from-black to-[#050B06]">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
-          <div className="bg-black border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] pointer-events-none rounded-full" />
+          <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
               <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
               <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
@@ -355,10 +348,10 @@ export default function TradingPage() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-5">
-                <button className="bg-primary text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-lg">
+                <button className="bg-primary text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-lg cursor-pointer">
                   Open Live Account
                 </button>
-                <button className="bg-transparent border border-white/20 text-white font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-white/5 transition-colors">
+                <button className="bg-transparent border border-white/20 text-white font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:bg-white/5 transition-colors cursor-pointer">
                   Try Free Demo
                 </button>
               </div>
@@ -368,7 +361,7 @@ export default function TradingPage() {
       </section>
 
       {/* 9. Footer Risk Disclaimer */}
-      <section className="py-12 bg-black border-t border-white/5 text-zinc-600 text-xs">
+      <section className="py-12 bg-zinc-50 border-t border-zinc-200 text-zinc-500 text-xs">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center leading-relaxed">
           <p className="max-w-4xl mx-auto">
             Trading CFDs involves significant risk and may not be suitable for all investors. Leveraged products can result in losses exceeding deposits in certain jurisdictions. Please ensure you fully understand the risks involved before trading.
