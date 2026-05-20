@@ -1,11 +1,146 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  ArrowRight, Shield, Zap, Cpu, Layers, DollarSign, 
-  Activity, CheckCircle, Smartphone, Monitor, Globe, Award, PlayCircle 
+  Shield, Zap, Layers, DollarSign, 
+  Activity, CheckCircle, Smartphone, Monitor, Globe, Award, PlayCircle,
+  Sparkles, TrendingUp, UserCheck, BookOpen, Star, Wallet, Users, UserPlus
 } from 'lucide-react';
 import { AccountTypes } from '../components/AccountTypes';
-import { CopyTrading } from '../components/CopyTrading';
+import { PlatformFeatures } from '../components/PlatformFeatures';
+import { SectionBadge } from '../components/SectionBadge';
+import { BlogSection } from '../components/BlogSection';
+
+function TradingCopySection() {
+  return (
+    <section id="copy-trading" className="pt-0 pb-20 bg-white relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="text-center mb-0">
+          <SectionBadge icon={<UserPlus size={14} />} text="Social Ecosystem" />
+          <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.95] uppercase font-semibold tracking-tight mb-2">
+            Copy Trading
+          </h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center -mt-2 mb-0"
+        >
+          <div className="lg:col-span-5 text-center lg:text-left">
+            <div className="text-[10px] font-black uppercase tracking-widest text-[#00ca73] mb-3">
+              Automated Strategy Copying
+            </div>
+            <h3 className="text-3xl md:text-4xl font-semibold uppercase text-[#004D34] leading-tight mb-3">
+              Follow verified providers and mirror their trades
+            </h3>
+            <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-4 max-w-lg mx-auto lg:mx-0">
+              Fund your account, compare trader performance, then subscribe to a strategy. Once active, copied trades run automatically with your own allocation and risk controls.
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+              {["Fund", "Choose", "Copy"].map((item) => (
+                <span key={item} className="rounded-full bg-[#eafaf1] px-5 py-3 text-[10px] font-black uppercase tracking-widest text-[#004D34]">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 flex justify-center lg:justify-end">
+            <img
+              src="/assets/copytrading01.png"
+              alt="Copy Trading Terminal"
+              className="w-full max-w-2xl h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
+            />
+          </div>
+        </motion.div>
+
+        <div className="text-center mb-6 -mt-2">
+          <h3 className="text-[10px] font-black uppercase tracking-widest text-[#004D34] mb-2">How to Start</h3>
+          <h4 className="text-3xl md:text-4xl font-semibold uppercase text-[#004D34] leading-tight">
+            Start copying top trades in a few steps
+          </h4>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+            {[
+              {
+                title: "Sign Up & Fund",
+                time: "Create your account",
+                desc: "Open your Client Portal account and add funds using cards, eWallets, or local payment methods.",
+                icon: <Wallet size={42} strokeWidth={1.6} />
+              },
+              {
+                title: "Choose a Trader",
+                time: "Review performance",
+                desc: "Browse verified providers, compare returns and risk profiles, then select the strategy that fits you.",
+                icon: <TrendingUp size={42} strokeWidth={1.6} />
+              },
+              {
+                title: "Start Copying",
+                time: "Trades run automatically",
+                desc: "Subscribe, set your allocation and risk controls, and mirror provider trades inside your own account.",
+                icon: <Users size={42} strokeWidth={1.6} />
+              }
+            ].map((step, idx) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.12 }}
+                className="text-center"
+              >
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
+                  {step.icon}
+                </div>
+                <h5 className="text-xl md:text-2xl font-semibold text-black mb-2">
+                  {step.title}
+                </h5>
+                <div className="text-[10px] font-black text-[#004D34] mb-4 uppercase tracking-widest">
+                  {step.time}
+                </div>
+                <p className="max-w-xs mx-auto text-zinc-500 text-sm leading-relaxed">
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="hidden md:block relative mt-14 h-14">
+            <div className="absolute left-0 right-0 top-1/2 h-4 -translate-y-1/2 rounded-full bg-zinc-100" />
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="absolute left-0 top-1/2 h-4 -translate-y-1/2 rounded-full bg-[#00ca73]"
+            />
+
+            {[16.666, 50, 83.333].map((position, idx) => (
+              <motion.div
+                key={position}
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + idx * 0.15 }}
+                className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white ring-8 ring-[#00ca73] shadow-[0_8px_24px_rgba(0,202,115,0.18)]"
+                style={{ left: `${position}%` }}
+              >
+                <CheckCircle className="text-black" size={24} strokeWidth={2.2} />
+              </motion.div>
+            ))}
+          </div>
+
+          <button className="mx-auto mt-10 flex items-center justify-center rounded-full bg-[#004D34] px-10 py-4 text-sm font-black uppercase tracking-widest text-white transition-transform hover:scale-105">
+            Start Copying
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function TradingPage() {
   return (
@@ -64,58 +199,97 @@ export default function TradingPage() {
       </section>
 
       {/* 2. Why Trade With Us */}
-      <section id="benefits" className="py-24 bg-white border-y border-zinc-200">
+      <section id="benefits" className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase">
-              Built for <span className="text-primary font-normal italic">Every Trader</span>
+            <SectionBadge icon={<Sparkles size={14} />} text="Benefits" />
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
+              Why Trade With Us
             </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-              Whether you are a beginner exploring the markets or a professional trader managing large-volume positions, our ecosystem is designed to support every trading journey.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { 
-                icon: <Zap className="text-primary" size={24} />, 
-                title: "Ultra-Fast Execution", 
-                desc: "Lightning-fast order execution with minimal latency and advanced infrastructure." 
-              },
-              { 
-                icon: <Monitor className="text-primary" size={24} />, 
-                title: "Advanced Platforms", 
-                desc: "Trade on MetaTrader 5, MetaTrader 4, TradingView, WebTrader, and Mobile Apps." 
-              },
-              { 
-                icon: <Cpu className="text-primary" size={24} />, 
-                title: "Deep Liquidity", 
-                desc: "Access institutional-grade liquidity with competitive spreads and reliable pricing." 
-              },
-              { 
-                icon: <Shield className="text-primary" size={24} />, 
-                title: "Secure & Regulated", 
-                desc: "Your funds and data are protected through strict security standards and regulatory compliance." 
-              },
-              { 
-                icon: <DollarSign className="text-primary" size={24} />, 
-                title: "Flexible Funding Methods", 
-                desc: "Instant deposits and fast withdrawals through multiple global and local payment methods." 
-              },
-              { 
-                icon: <Layers className="text-primary" size={24} />, 
-                title: "Multi-Asset Trading", 
-                desc: "Trade Forex, Shares, Crypto, Metals, Energies, Futures, Indices, and ETFs from one account." 
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 hover:border-primary/40 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-black mb-3">{item.title}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{item.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* Large Feature 1 */}
+            <div className="md:col-span-8 relative overflow-hidden rounded-[2.5rem] bg-zinc-900 group flex flex-col justify-end min-h-[400px]">
+              <div className="absolute inset-0 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1200&q=80" 
+                  alt="Ultra-Fast Execution" 
+                  className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-40 transition-all duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               </div>
-            ))}
+              <div className="relative z-10 p-10 md:p-12">
+                <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Zap className="text-primary" size={24} />
+                </div>
+                <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
+                  Ultra-Fast <span className="text-primary font-normal italic">Execution</span>
+                </h3>
+                <p className="text-zinc-300 text-base md:text-lg max-w-xl font-medium leading-relaxed">
+                  Lightning-fast order execution with minimal latency and advanced institutional infrastructure directly connected to deep liquidity pools.
+                </p>
+              </div>
+            </div>
+
+            {/* Medium Feature 1 */}
+            <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-white to-zinc-50 group p-10 md:p-12 flex flex-col justify-between min-h-[400px]">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-black group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+                  <Shield size={24} />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-black mb-4">Secure & <br/>Regulated</h3>
+                <p className="text-zinc-600 text-sm font-medium leading-relaxed">
+                  Your funds and data are protected through strict security standards, top-tier bank segregation, and multi-license regulatory compliance.
+                </p>
+              </div>
+              <div className="mt-8">
+                <div className="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-primary w-full rounded-full" />
+                </div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mt-3 text-right">Bank Grade Security</div>
+              </div>
+            </div>
+
+            {/* Medium Feature 2 */}
+            <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-[#121212] group p-10 flex flex-col justify-between min-h-[350px]">
+              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Monitor size={120} className="text-white" />
+              </div>
+              <div className="relative z-10">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-6 text-white">
+                  <Monitor size={20} />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Advanced Platforms</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">
+                  Trade on MetaTrader 5, MetaTrader 4, TradingView, WebTrader, and our proprietary Mobile Apps seamlessly.
+                </p>
+              </div>
+            </div>
+
+            {/* Medium Feature 3 */}
+            <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#eafaf1] to-white group p-10 flex flex-col justify-between min-h-[350px]">
+              <div className="relative z-10">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-6 text-[#004D34] shadow-sm">
+                  <Layers size={20} />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-[#004D34] mb-3">Multi-Asset Trading</h3>
+                <p className="text-[#004D34]/70 text-sm font-medium leading-relaxed">
+                  Trade Forex, Shares, Crypto, Metals, Energies, Futures, Indices, and ETFs from a single, unified account.
+                </p>
+              </div>
+            </div>
+
+            {/* Medium Feature 4 */}
+            <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-white group flex flex-col justify-center items-center text-center p-10 min-h-[350px] hover:shadow-xl transition-all">
+              <div className="w-16 h-16 rounded-full bg-zinc-50 flex items-center justify-center mb-6 text-black group-hover:scale-110 group-hover:text-primary transition-all duration-300">
+                <DollarSign size={32} />
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight text-black mb-3">Flexible Funding</h3>
+              <p className="text-zinc-500 text-sm px-4 leading-relaxed">
+                Instant deposits and fast withdrawals through multiple global and local payment methods with zero hidden fees.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -124,13 +298,10 @@ export default function TradingPage() {
       <section id="markets" className="py-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Overview</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
-              Access 1,000+ CFD Instruments <br/><span className="text-zinc-400 font-bold">Across Global Markets</span>
+            <SectionBadge icon={<TrendingUp size={14} />} text="Markets" />
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
+              Trading Ecosystem
             </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-              Trade the world’s most popular financial instruments with competitive conditions and powerful execution technology.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -179,15 +350,7 @@ export default function TradingPage() {
       {/* 4. Trading Accounts */}
       <section className="py-24 bg-[#FAF9F6] border-y border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Accounts</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
-              Account Types <br/><span className="text-primary font-normal italic">Tailored For Every Trader</span>
-            </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-              Choose the trading account that matches your strategy and experience level.
-            </p>
-          </div>
+
 
           <AccountTypes />
         </div>
@@ -197,156 +360,113 @@ export default function TradingPage() {
       <section id="platforms" className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase text-black">
-              Trade <span className="text-primary font-normal italic">Anytime, Anywhere</span>
+            <SectionBadge icon={<Monitor size={14} />} text="Platforms" />
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight uppercase text-[#004D34]">
+              Trading Platforms
             </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-              Access global markets across desktop, web, and mobile trading platforms.
+            <p className="mx-auto max-w-2xl text-zinc-600 text-base leading-relaxed">
+              Trade with professional-grade terminals designed for clarity, speed and reliability. Each platform card includes a simple title and short description only.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { 
-                title: "MetaTrader 5", 
-                desc: "Trade CFDs with advanced charting tools, automated trading support, market depth, and integrated economic calendars.",
-                platform: "Desktop / Web / Mobile"
+              {
+                title: "MetaTrader 5",
+                desc: "Advanced charting, automated strategies and full market depth in a polished terminal.",
+                image: "/assets/metatrader5.png"
               },
-              { 
-                title: "MetaTrader 4", 
-                desc: "The industry-standard trading platform trusted by millions worldwide with lightning fast execution.",
-                platform: "Desktop / Web / Mobile"
+              {
+                title: "MetaTrader 4",
+                desc: "Classic forex execution with fast order flow and expert advisor support.",
+                image: "/assets/metatrader4.png"
               },
-              { 
-                title: "TradingView", 
-                desc: "Professional charting, social trading ideas, and advanced market analysis tools linked directly to your account.",
-                platform: "Web / App"
+              {
+                title: "TradingView",
+                desc: "Professional charts, social idea streams and intuitive market analysis in one hub.",
+                image: "/assets/web-trading-main_2xh.png"
               },
-              { 
-                title: "WebTrader", 
-                desc: "Trade directly from your web browser without installing software, with rapid execution and full indicators.",
-                platform: "Browser Native"
+              {
+                title: "Web Trader",
+                desc: "Access trading directly from your browser with no download required.",
+                image: "/assets/web-trading-main_2xh.png"
               },
-              { 
-                title: "Mobile Trading App", 
-                desc: "Manage your accounts and trade on the go with powerful, low-latency iOS and Android applications.",
-                platform: "iOS & Android"
+              {
+                title: "Rakiz Mobile App",
+                desc: "Trade on the go with Rakiz mobile for fast orders, portfolio tracking and alerts.",
+                image: "/assets/phone_trade.png"
               }
             ].map((platform, idx) => (
-              <div key={idx} className="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 flex flex-col justify-between hover:border-zinc-300 transition-colors group">
-                <div>
-                  <div className="text-primary text-[9px] uppercase font-black tracking-widest mb-4 bg-white border border-zinc-200 rounded-full px-3.5 py-1 w-max">
-                    {platform.platform}
-                  </div>
-                  <h3 className="text-2xl font-bold uppercase tracking-tight text-black mb-4">{platform.title}</h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">{platform.desc}</p>
+              <div key={idx} className="relative overflow-visible px-6 pt-24 pb-10 text-center">
+                <div className="mx-auto mb-8 w-full max-w-[420px]">
+                  <img
+                    src={platform.image}
+                    alt={platform.title}
+                    className="mx-auto h-64 w-auto object-contain transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
-                <div className="flex items-center gap-2 text-black font-bold text-xs uppercase tracking-widest group-hover:text-primary transition-colors cursor-pointer">
-                  <span>Launch Platform</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </div>
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-950 mb-3">
+                  {platform.title}
+                </h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">
+                  {platform.desc}
+                </p>
               </div>
             ))}
+          </div>
+          
+          {/* Platform Features Comparison Table */}
+          <div className="mt-20">
+            <div className="text-center mb-10">
+              <h3 className="text-3xl md:text-4xl font-semibold tracking-tight uppercase text-[#004D34]">
+                Compare Platforms
+              </h3>
+            </div>
+            <PlatformFeatures />
           </div>
         </div>
       </section>
 
       {/* 6. Social Trading Section */}
-      <section id="copy-trading" className="py-24 bg-zinc-50 border-t border-zinc-200">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Social Trading</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase text-black">
-              Follow. Copy. <span className="text-primary font-normal italic">Trade.</span>
-            </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-              Join a growing trading community and automatically copy strategies from experienced traders in real time.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {[
-              { 
-                title: "Copy Top Traders", 
-                desc: "Replicate trades from verified strategy providers instantly with complete transparency." 
-              },
-              { 
-                title: "Performance Rankings", 
-                desc: "Track trader statistics, growth, profitability, and risk scores transparently." 
-              },
-              { 
-                title: "Flexible Copy Settings", 
-                desc: "Control your allocation, risk level, and copy ratios with full, custom flexibility." 
-              },
-              { 
-                title: "Community Driven", 
-                desc: "Engage with traders worldwide, discuss current market trends, and share insights." 
-              }
-            ].map((card, idx) => (
-              <div key={idx} className="bg-white border border-zinc-200 rounded-3xl p-6 hover:shadow-lg transition-all group">
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-black mb-4">
-                  {idx + 1}
-                </div>
-                <h3 className="text-lg font-bold uppercase tracking-tight text-black mb-2">{card.title}</h3>
-                <p className="text-zinc-600 text-xs leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Copy Trading Core Widget Component */}
-          <CopyTrading />
-        </div>
-      </section>
+      <TradingCopySection />
 
       {/* 7. Security Section */}
       <section id="security" className="py-24 relative overflow-hidden bg-white text-black border-t border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-5xl mx-auto text-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#CDEEDB] border border-[#CDEEDB] rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#00ca73]" />
-                <span className="text-[10px] uppercase font-black tracking-widest text-[#004D34]">Institutional Security</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
-                Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
+              <SectionBadge icon={<Shield size={14} />} text="Security" />
+              <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
+                Account Security
               </h2>
-              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
-                We use advanced encryption systems, secure payment processing, and strict account protection measures to safeguard your trading environment.
+              <p className="max-w-2xl mx-auto text-zinc-600 text-sm md:text-base leading-relaxed mb-10">
+                Client protection comes first, with secure infrastructure, safeguarded funds, and platform-level controls designed to keep your trading environment resilient.
               </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                "Segregated client funds",
-                "Multi-layer encryption",
-                "Two-factor authentication",
-                "Negative balance protection",
-                "Secure payment gateways"
-              ].map((feature, idx) => (
-                <div key={idx} className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-2xl p-6 flex items-start gap-4 cursor-default">
-                  <CheckCircle className="text-[#00ca73] shrink-0 mt-0.5" size={16} />
-                  <div>
-                    <h4 className="text-sm font-black text-zinc-800 uppercase tracking-wider">{feature}</h4>
-                  </div>
-                </div>
-              ))}
+              <div className="mx-auto max-w-4xl rounded-[2rem] bg-[#031610] overflow-hidden border border-[#0b3b2c]/60 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+                <img
+                  src="/assets/svgviewer-output.svg"
+                  alt="Crypto asset security illustration"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. CTA Section */}
+      {/* 8. Blog Section */}
+      <BlogSection />
+
+      {/* 9. CTA Section */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
               <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
-              <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
-                Start Your Trading <br/>Journey Today
+              <h2 className="text-4xl md:text-5xl font-semibold text-white uppercase mb-12 tracking-tight leading-[0.9]">
+                Start Your Journey
               </h2>
-              <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
-                Open your live trading account and access global financial markets with professional trading tools, advanced platforms, and competitive conditions.
-              </p>
               
               <div className="flex flex-wrap justify-center gap-5">
                 <button className="bg-primary text-black font-black px-10 py-5 text-xs uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-lg cursor-pointer">

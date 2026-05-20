@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { TrendingUp } from 'lucide-react';
+import { SectionBadge } from './SectionBadge';
 
 export function MarketGrowth() {
   return (
     <section className="pt-4 pb-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-bold text-black mb-6 tracking-tighter uppercase leading-[0.85]">
-            Grow your portfolio <span className="text-primary font-normal italic">with a platform that fits your strategy</span>
+          <SectionBadge icon={<TrendingUp size={14} />} text="Portfolio" />
+          <h2 className="text-4xl md:text-5xl font-semibold text-[#004D34] mb-6 tracking-tight uppercase leading-[0.85]">
+            Invest in Top Assets
           </h2>
-          <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-            Invest in Gold, NVIDIA, Microsoft, Apple, Vanguard, S&P 500 ETF, and more
-          </p>
         </div>
 
         {/* Promo Card */}

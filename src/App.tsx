@@ -12,6 +12,7 @@ import { CopyTrading } from './components/CopyTrading';
 import { TrustSection } from './components/TrustSection';
 import { Footer } from './components/Footer';
 import { TradersSay } from './components/TradersSay';
+import { BlogSection } from './components/BlogSection';
 import TradingEcologyPage from './pages/TradingEcologyPage';
 import TradingPage from './pages/TradingPage';
 import MarketPage from './pages/MarketPage';
@@ -52,6 +53,7 @@ function HomePage() {
       <CopyTrading />
       <AccountTypes />
       <MarketGrowth />
+      <BlogSection />
       <TrustSection />
     </>
   );

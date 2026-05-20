@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Building2, ShieldCheck, Headset, Zap, Activity } from 'lucide-react';
+import { Building2, ShieldCheck, Headset, Zap, Activity, TrendingUp } from 'lucide-react';
 import MagicBento from './MagicBento';
+import { SectionBadge } from './SectionBadge';
 
 const trustItems = [
   { iconSrc: '/icons/Copilot_20260519_185446.png', title: 'Regulated Broker', sub: 'Multi-license security' },
@@ -78,17 +79,12 @@ export function Markets() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[10px] uppercase font-black tracking-[0.6em] text-zinc-400 mb-6"
           >
-            Asset Ecosystem
+            <SectionBadge icon={<TrendingUp size={14} />} text="Asset Ecosystem" />
           </motion.div>
-          <h2 className="text-5xl md:text-7xl text-black leading-[0.85] uppercase mb-6">
-            Institutional Access to <br />
-            500+ Global Instruments
+          <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.85] uppercase mb-6 font-semibold tracking-tight">
+            Global Markets
           </h2>
-          <p className="text-zinc-500 text-xl max-w-2xl mx-auto leading-relaxed font-medium">
-            Diversify your equity with core access to major markets across Forex, Indices, and Commodities through a refined prime account.
-          </p>
         </div>
 
         {/* Interactive Bento Grid */}

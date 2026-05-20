@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Award } from 'lucide-react';
+import { SectionBadge } from './SectionBadge';
 
 interface AccountConfig {
   id: string;
@@ -83,12 +85,10 @@ export function AccountTypes() {
     <section id="accounts" className="pt-4 pb-32 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="text-center mb-24">
-          <div className="text-[10px] font-black text-[#004D34] uppercase tracking-[0.3em] mb-4">Account Types</div>
-          <h2 className="text-5xl md:text-7xl text-black leading-[0.85] uppercase mb-4 font-black">
-            Choose Your <br />
-            Trading Edge
+          <SectionBadge icon={<Award size={14} />} text="Accounts" />
+          <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.85] uppercase mb-4 font-semibold tracking-tight">
+            Account Types
           </h2>
-          <p className="text-zinc-500 text-lg font-medium max-w-2xl mx-auto">From beginners to professionals — the account that matches your strategy.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8 items-stretch max-w-7xl mx-auto">

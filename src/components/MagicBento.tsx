@@ -96,7 +96,7 @@ function ParticleCard({ children, className = '', style, disabled = false, click
       const y = e.clientY - rect.top;
       const d = Math.max(Math.hypot(x, y), Math.hypot(x - rect.width, y), Math.hypot(x, y - rect.height), Math.hypot(x - rect.width, y - rect.height));
       const ripple = document.createElement('div');
-      ripple.style.cssText = `position:absolute;width:${d*2}px;height:${d*2}px;border-radius:50%;background:radial-gradient(circle,rgba(${GLOW_COLOR},0.35) 0%,rgba(${GLOW_COLOR},0.15) 30%,transparent 70%);left:${x-d}px;top:${y-d}px;pointer-events:none;z-index:999;`;
+      ripple.style.cssText = `position:absolute;width:${d * 2}px;height:${d * 2}px;border-radius:50%;background:radial-gradient(circle,rgba(${GLOW_COLOR},0.35) 0%,rgba(${GLOW_COLOR},0.15) 30%,transparent 70%);left:${x - d}px;top:${y - d}px;pointer-events:none;z-index:999;`;
       el.appendChild(ripple);
       gsap.fromTo(ripple, { scale: 0, opacity: 1 }, { scale: 1, opacity: 0, duration: 0.7, ease: 'power2.out', onComplete: () => ripple.remove() });
     };
@@ -114,7 +114,7 @@ function ParticleCard({ children, className = '', style, disabled = false, click
   }, [spawn, clear, disabled, clickEffect]);
 
   return (
-    <div ref={ref} className={`${className} particle-container magic-bento-card--border-glow`} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+    <div ref={ref} className={`${className} particle-container magic-bento-card--border-glow`} style={{ position: 'relative', overflow: 'hidden', ...style }}>
       {children}
     </div>
   );
@@ -134,12 +134,14 @@ function GlobalSpotlight({ gridRef, disabled }: { gridRef: React.RefObject<HTMLD
     const fade = SPOTLIGHT_RADIUS * 0.75;
 
     const onMove = (e: MouseEvent) => {
-      if (!gridRef.current) return;
-      const section = gridRef.current.closest('.bento-section');
+      const grid = gridRef.current;
+      if (!grid) return;
+
+      const section = grid.closest('.bento-section');
       const rect = section?.getBoundingClientRect();
       const inside = rect && e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
 
-      const cards = gridRef.current.querySelectorAll<HTMLElement>('.magic-bento-card, .card-small');
+      const cards = grid.querySelectorAll<HTMLElement>('.magic-bento-card, .card-small');
 
       if (!inside) {
         gsap.to(spot, { opacity: 0, duration: 0.3 });
@@ -204,74 +206,96 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
 
         {/* ── HERO: Forex Core ── */}
         <ParticleCard className={`${cardClass} card-hero`} disabled={disabled}>
-          <img src="/assets/trader-bg.jpg" className="absolute inset-0 w-full h-full object-cover opacity-50 z-0" alt="Forex" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-0" />
-          <div className="magic-bento-card__header">
-            <div className="magic-bento-card__stat">0.0 pips</div>
-          </div>
-          <div className="magic-bento-card__content">
-            <div className="magic-bento-card__label">Forex Core</div>
+          <img src="/assets/forex_core01.png" className="absolute right-[-4%] top-0 bottom-0 w-[55%] h-[90%] my-auto object-contain opacity-100 z-0 pointer-events-none" alt="Forex" />
+
+          <div className="relative z-10 max-w-[48%] flex flex-col justify-between h-full text-left">
+            <div>
+              <div className="magic-bento-card__label mb-3">Forex Core</div>
+              <h3 className="text-3xl font-black uppercase tracking-tight text-[#0d1410] leading-none mb-3">
+                Prime Liquidity
+              </h3>
+              <p className="text-zinc-500 text-xs leading-relaxed italic border-l-2 border-[#00ca73] pl-3 mb-6">
+                "Raw spreads starting from 0.0 pips. Engineered for high-volume execution, deep liquidity, and institutional-grade trading precision."
+              </p>
+            </div>
+
+            <div className="space-y-2 mt-auto">
+              <div className="text-[10px] font-black uppercase tracking-widest text-[#00ca73]">Key Advantages:</div>
+              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> Spreads from 0.0 Pips
+              </div>
+              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> 60+ Major & Exotic Pairs
+              </div>
+              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> Under 40ms Execution
+              </div>
+            </div>
           </div>
         </ParticleCard>
 
         {/* ── TWO SMALLS ── */}
         <div className="card-smalls-row">
-          <ParticleCard className="card-small card-small--border-glow" disabled={disabled}>
-            <img src="/assets/oil and investments.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Commodities" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0" />
-            <div className="card-small__header">
-              <div className="magic-bento-card__stat">0.04</div>
-            </div>
-            <div className="card-small__content">
-              <div className="card-small__label">Commodities</div>
+          <ParticleCard className="card-small card-small--border-glow" disabled={disabled} style={{ overflow: 'visible' }}>
+            <img src="/assets/goldandsilver01.png" className="absolute right-[-15%] bottom-[5%] w-[105%] h-[145%] object-contain z-0 pointer-events-none" alt="Commodities" />
+            <div className="absolute left-6 top-6 z-10 text-left">
+              <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
+                Commodities
+              </div>
+              <div className="text-[10px] text-zinc-500 italic mt-1 font-medium">
+                "Inflation-proof safe havens"
+              </div>
             </div>
           </ParticleCard>
 
-          <ParticleCard className="card-small card-small--border-glow" disabled={disabled}>
-            <img src="/assets/sharess.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Shares" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0" />
-            <div className="card-small__header">
-              <div className="magic-bento-card__stat">0.01</div>
-            </div>
-            <div className="card-small__content">
-              <div className="card-small__label">Shares</div>
+          <ParticleCard className="card-small card-small--border-glow" disabled={disabled} style={{ overflow: 'visible', backgroundColor: '#eafaf1' }}>
+            <img src="/assets/shares01.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="Shares" />
+            <div className="absolute left-6 bottom-6 z-10 text-left">
+              <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
+                Shares
+              </div>
             </div>
           </ParticleCard>
         </div>
 
         {/* ── CENTER TOP: Indices ── */}
         <ParticleCard className={`${cardClass} card-center-top`} disabled={disabled}>
-          <img src="/assets/indicesss.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="Indices" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10 z-0" />
-          <div className="magic-bento-card__header">
-            <div className="magic-bento-card__stat">0.4</div>
-          </div>
-          <div className="magic-bento-card__content">
-            <div className="magic-bento-card__label">Indices</div>
+          <img src="/assets/indices01.png" className="absolute inset-0 m-auto w-[95%] h-[95%] object-contain z-0" alt="Indices" />
+          <div className="absolute inset-x-0 top-4 text-center">
+            <div className="text-sm md:text-lg font-black uppercase tracking-widest text-[#0d1410] leading-none">Indices</div>
           </div>
         </ParticleCard>
 
-        {/* ── CENTER BOTTOM: ETFs ── */}
-        <ParticleCard className={`${cardClass} card-center-bottom`} disabled={disabled}>
-          <img src="/assets/ETFs (2).png" className="absolute inset-0 w-full h-full object-cover z-0" alt="ETFs" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-0" />
-          <div className="magic-bento-card__header">
-            <div className="magic-bento-card__stat">0.10</div>
-          </div>
-          <div className="magic-bento-card__content">
-            <div className="magic-bento-card__label">ETFs CFDs</div>
+        <ParticleCard className={`${cardClass} card-center-bottom`} disabled={disabled} style={{ overflow: 'visible' }}>
+          <img src="/assets/CFDs.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="ETFs" />
+          <div className="absolute left-6 bottom-6 z-10 text-left">
+            <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
+              ETFs CFDs
+            </div>
+
           </div>
         </ParticleCard>
 
         {/* ── RIGHT TALL: Crypto ── */}
-        <ParticleCard className={`${cardClass} card-right`} disabled={disabled}>
-          <img src="/assets/Classic Bitcoin Symbol.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Crypto" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-0" />
-          <div className="magic-bento-card__header">
-            <div className="magic-bento-card__stat">$0.50</div>
+        <ParticleCard className={`${cardClass} card-right`} disabled={disabled} style={{ backgroundColor: '#eafaf1' }}>
+          <img src="/assets/cryptocoins01.png" className="absolute inset-0 m-auto w-[90%] h-[90%] object-contain z-0" alt="Crypto" />
+          
+          <div className="absolute left-6 top-6 z-10 text-left">
+            <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
+              Crypto
+            </div>
+            <div className="text-[10px] text-emerald-700 italic mt-1 font-semibold">
+              "24/7 Market Access"
+            </div>
           </div>
-          <div className="magic-bento-card__content">
-            <div className="magic-bento-card__label">Crypto</div>
+
+          <div className="absolute left-6 bottom-6 z-10 text-left max-w-[85%]">
+            <div className="text-[10px] font-black uppercase tracking-widest text-[#00ca73] mb-1">
+              Next-Gen Liquidity
+            </div>
+            <p className="text-[11px] text-emerald-950 font-semibold leading-normal">
+              Trade major pairs including BTC and ETH with competitive spreads, no exchange wallet required, and lightning-fast execution.
+            </p>
           </div>
         </ParticleCard>
 
@@ -279,4 +303,3 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
     </div>
   );
 }
-

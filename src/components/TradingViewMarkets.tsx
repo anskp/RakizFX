@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Activity } from 'lucide-react';
+import { SectionBadge } from './SectionBadge';
 
 export function TradingViewMarkets() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -82,7 +83,8 @@ export function TradingViewMarkets() {
       <div className="max-w-[1400px] mx-auto px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-16">
           <div className="max-w-3xl text-center lg:text-left">
-            <h2 className="text-5xl md:text-7xl text-black uppercase mb-6 leading-tight">
+            <SectionBadge icon={<Activity size={14} />} text="Market Overview" />
+            <h2 className="text-5xl md:text-7xl text-black uppercase mb-6 leading-tight mt-2">
               Every market is <br/>
               waiting for you
             </h2>

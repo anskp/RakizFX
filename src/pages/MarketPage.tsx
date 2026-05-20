@@ -343,28 +343,55 @@ export default function MarketPage() {
         </div>
       </section>
 
-      {/* 6. Trader Tools Bento Grid */}
+      {/* 6. Market Intelligence Tools */}
       <section id="tools" className="py-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Ecosystem</div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight uppercase text-[#004D34]">
-              Professional <span className="text-[#00ca73] font-normal italic">Trading Tools</span>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
+              Market Intelligence
             </h2>
-            <p className="text-zinc-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-              Enhance your trading experience with advanced market analysis and smart trading utilities.
+            <p className="text-zinc-600 text-base md:text-lg font-medium max-w-2xl mx-auto">
+              Stay close to market sentiment, key economic events, and curated financial news from one clean trading toolkit.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              'Economic Calendar', 'Earnings Calendar', 'Market News Feed', 'Technical Analysis', 
-              'Trading Calculators', 'VPS Hosting', 'Trading Signals', 'Market Holidays Calendar'
+              {
+                title: 'Market Sentiments',
+                desc: 'See how traders are positioned across major instruments, including long versus short percentages for Forex, Crypto, and Indices.',
+                image: '/assets/Group 56.svg'
+              },
+              {
+                title: 'Economic Calendar',
+                desc: 'Track and set alerts for key global economic events, central bank decisions, inflation data, and market-moving releases.',
+                image: '/assets/Frame 47.svg'
+              },
+              {
+                title: 'Market News',
+                desc: 'Stay updated with curated financial news and market stories that help you follow momentum across global assets.',
+                image: '/assets/Group 57.svg'
+              }
             ].map((tool, idx) => (
-              <div key={idx} className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-6 flex flex-col justify-between min-h-[140px] cursor-default">
-                <div className="text-zinc-400 text-xs font-mono">/ 0{idx + 1}</div>
-                <h4 className="text-sm font-black uppercase tracking-wider text-zinc-800 leading-snug">{tool}</h4>
+              <div key={idx} className="bg-white border border-zinc-200/80 shadow-[0_14px_40px_rgba(0,0,0,0.04)] transition-all duration-300 rounded-[1.75rem] p-6 md:p-7 min-h-[430px] flex flex-col justify-between hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,77,52,0.08)]">
+                <div className="h-56 md:h-60 flex items-center justify-center mb-8">
+                  <img
+                    src={tool.image}
+                    alt={tool.title}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-black text-zinc-900 mb-3">
+                    {tool.title}
+                  </h3>
+                  <p className="text-zinc-600 text-sm leading-relaxed">
+                    {tool.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
