@@ -31,16 +31,16 @@ const traders = [
 
 export function CopyTrading() {
   return (
-    <section id="copy-trading" className="pt-4 pb-32 bg-white relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-12 relative z-10">
+    <section id="copy-trading" className="section-padding bg-white relative overflow-hidden">
+      <div className="container-standard relative z-10">
 
         {/* First: Centered Heading */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl text-black leading-[0.95] uppercase mb-8 max-w-4xl mx-auto">
+          <h2 className="text-h2 mb-8 max-w-4xl mx-auto">
             Top Traders. <br />
             <span className="text-nn">Copy Their Profits.</span>
           </h2>
-          <p className="text-zinc-500 text-lg font-medium max-w-2xl mx-auto">
+          <p className="text-body text-zinc-500 mx-auto">
             Choose from verified strategy managers, set your risk, and let their trades work for you. Perfect for both beginners and experienced managers looking for PAMM/MAM solutions.
           </p>
         </div>

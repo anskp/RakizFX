@@ -136,7 +136,7 @@ export default function MarketPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-40 pb-20 overflow-hidden text-black">
+      <section id="overview" className="relative pt-40 pb-20 overflow-hidden text-black min-h-[85vh] lg:min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <img src="/assets/herooo.png" alt="Market Hero Background" className="w-full h-full object-cover" />
         </div>
@@ -148,9 +148,30 @@ export default function MarketPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight mb-6 leading-[0.9] mt-6">
-                Markets <br/>
-                <span className="text-primary font-normal italic">Across Global Markets</span>
+              <h1 className="text-h1 text-black mb-6 mt-6">
+                {"PRECISION".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+                <br/>
+                {"EXECUTION.".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
+                    className={`inline-block ${letter !== '.' ? 'text-nn' : 'text-black'}`}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </h1>
 
               <p className="text-black text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
@@ -166,7 +187,7 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-4">
-              <h2 className="text-4xl md:text-5xl font-semibold uppercase tracking-tight leading-[0.95] text-[#004D34] mb-5">
+              <h2 className="text-h2 mb-5">
                 Live Market Movement
               </h2>
               <p className="text-zinc-600 text-sm md:text-base leading-relaxed max-w-md">
@@ -261,7 +282,7 @@ export default function MarketPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
+              <h2 className="text-h2 mb-6">
                 We Believe in <br/>
                 <span className="text-primary font-normal italic">Transparent Costs</span>
               </h2>
@@ -307,7 +328,7 @@ export default function MarketPage() {
           
           <div className="text-center mb-16">
             <div className="text-nn font-black text-[10px] uppercase tracking-[0.4em] mb-4">Funding Solutions</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
+            <h2 className="text-h2 mb-6">
               Fast & Secure <span className="text-nn font-normal italic">Funding</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
@@ -359,7 +380,7 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
+            <h2 className="text-h2 mb-6">
               Market Intelligence
             </h2>
             <p className="text-zinc-600 text-base md:text-lg font-medium max-w-2xl mx-auto">
@@ -416,9 +437,9 @@ export default function MarketPage() {
           {/* Economic Calendar Sub-section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
+              <h2 className="text-h2 mb-6">
                 Stay Ahead Of <br/><span className="text-primary font-normal italic">Market Events</span>
-              </h3>
+              </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Track major economic announcements, central bank decisions, inflation reports, employment data, and global market-moving events in real time.
               </p>
@@ -489,9 +510,9 @@ export default function MarketPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
+              <h2 className="text-h2 mb-6">
                 Automated Trading <br/><span className="text-primary font-normal italic">With Low Latency</span>
-              </h3>
+              </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Run Expert Advisors and automated strategies 24/7 using dedicated VPS infrastructure with reduced downtime and enhanced execution speed.
               </p>
@@ -506,7 +527,7 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
+              <h2 className="text-h2 mb-6">
                 Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
               </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
@@ -540,7 +561,7 @@ export default function MarketPage() {
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
               <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
-              <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
+              <h2 className="text-h2 text-white mb-6">
                 Start Your Trading <br/>Journey Today
               </h2>
               <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">

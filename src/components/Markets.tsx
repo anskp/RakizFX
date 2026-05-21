@@ -14,7 +14,7 @@ const trustItems = [
 export function TrustBar() {
   return (
     <div className="bg-[#052410] border-y border-white/5 py-10">
-      <div className="max-w-[1400px] mx-auto px-12 overflow-x-auto no-scrollbar">
+      <div className="container-standard overflow-x-auto no-scrollbar">
         <div className="flex items-center justify-between gap-16 min-w-max">
           {trustItems.map((item, i) => (
             <div key={i} className="flex items-center gap-4 shrink-0">
@@ -71,10 +71,10 @@ export function Markets() {
   ];
 
   return (
-    <section id="markets" className="pt-28 pb-16 bg-white flex flex-col items-center overflow-hidden relative">
-      <div className="max-w-[1400px] mx-auto px-12 w-full relative z-10">
+    <section id="markets" className="section-padding bg-white flex flex-col items-center overflow-hidden relative">
+      <div className="container-standard relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.85] uppercase mb-6 font-semibold tracking-tight">
+          <h2 className="text-h2 mb-6">
             Global Markets
           </h2>
         </div>

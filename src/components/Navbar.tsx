@@ -20,8 +20,8 @@ const LogoSVG = ({ isDark }: { isDark: boolean }) => (
     id="Layer_1" 
     data-name="Layer 1" 
     xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 445.79 272.68" 
-    className="h-full w-auto block py-2 scale-[1.6] md:scale-[1.9] origin-left transition-all duration-300"
+    viewBox="108 114 230 46"  
+    className="h-6 md:h-8 w-auto block transition-all duration-300"
   >
     <g className={isDark ? "fill-zinc-800" : "fill-white"}>
       <path d="M174.54,157.15v-36.11h13.64c7.74,0,12.34,4.1,12.34,10.84,0,4.99-2.5,8.59-6.99,10.04l7.34,15.23h-5.44l-6.74-14.28h-9.24v14.28h-4.89ZM179.44,138.52h8.79c4.55,0,7.14-2.45,7.14-6.59s-2.7-6.49-7.19-6.49h-8.74v13.09Z"/>
@@ -114,7 +114,7 @@ export function Navbar() {
           : "bg-transparent border-b border-transparent"
       )}
     >
-      <div className="max-w-[1400px] mx-auto px-12 flex items-center justify-between h-20">
+      <div className="container-standard flex items-center justify-between h-20">
 
         {/* Logo */}
         <a href="/" className="flex items-center group h-full">
@@ -122,14 +122,14 @@ export function Navbar() {
         </a>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-1 h-full">
+        <div className="hidden md:flex items-center gap-2 h-full">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group h-full flex items-center">
               <Link
                 to={link.href}
                 className={cn(
-                  "px-4 py-2 text-[14px] font-semibold hover:text-primary transition-colors flex items-center gap-1",
-                  (isScrolled || isLightBgPage) ? "text-zinc-700" : "text-white"
+                  "px-5 py-2 text-[14px] font-bold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1",
+                  (isScrolled || isLightBgPage) ? "text-zinc-800" : "text-white"
                 )}
               >
                 {link.name}
@@ -174,16 +174,16 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
           <button className={cn(
-            "px-5 py-2 text-[13px] font-semibold hover:text-primary border hover:border-primary rounded-lg transition-all cursor-pointer",
+            "px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] hover:text-primary border hover:border-primary rounded-xl transition-all cursor-pointer flex items-center justify-center",
             (isScrolled || isLightBgPage)
-              ? "text-zinc-700 border-zinc-300 bg-white"
-              : "text-white border-white/30 bg-white/10 backdrop-blur-sm"
+              ? "text-zinc-800 border-zinc-300 bg-white"
+              : "text-white border-white/20 bg-white/5 backdrop-blur-sm"
           )}>
             Sign In
           </button>
-          <button className="bg-primary hover:bg-primary/90 text-black px-5 py-2 text-[13px] font-bold rounded-lg transition-all cursor-pointer shadow-[0_4px_20px_rgba(0,202,115,0.25)]">
+          <button className="bg-nn hover:bg-nnl text-dk px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all cursor-pointer shadow-[0_5px_15px_rgba(0,202,115,0.2)] hover:scale-105">
             Open Live Account
           </button>
         </div>

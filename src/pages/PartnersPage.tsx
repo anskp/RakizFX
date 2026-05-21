@@ -10,12 +10,12 @@ export default function PartnersPage() {
     <div className="bg-white text-zinc-900 min-h-screen">
       
       {/* 2. Partnership Programs Grid (LIGHT STYLE) */}
-      <section id="programs" className="pt-40 pb-24 bg-white border-b border-zinc-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="programs" className="pt-40 pb-20 bg-white border-b border-zinc-100">
+        <div className="container-standard">
           
           <div className="text-center mb-20">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Programs</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-zinc-900">
+            <h2 className="text-h2 mb-6">
               Our Partnership <br/><span className="text-primary font-normal italic">Channels</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
@@ -75,13 +75,13 @@ export default function PartnersPage() {
       </section>
 
       {/* 3. Partner Tracking Dashboard (LIGHT STYLE) */}
-      <section className="py-24 bg-[#f8fafc]">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section className="section-padding bg-[#f8fafc]">
+        <div className="container-standard">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
               <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Partner Infrastructure</div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-zinc-900">
+              <h2 className="text-h2 mb-6">
                 Advanced Partner <br/><span className="text-primary font-normal italic">Portal</span>
               </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
@@ -163,11 +163,11 @@ export default function PartnersPage() {
       </section>
 
       {/* 4. Why Partner With Us (LIGHT STYLE) */}
-      <section className="py-24 bg-white border-t border-zinc-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section className="section-padding bg-white border-t border-zinc-100">
+        <div className="container-standard">
           
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase text-zinc-900">
+            <h2 className="text-h2 mb-6">
               Why Partner With <span className="text-primary font-normal italic">RakizFX</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
@@ -218,7 +218,7 @@ export default function PartnersPage() {
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] pointer-events-none rounded-full" />
             <div className="relative z-10">
               <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Elevate Your Network</div>
-              <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
+              <h2 className="text-h2 text-white mb-6">
                 Start Your Partnership <br/>Journey Today
               </h2>
               <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">

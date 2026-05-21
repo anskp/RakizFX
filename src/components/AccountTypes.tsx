@@ -80,10 +80,10 @@ export function AccountTypes() {
   ];
 
   return (
-    <section id="accounts" className="pt-4 pb-32 bg-white relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section id="accounts" className="section-padding bg-white relative overflow-hidden">
+      <div className="container-standard">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.85] uppercase mb-4 font-semibold tracking-tight">
+          <h2 className="text-h2 mb-4">
             Account Types
           </h2>
         </div>

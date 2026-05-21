@@ -112,3 +112,46 @@
 .text-zinc-600 {
   color: #71717a;
 }
+
+@layer components {
+  /* Layout & Containers */
+  .container-standard {
+    @apply max-w-[1400px] mx-auto px-6 lg:px-12 w-full;
+  }
+  .section-padding {
+    @apply py-20 md:py-24;
+  }
+
+  /* Typography System */
+  .text-h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.9] tracking-tighter uppercase text-[#004D34];
+  }
+  .text-h2 {
+    @apply text-4xl md:text-5xl font-semibold leading-tight tracking-tight uppercase text-[#004D34];
+  }
+  .text-h3 {
+    @apply text-3xl md:text-4xl font-semibold leading-snug tracking-tight uppercase text-[#004D34];
+  }
+  .text-h4 {
+    @apply text-xl md:text-2xl font-semibold leading-relaxed tracking-tight text-[#004D34];
+  }
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed max-w-3xl;
+  }
+  .text-muted {
+    @apply text-zinc-400 text-sm md:text-base leading-relaxed;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-nn hover:bg-nnl text-dk font-bold px-6 py-3 text-[11px] uppercase tracking-[0.2em] rounded-xl transition-all shadow-[0_10px_20px_rgba(0,202,115,0.2)] hover:scale-105 hover:shadow-[0_15px_30px_rgba(0,202,115,0.3)] flex items-center justify-center gap-4 cursor-pointer;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-white/10 hover:bg-white/10 text-white font-bold px-6 py-3 text-[11px] uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-4 cursor-pointer;
+  }
+
+  /* Theme Components */
+  .glass-card {
+    @apply bg-white/5 border border-white/5 rounded-[2rem] overflow-hidden shadow-2xl;
+  }
+}

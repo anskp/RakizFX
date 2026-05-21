@@ -141,7 +141,7 @@ export default function TradingPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-32 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-[520px] flex items-center">
+      <section id="overview" className="relative pt-32 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-screen flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 pointer-events-none"
@@ -157,9 +157,30 @@ export default function TradingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6 leading-[0.9]">
-                Trade Global Markets <br/>
-                <span className="text-primary font-normal italic">With Confidence</span>
+              <h1 className="text-h1 text-white mb-6">
+                {"PRECISION".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+                <br/>
+                {"EXECUTION.".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
+                    className={`inline-block ${letter !== '.' ? 'text-nn' : 'text-white'}`}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </h1>
 
               <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
@@ -379,29 +400,7 @@ export default function TradingPage() {
       {/* 6. Social Trading Section */}
       <TradingCopySection />
 
-      {/* 7. Security Section */}
-      <section id="security" className="py-24 relative overflow-hidden bg-white text-black border-t border-zinc-200">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
-                Account Security
-              </h2>
-              <p className="max-w-2xl mx-auto text-zinc-600 text-sm md:text-base leading-relaxed mb-10">
-                Client protection comes first, with secure infrastructure, safeguarded funds, and platform-level controls designed to keep your trading environment resilient.
-              </p>
 
-              <div className="mx-auto max-w-4xl rounded-[2rem] bg-[#031610] overflow-hidden border border-[#0b3b2c]/60 shadow-[0_20px_60px_rgba(0,0,0,0.08)] hidden">
-                <img
-                  src="/assets/svgviewer-output.svg"
-                  alt="Crypto asset security illustration"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 9. CTA Section */}
       <section className="py-24 px-6 bg-white">

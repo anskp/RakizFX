@@ -19,13 +19,11 @@ export function TrustSection() {
             <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Multiple methods tailored for Asian traders. Most deposits processed instantly.</p>
           </div>
 
-          <div className="flex flex-wrap justify-start items-start gap-10 md:gap-14 mb-10 w-full">
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 mb-10 w-full">
             {[
               { logo: '/icons/bank-svgrepo-com.svg', name: 'Bank Transfer' },
               { logo: '/icons/visa-svgrepo-com (1).svg', name: 'Visa' },
               { logo: '/icons/mastercard-old-svgrepo-com.svg', name: 'Mastercard' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/220/220233.png', name: 'Skrill' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png', name: 'Neteller' },
               { logo: '/icons/bitcoin-svgrepo-com.svg', name: 'Bitcoin' },
               { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' },
             ].map((p, i) => (
@@ -87,27 +85,24 @@ export function TrustSection() {
       </section>
 
       {/* CTA Section */}
-      <section className="pt-4 pb-20 px-6 bg-white">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#121212] border border-white/5 rounded-[48px] p-10 md:p-20 text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,255,120,0.05)]"
+            className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl"
           >
-            {/* Custom Neon Wave Background */}
-            <NeonWaveBackground />
-            
             <div className="relative z-10">
-              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8 drop-shadow-md">Get Started Today</div>
-              <h2 className="text-5xl md:text-7xl text-white uppercase mb-6 drop-shadow-2xl">Ready to get started?</h2>
-              <p className="text-white/80 text-xl font-medium mb-12 drop-shadow-md">Transform your brokerage today</p>
+              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Get Started Today</div>
+              <h2 className="text-h2 text-white mb-6">Ready to get started?</h2>
+              <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">Transform your brokerage today</p>
               
               <div className="flex flex-wrap justify-center gap-5">
-                <button className="bg-primary text-black font-black px-12 py-6 text-sm uppercase tracking-widest rounded-2xl hover:scale-105 transition-transform shadow-[0_20px_40px_rgba(0,255,120,0.3)]">
+                <button className="btn-primary">
                   Open Account
                 </button>
-                <button className="bg-transparent border-2 border-white/20 text-white font-black px-12 py-6 text-sm uppercase tracking-widest rounded-2xl hover:bg-white/10 transition-colors shadow-lg">
+                <button className="btn-secondary">
                   Request Demo
                 </button>
               </div>

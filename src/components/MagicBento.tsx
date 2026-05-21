@@ -208,29 +208,16 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
         <ParticleCard className={`${cardClass} card-hero`} disabled={disabled}>
           <img src="/assets/forex_core01.png" className="absolute right-[-4%] top-0 bottom-0 w-[55%] h-[90%] my-auto object-contain opacity-100 z-0 pointer-events-none" alt="Forex" />
 
-          <div className="relative z-10 max-w-[48%] flex flex-col justify-between h-full text-left">
-            <div>
-              <div className="magic-bento-card__label mb-3">Forex Core</div>
-              <h3 className="text-3xl font-black uppercase tracking-tight text-[#0d1410] leading-none mb-3">
-                Prime Liquidity
-              </h3>
-              <p className="text-zinc-500 text-xs leading-relaxed italic border-l-2 border-[#00ca73] pl-3 mb-6">
-                "Raw spreads starting from 0.0 pips. Engineered for high-volume execution, deep liquidity, and institutional-grade trading precision."
-              </p>
+          <div className="absolute left-6 top-6 z-10 text-left">
+            <div className="text-2xl md:text-4xl font-black uppercase tracking-tight text-[#0d1410] leading-none">
+              Forex Core
             </div>
+          </div>
 
-            <div className="space-y-2 mt-auto">
-              <div className="text-[10px] font-black uppercase tracking-widest text-[#00ca73]">Key Advantages:</div>
-              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> Spreads from 0.0 Pips
-              </div>
-              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> 60+ Major & Exotic Pairs
-              </div>
-              <div className="text-xs font-semibold text-zinc-700 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00ca73] shrink-0" /> Under 40ms Execution
-              </div>
-            </div>
+          <div className="absolute left-6 bottom-6 z-10 text-left max-w-[45%]">
+            <p className="text-xs text-zinc-600 font-semibold leading-relaxed">
+              Raw spreads starting from 0.0 pips. Engineered for high-volume execution, deep liquidity, and institutional-grade trading precision.
+            </p>
           </div>
         </ParticleCard>
 
@@ -238,12 +225,9 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
         <div className="card-smalls-row">
           <ParticleCard className="card-small card-small--border-glow" disabled={disabled} style={{ overflow: 'visible' }}>
             <img src="/assets/CFDs.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="ETFs CFDs" />
-            <div className="absolute left-6 top-6 z-10 text-left">
+            <div className="absolute left-6 bottom-6 z-10 text-left">
               <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
                 ETFs CFDs
-              </div>
-              <div className="text-[10px] text-emerald-700 italic mt-1 font-semibold">
-                Sector exposure with CFD flexibility
               </div>
             </div>
           </ParticleCard>
@@ -281,7 +265,7 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
           <img src="/assets/cryptocoins01.png" className="absolute inset-0 m-auto w-[90%] h-[90%] object-contain z-0" alt="Crypto" />
           
           <div className="absolute left-6 top-6 z-10 text-left">
-            <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
+            <div className="text-lg md:text-2xl font-black uppercase tracking-tight text-[#0d1410] leading-none">
               Crypto
             </div>
             <div className="text-[10px] text-emerald-700 italic mt-1 font-semibold">

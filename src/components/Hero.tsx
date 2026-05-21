@@ -52,7 +52,7 @@ function FloatingPaths({ position }: { position: number }) {
 
 export function Hero() {
   return (
-    <section className="relative min-h-[70vh] lg:min-h-[82vh] flex items-center overflow-hidden pt-36 pb-12">
+    <section className="relative min-h-[85vh] lg:min-h-[95vh] flex items-center overflow-hidden pt-48 pb-24">
       <div className="absolute inset-0 z-0">
         <img src="/icons/hero.png" alt="Hero Background" className="w-full h-full object-cover" />
       </div>
@@ -62,7 +62,7 @@ export function Hero() {
       <div className="absolute top-[-100px] right-[10%] w-[400px] h-[400px] bg-nn/5 rounded-full blur-[120px] z-1 pointer-events-none" />
       <div className="absolute bottom-0 left-[0%] w-[300px] h-[300px] bg-em/10 rounded-full blur-[120px] z-1 pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-12 w-full relative z-10">
+      <div className="container-standard relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Side: Writings */}
@@ -72,7 +72,7 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-txp leading-[0.9] mb-8 uppercase tracking-tighter mt-12">
+            <h1 className="text-h1 text-txp mb-8 mt-12">
               {"PRECISION".split("").map((letter, i) => (
                 <motion.span
                   key={i}
@@ -102,7 +102,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
+              className="text-body text-zinc-400 mb-10"
             >
               Access the world's most liquid markets with institutional-grade technology, raw spreads, and unparalleled transparency across <span className="text-nn font-semibold">500+ Global Instruments</span>.
             </motion.p>
@@ -113,10 +113,10 @@ export function Hero() {
               transition={{ delay: 1.4, duration: 0.8 }}
               className="flex flex-wrap gap-5"
             >
-              <button className="bg-nn hover:bg-nnl text-dk font-bold px-10 py-5 text-[12px] uppercase tracking-[0.3em] rounded-xl transition-all flex items-center gap-4 cursor-pointer shadow-[0_10px_20px_rgba(0,202,115,0.2)]">
+              <button className="btn-primary">
                 Open Live Account <ArrowRight size={18} />
               </button>
-              <button className="bg-white/5 border border-white/10 text-white px-10 py-5 text-[12px] uppercase font-bold tracking-[0.3em] hover:bg-white/10 transition-all flex items-center gap-4 cursor-pointer rounded-xl">
+              <button className="btn-secondary">
                 View Markets
               </button>
             </motion.div>

@@ -9,33 +9,13 @@ export default function CompanyPage() {
   return (
     <div className="bg-white text-zinc-900 min-h-screen">
       
-      {/* 2. Operational Performance Stats (LIGHT STYLE) */}
-      <section className="pt-40 pb-16 bg-white border-b border-zinc-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { num: "$12B+", lbl: "Monthly Trading Volume", desc: "Generating massive institutional liquidity flows." },
-              { num: "150K+", lbl: "Registered Active Traders", desc: "Serving retail and corporate strategy developers." },
-              { num: "< 40ms", lbl: "Average Execution Speed", desc: "Low-latency fibers linking LD4 & NY4 server racks." },
-              { num: "150+", lbl: "Countries Supported", desc: "Providing global access with local payment options." }
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="font-mono text-3xl md:text-4xl font-black text-primary mb-2">{stat.num}</div>
-                <div className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-2">{stat.lbl}</div>
-                <div className="text-zinc-600 text-[10px] leading-relaxed">{stat.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Core Corporate Values (LIGHT STYLE) */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      {/* 2. Core Corporate Values (LIGHT STYLE) */}
+      <section className="pt-40 pb-20 md:pb-24 bg-white">
+        <div className="container-standard">
           
           <div className="text-center mb-20">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Values</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-zinc-900">
+            <h2 className="text-h2 mb-6">
               Built On <span className="text-primary font-normal italic">Solid Principles</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
@@ -82,17 +62,17 @@ export default function CompanyPage() {
       </section>
 
       {/* 4. Global Locations (LIGHT STYLE) */}
-      <section id="contact" className="py-24 bg-[#f8fafc] border-t border-zinc-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="contact" className="section-padding bg-[#f8fafc] border-t border-zinc-100">
+        <div className="container-standard">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <MapPin size={24} />
               </div>
-              <h3 className="text-3xl md:text-5xl font-black uppercase text-zinc-900 mb-6 leading-tight">
+              <h2 className="text-h2 mb-6">
                 Our Global <br/><span className="text-primary font-normal italic">Presence</span>
-              </h3>
+              </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 With corporate offices, support centers, and server nodes located across major global trading regions, we maintain low-latency connections and localized 24/7 service hubs.
               </p>
@@ -130,12 +110,12 @@ export default function CompanyPage() {
       </section>
 
       {/* 5. Careers Section (LIGHT STYLE) */}
-      <section id="careers" className="py-24 bg-white border-t border-zinc-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="careers" className="section-padding bg-white border-t border-zinc-100">
+        <div className="container-standard">
           
           <div className="text-center mb-20">
             <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Careers</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-zinc-900">
+            <h2 className="text-h2 mb-6">
               Join Our <span className="text-primary font-normal italic">Innovators</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-3xl mx-auto">
