@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Building2, ShieldCheck, Headset, Zap, Activity, TrendingUp } from 'lucide-react';
+import { Building2, ShieldCheck, Headset, Zap, Activity } from 'lucide-react';
 import MagicBento from './MagicBento';
-import { SectionBadge } from './SectionBadge';
 
 const trustItems = [
   { iconSrc: '/icons/Copilot_20260519_185446.png', title: 'Regulated Broker', sub: 'Multi-license security' },
@@ -75,13 +74,6 @@ export function Markets() {
     <section id="markets" className="pt-28 pb-16 bg-white flex flex-col items-center overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-12 w-full relative z-10">
         <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <SectionBadge icon={<TrendingUp size={14} />} text="Asset Ecosystem" />
-          </motion.div>
           <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.85] uppercase mb-6 font-semibold tracking-tight">
             Global Markets
           </h2>

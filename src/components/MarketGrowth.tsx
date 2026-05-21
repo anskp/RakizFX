@@ -1,14 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp } from 'lucide-react';
-import { SectionBadge } from './SectionBadge';
 
 export function MarketGrowth() {
   return (
     <section className="pt-4 pb-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
-          <SectionBadge icon={<TrendingUp size={14} />} text="Portfolio" />
           <h2 className="text-4xl md:text-5xl font-semibold text-[#004D34] mb-6 tracking-tight uppercase leading-[0.85]">
             Invest in Top Assets
           </h2>
@@ -32,7 +29,7 @@ export function MarketGrowth() {
             
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {/* App Store */}
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-md hover:scale-[1.02]">
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 min-w-[170px] transition-all duration-200 shadow-md hover:scale-[1.02]">
                 <img src="/icons/app-store-svgrepo-com (1).svg" alt="Apple" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
@@ -41,7 +38,7 @@ export function MarketGrowth() {
               </a>
 
               {/* Google Play */}
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-md hover:scale-[1.02]">
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 min-w-[170px] transition-all duration-200 shadow-md hover:scale-[1.02]">
                 <img src="/icons/google-play-store-svgrepo-com.svg" alt="Google Play" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Get it on</span>
@@ -50,7 +47,7 @@ export function MarketGrowth() {
               </a>
 
               {/* Windows */}
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 w-[180px] transition-all duration-200 shadow-md hover:scale-[1.02]">
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-zinc-900 border border-transparent rounded-xl px-5 py-2.5 min-w-[170px] transition-all duration-200 shadow-md hover:scale-[1.02]">
                 <img src="/icons/windows-svgrepo-com.svg" alt="Windows" className="w-6 h-6 object-contain" />
                 <div className="flex flex-col items-start leading-none text-left">
                   <span className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Download for</span>

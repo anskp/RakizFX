@@ -1,12 +1,9 @@
 import React from 'react';
-import { BookOpen } from 'lucide-react';
-import { SectionBadge } from './SectionBadge';
 
 export function BlogSection() {
   return (
     <section id="blog" className="py-24 bg-white border-t border-zinc-200">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-        <SectionBadge icon={<BookOpen size={14} />} text="Blog" />
         <h2 className="text-4xl md:text-5xl font-semibold mb-16 tracking-tight uppercase text-[#004D34] leading-tight mt-2">
           Our Blog
         </h2>

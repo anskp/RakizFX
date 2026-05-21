@@ -29,7 +29,7 @@ export default function PartnersPage() {
                 icon: <Percent className="text-primary" size={24} />,
                 title: "Introducing Broker (IB)",
                 desc: "Earn high rebate yields on every single trade referred. Access customized client spreads, multi-level payment setups, and premium backend dashboards.",
-                perks: ["Up to $10 per standard lot rebate", "Multi-tiered affiliate structures", "Daily rebate payouts directly in app"]
+                perks: ["per standard lot rebate", "Multi-tiered affiliate structures", "Daily rebate payouts directly in app"]
               },
               {
                 icon: <Handshake className="text-primary" size={24} />,

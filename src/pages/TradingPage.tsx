@@ -1,21 +1,18 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  Shield, Zap, Layers, DollarSign, 
-  Activity, CheckCircle, Smartphone, Monitor, Globe, Award, PlayCircle,
+  Shield, Layers, DollarSign, 
+  Activity, CheckCircle, Smartphone, Globe, Award, PlayCircle,
   Sparkles, TrendingUp, UserCheck, BookOpen, Star, Wallet, Users, UserPlus
 } from 'lucide-react';
 import { AccountTypes } from '../components/AccountTypes';
 import { PlatformFeatures } from '../components/PlatformFeatures';
-import { SectionBadge } from '../components/SectionBadge';
-import { BlogSection } from '../components/BlogSection';
 
 function TradingCopySection() {
   return (
     <section id="copy-trading" className="pt-0 pb-20 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-0">
-          <SectionBadge icon={<UserPlus size={14} />} text="Social Ecosystem" />
           <h2 className="text-4xl md:text-5xl text-[#004D34] leading-[0.95] uppercase font-semibold tracking-tight mb-2">
             Copy Trading
           </h2>
@@ -28,9 +25,6 @@ function TradingCopySection() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center -mt-2 mb-0"
         >
           <div className="lg:col-span-5 text-center lg:text-left">
-            <div className="text-[10px] font-black uppercase tracking-widest text-[#00ca73] mb-3">
-              Automated Strategy Copying
-            </div>
             <h3 className="text-3xl md:text-4xl font-semibold uppercase text-[#004D34] leading-tight mb-3">
               Follow verified providers and mirror their trades
             </h3>
@@ -147,7 +141,7 @@ export default function TradingPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-48 pb-24 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-[660px] flex items-center">
+      <section id="overview" className="relative pt-32 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-[520px] flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 pointer-events-none"
@@ -183,18 +177,6 @@ export default function TradingPage() {
             </motion.div>
           </div>
 
-          {/* Risk Warning Block */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="max-w-4xl mx-auto mt-20 p-6 bg-white/[0.02] border border-white/5 rounded-3xl text-left"
-          >
-            <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Risk Warning</div>
-            <p className="text-zinc-500 text-xs leading-relaxed">
-              CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
-            </p>
-          </motion.div>
         </div>
       </section>
 
@@ -202,7 +184,6 @@ export default function TradingPage() {
       <section id="benefits" className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <SectionBadge icon={<Sparkles size={14} />} text="Benefits" />
             <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
               Why Trade With Us
             </h2>
@@ -214,20 +195,17 @@ export default function TradingPage() {
               <div className="absolute inset-0 overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1200&q=80" 
-                  alt="Ultra-Fast Execution" 
+                  alt="Precision Execution" 
                   className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-40 transition-all duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               </div>
               <div className="relative z-10 p-10 md:p-12">
-                <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center mb-6">
-                  <Zap className="text-primary" size={24} />
-                </div>
                 <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
-                  Ultra-Fast <span className="text-primary font-normal italic">Execution</span>
+                  Precision <span className="text-primary font-normal italic">Execution</span>
                 </h3>
                 <p className="text-zinc-300 text-base md:text-lg max-w-xl font-medium leading-relaxed">
-                  Lightning-fast order execution with minimal latency and advanced institutional infrastructure directly connected to deep liquidity pools.
+                  Sub-10ms execution architecture connected to institutional liquidity venues.
                 </p>
               </div>
             </div>
@@ -238,31 +216,25 @@ export default function TradingPage() {
                 <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-black group-hover:text-primary group-hover:bg-primary/10 transition-colors">
                   <Shield size={24} />
                 </div>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-black mb-4">Secure & <br/>Regulated</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-black mb-4">Multi-Asset <br/>Markets</h3>
                 <p className="text-zinc-600 text-sm font-medium leading-relaxed">
-                  Your funds and data are protected through strict security standards, top-tier bank segregation, and multi-license regulatory compliance.
+                  Trade forex, crypto, equities, commodities, indices, and ETFs through one ecosystem.
                 </p>
               </div>
               <div className="mt-8">
                 <div className="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-full rounded-full" />
                 </div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mt-3 text-right">Bank Grade Security</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mt-3 text-right">Market Access</div>
               </div>
             </div>
 
             {/* Medium Feature 2 */}
             <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-[#121212] group p-10 flex flex-col justify-between min-h-[350px]">
-              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Monitor size={120} className="text-white" />
-              </div>
               <div className="relative z-10">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-6 text-white">
-                  <Monitor size={20} />
-                </div>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Advanced Platforms</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Professional Platforms</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Trade on MetaTrader 5, MetaTrader 4, TradingView, WebTrader, and our proprietary Mobile Apps seamlessly.
+                  MT4, MT5, TradingView, WebTrader, and mobile trading environments.
                 </p>
               </div>
             </div>
@@ -270,24 +242,18 @@ export default function TradingPage() {
             {/* Medium Feature 3 */}
             <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#eafaf1] to-white group p-10 flex flex-col justify-between min-h-[350px]">
               <div className="relative z-10">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-6 text-[#004D34] shadow-sm">
-                  <Layers size={20} />
-                </div>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-[#004D34] mb-3">Multi-Asset Trading</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-[#004D34] mb-3">Capital Protection</h3>
                 <p className="text-[#004D34]/70 text-sm font-medium leading-relaxed">
-                  Trade Forex, Shares, Crypto, Metals, Energies, Futures, Indices, and ETFs from a single, unified account.
+                  Enterprise-grade security, segregated client funds, and multi-layer compliance systems.
                 </p>
               </div>
             </div>
 
             {/* Medium Feature 4 */}
             <div className="md:col-span-4 relative overflow-hidden rounded-[2.5rem] bg-white group flex flex-col justify-center items-center text-center p-10 min-h-[350px] hover:shadow-xl transition-all">
-              <div className="w-16 h-16 rounded-full bg-zinc-50 flex items-center justify-center mb-6 text-black group-hover:scale-110 group-hover:text-primary transition-all duration-300">
-                <DollarSign size={32} />
-              </div>
-              <h3 className="text-xl font-black uppercase tracking-tight text-black mb-3">Flexible Funding</h3>
+              <h3 className="text-xl font-black uppercase tracking-tight text-black mb-3">Global Funding Rails</h3>
               <p className="text-zinc-500 text-sm px-4 leading-relaxed">
-                Instant deposits and fast withdrawals through multiple global and local payment methods with zero hidden fees.
+                Fast deposits and withdrawals through banking, cards, crypto, and regional payment networks.
               </p>
             </div>
           </div>
@@ -298,7 +264,6 @@ export default function TradingPage() {
       <section id="markets" className="py-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <SectionBadge icon={<TrendingUp size={14} />} text="Markets" />
             <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
               Trading Ecosystem
             </h2>
@@ -360,7 +325,6 @@ export default function TradingPage() {
       <section id="platforms" className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <SectionBadge icon={<Monitor size={14} />} text="Platforms" />
             <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight uppercase text-[#004D34]">
               Trading Platforms
             </h2>
@@ -369,7 +333,7 @@ export default function TradingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
                 title: "MetaTrader 5",
@@ -377,24 +341,9 @@ export default function TradingPage() {
                 image: "/assets/metatrader5.png"
               },
               {
-                title: "MetaTrader 4",
-                desc: "Classic forex execution with fast order flow and expert advisor support.",
-                image: "/assets/metatrader4.png"
-              },
-              {
-                title: "TradingView",
-                desc: "Professional charts, social idea streams and intuitive market analysis in one hub.",
-                image: "/assets/web-trading-main_2xh.png"
-              },
-              {
                 title: "Web Trader",
                 desc: "Access trading directly from your browser with no download required.",
                 image: "/assets/web-trading-main_2xh.png"
-              },
-              {
-                title: "Rakiz Mobile App",
-                desc: "Trade on the go with Rakiz mobile for fast orders, portfolio tracking and alerts.",
-                image: "/assets/phone_trade.png"
               }
             ].map((platform, idx) => (
               <div key={idx} className="relative overflow-visible px-6 pt-24 pb-10 text-center">
@@ -416,7 +365,7 @@ export default function TradingPage() {
           </div>
           
           {/* Platform Features Comparison Table */}
-          <div className="mt-20">
+          <div className="mt-20 hidden">
             <div className="text-center mb-10">
               <h3 className="text-3xl md:text-4xl font-semibold tracking-tight uppercase text-[#004D34]">
                 Compare Platforms
@@ -435,7 +384,6 @@ export default function TradingPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <div>
-              <SectionBadge icon={<Shield size={14} />} text="Security" />
               <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
                 Account Security
               </h2>
@@ -443,7 +391,7 @@ export default function TradingPage() {
                 Client protection comes first, with secure infrastructure, safeguarded funds, and platform-level controls designed to keep your trading environment resilient.
               </p>
 
-              <div className="mx-auto max-w-4xl rounded-[2rem] bg-[#031610] overflow-hidden border border-[#0b3b2c]/60 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+              <div className="mx-auto max-w-4xl rounded-[2rem] bg-[#031610] overflow-hidden border border-[#0b3b2c]/60 shadow-[0_20px_60px_rgba(0,0,0,0.08)] hidden">
                 <img
                   src="/assets/svgviewer-output.svg"
                   alt="Crypto asset security illustration"
@@ -454,9 +402,6 @@ export default function TradingPage() {
           </div>
         </div>
       </section>
-
-      {/* 8. Blog Section */}
-      <BlogSection />
 
       {/* 9. CTA Section */}
       <section className="py-24 px-6 bg-white">

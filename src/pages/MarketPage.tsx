@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { 
   LineChart, Building2, Activity, BarChart2, Boxes, Briefcase, 
-  CheckCircle, Zap, Shield, HelpCircle, ArrowRight, ArrowUpRight, DollarSign, Wallet, CalendarDays, Cpu
+  CheckCircle
 } from 'lucide-react';
 
 export default function MarketPage() {
-  const [activeCategory, setActiveCategory] = useState<'forex' | 'shares' | 'crypto' | 'indices' | 'metals_energies'>('forex');
-
   // Sparkline generator helper
   const drawSparkline = (points: number[], colorClass: string) => {
     const width = 100;
@@ -68,15 +66,80 @@ export default function MarketPage() {
     ]
   };
 
+  const marketSections = [
+    {
+      title: 'Forex',
+      label: 'Currency Markets',
+      desc: 'Trade major, minor, and exotic pairs with tight pricing, high liquidity, and fast 24/5 market access.',
+      icon: <LineChart size={22} />,
+      instruments: ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD'],
+      tone: 'bg-[#eafaf1]',
+      accent: 'text-[#004D34]'
+    },
+    {
+      title: 'Shares CFDs',
+      label: 'Global Equities',
+      desc: 'Speculate on leading public companies across US, European, and Asian markets without owning the underlying stock.',
+      icon: <Building2 size={22} />,
+      instruments: ['AAPL', 'TSLA', 'AMZN', 'NVDA'],
+      tone: 'bg-white',
+      accent: 'text-zinc-900'
+    },
+    {
+      title: 'Crypto CFDs',
+      label: '24/7 Digital Assets',
+      desc: 'Trade crypto price movements around the clock with advanced charting tools and no exchange wallet requirement.',
+      icon: <Activity size={22} />,
+      instruments: ['BTC/USD', 'ETH/USD', 'SOL/USD', 'XRP/USD'],
+      tone: 'bg-[#121212]',
+      accent: 'text-white'
+    },
+    {
+      title: 'Indices',
+      label: 'Benchmark Markets',
+      desc: 'Access global benchmark indices and speculate on broad stock market performance with flexible CFD conditions.',
+      icon: <BarChart2 size={22} />,
+      instruments: ['S&P 500', 'NASDAQ 100', 'DAX 40', 'FTSE 100'],
+      tone: 'bg-white',
+      accent: 'text-zinc-900'
+    },
+    {
+      title: 'Metals & Energies',
+      label: 'Commodities',
+      desc: 'Trade safe-haven metals and active energy markets including gold, silver, Brent, WTI, and natural gas.',
+      icon: <Boxes size={22} />,
+      instruments: ['Gold', 'Silver', 'Brent', 'Natural Gas'],
+      tone: 'bg-[#f4f7f6]',
+      accent: 'text-[#004D34]'
+    },
+    {
+      title: 'ETFs',
+      label: 'Sector Exposure',
+      desc: 'Diversify across baskets of securities, sectors, and themes through flexible ETF CFD access.',
+      icon: <Briefcase size={22} />,
+      instruments: ['Tech', 'Energy', 'Healthcare', 'Global'],
+      tone: 'bg-white',
+      accent: 'text-zinc-900'
+    },
+    {
+      title: 'Futures',
+      label: 'Forward Markets',
+      desc: 'Trade futures-linked CFDs across major commodities, indices, and financial products with deep liquidity support.',
+      icon: <BarChart2 size={22} />,
+      instruments: ['US Index', 'Oil', 'Metals', 'Rates'],
+      tone: 'bg-[#eafaf1]',
+      accent: 'text-[#004D34]'
+    }
+  ];
+
   return (
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-40 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5">
+      <section id="overview" className="relative pt-40 pb-20 overflow-hidden text-black">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/markethero.png" alt="Market Hero Background" className="w-full h-full object-cover" />
+          <img src="/assets/herooo.png" alt="Market Hero Background" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#121212] pointer-events-none z-0" />
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-left w-full pt-12">
           <div className="max-w-2xl text-left">
@@ -90,7 +153,7 @@ export default function MarketPage() {
                 <span className="text-primary font-normal italic">Across Global Markets</span>
               </h1>
 
-              <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
+              <p className="text-black text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
                 Access over 1,000+ CFD instruments across Forex, Crypto, Stocks, and Commodities on premium ECN infrastructure.
               </p>
             </motion.div>
@@ -98,144 +161,97 @@ export default function MarketPage() {
         </div>
       </section>
 
-      {/* 2. Interactive Market Selector Grid */}
-      <section id="instruments" className="py-20 bg-white text-black border-b border-zinc-200">
+      {/* 2. Market Chart */}
+      <section id="chart" className="py-14 bg-white text-black">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {[
-              { id: 'forex', name: 'Forex', icon: <LineChart size={16} /> },
-              { id: 'shares', name: 'Shares CFDs', icon: <Building2 size={16} /> },
-              { id: 'crypto', name: 'Crypto CFDs', icon: <Activity size={16} /> },
-              { id: 'indices', name: 'Indices', icon: <BarChart2 size={16} /> },
-              { id: 'metals_energies', name: 'Metals & Energies', icon: <Boxes size={16} /> }
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id as any)}
-                className={`flex items-center gap-2.5 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer border ${
-                  activeCategory === cat.id 
-                    ? 'bg-primary border-primary text-black' 
-                    : 'bg-zinc-50 border-zinc-200 text-zinc-600 hover:text-black hover:border-zinc-300'
-                }`}
-              >
-                {cat.icon}
-                <span>{cat.name}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content Dashboard */}
-          <div className="bg-white border border-zinc-200/80 rounded-[2.5rem] p-6 md:p-10 relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.01)]">
-            
-            {/* Header info based on category */}
-            <div className="mb-10 text-center md:text-left">
-              {activeCategory === 'forex' && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Forex</h3>
-                  <p className="text-zinc-600 text-sm max-w-xl">Trade major, minor, and exotic currency pairs with deep liquidity and competitive spreads. Enjoy 24/5 market access, tight spreads, high liquidity, and fast execution.</p>
-                </>
-              )}
-              {activeCategory === 'shares' && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Shares CFDs</h3>
-                  <p className="text-zinc-600 text-sm max-w-xl">Trade CFDs on global company stocks without owning the underlying asset. Access shares from US Markets, European Markets, and Asian Markets.</p>
-                </>
-              )}
-              {activeCategory === 'crypto' && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Crypto CFDs</h3>
-                  <p className="text-zinc-600 text-sm max-w-xl">Trade cryptocurrency price movements without needing a crypto wallet. Leverage volatile market opportunities with 24/7 crypto market exposure and advanced charting tools.</p>
-                </>
-              )}
-              {activeCategory === 'indices' && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Indices</h3>
-                  <p className="text-zinc-600 text-sm max-w-xl">Speculate on the performance of major stock market indices worldwide. Trade top benchmarks with high leverage and tight spreads.</p>
-                </>
-              )}
-              {activeCategory === 'metals_energies' && (
-                <>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-[#004D34] mb-3">Metals & Energies</h3>
-                  <p className="text-zinc-600 text-sm max-w-xl">Trade precious metals commonly used as safe-haven assets (Gold, Silver, Platinum, Palladium) and global energy markets with CFDs on Brent, WTI, and Natural Gas.</p>
-                </>
-              )}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-4">
+              <h2 className="text-4xl md:text-5xl font-semibold uppercase tracking-tight leading-[0.95] text-[#004D34] mb-5">
+                Live Market Movement
+              </h2>
+              <p className="text-zinc-600 text-sm md:text-base leading-relaxed max-w-md">
+                Track representative price action across currencies, equities, crypto, indices, and commodities before choosing your market.
+              </p>
             </div>
 
-            {/* Custom List of Instruments */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-zinc-100 text-[10px] uppercase font-black tracking-widest text-zinc-400">
-                    <th className="py-4">Instrument</th>
-                    <th className="py-4">Description</th>
-                    <th className="py-4">Live Price</th>
-                    <th className="py-4">24h Change</th>
-                    <th className="py-4 hidden md:table-cell">Trend (Last 24h)</th>
-                    <th className="py-4 text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-100">
-                  {marketData[activeCategory].map((row, idx) => (
-                    <tr key={idx} className="hover:bg-zinc-50/50 transition-colors group">
-                      <td className="py-5 font-black text-sm text-zinc-800">{row.pair}</td>
-                      <td className="py-5 text-xs text-zinc-500 font-medium">{row.desc}</td>
-                      <td className="py-5 font-mono text-sm font-bold text-zinc-800">{row.price}</td>
-                      <td className={`py-5 font-mono text-xs font-black ${row.isUp ? 'text-[#00ca73]' : 'text-red-500'}`}>
-                        {row.change}
-                      </td>
-                      <td className="py-5 hidden md:table-cell">
-                        {drawSparkline(row.spark, row.isUp ? 'text-[#00ca73]' : 'text-red-500')}
-                      </td>
-                      <td className="py-5 text-right">
-                        <button className="bg-zinc-50 border border-zinc-200 hover:bg-[#004D34] hover:border-[#004D34] hover:text-white text-[#004D34] px-4 py-2 rounded-lg text-[10px] uppercase font-black tracking-widest transition-all">
-                          Trade
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-
-          {/* 3. ETFs, Futures and Safe-Havens Bento */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-            <div className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <Briefcase size={20} />
+            <div className="lg:col-span-8 bg-[#f4f7f6] rounded-[2rem] p-6 md:p-8 overflow-hidden">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                  <div className="text-xs font-black uppercase tracking-widest text-zinc-400">Composite CFD Index</div>
+                  <div className="text-3xl font-black text-[#004D34] mt-1">1,284.72</div>
                 </div>
-                <h3 className="text-2xl font-black uppercase text-zinc-800 mb-4">ETFs</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                  Diversify your portfolio with Exchange-Traded Funds from multiple sectors and industries. Invest in a basket of securities with deep liquidity and flexible market tools.
-                </p>
+                <div className="rounded-full bg-white px-5 py-3 text-xs font-black text-[#00ca73] shadow-sm">+2.48%</div>
               </div>
-              <div className="flex items-center gap-2 text-[#004D34] font-bold text-xs uppercase tracking-widest hover:text-[#00ca73] transition-colors cursor-pointer group">
-                <span>Explore Sector ETFs</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
 
-            <div className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <BarChart2 size={20} />
-                </div>
-                <h3 className="text-2xl font-black uppercase text-zinc-800 mb-4">Futures</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                  Access futures markets with flexible CFD trading conditions. Speculate on major market-moving commodities, indices, and financial products with deep liquidity support.
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-[#004D34] font-bold text-xs uppercase tracking-widest hover:text-[#00ca73] transition-colors cursor-pointer group">
-                <span>View Futures Markets</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <svg viewBox="0 0 900 260" className="w-full h-52 md:h-64">
+                <defs>
+                  <linearGradient id="marketFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#00ca73" stopOpacity="0.22" />
+                    <stop offset="100%" stopColor="#00ca73" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 220 L0 172 C70 166 100 112 160 126 C225 142 248 76 318 94 C390 112 410 158 476 136 C546 112 572 48 642 70 C706 90 724 132 790 104 C834 86 862 62 900 58 L900 220 Z" fill="url(#marketFill)" />
+                <path d="M0 172 C70 166 100 112 160 126 C225 142 248 76 318 94 C390 112 410 158 476 136 C546 112 572 48 642 70 C706 90 724 132 790 104 C834 86 862 62 900 58" fill="none" stroke="#00ca73" strokeWidth="8" strokeLinecap="round" />
+                {[120, 300, 480, 660, 840].map((x) => (
+                  <circle key={x} cx={x} cy={x === 660 ? 70 : x === 840 ? 74 : x === 300 ? 94 : x === 480 ? 136 : 126} r="8" fill="#004D34" />
+                ))}
+              </svg>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-5">
+                {[
+                  { name: 'EUR/USD', val: '+0.12%' },
+                  { name: 'BTC/USD', val: '+2.85%' },
+                  { name: 'NASDAQ', val: '+0.72%' },
+                  { name: 'Gold', val: '+1.12%' },
+                  { name: 'Brent', val: '-1.05%' }
+                ].map((item) => (
+                  <div key={item.name} className="bg-white rounded-2xl p-4 shadow-sm">
+                    <div className="text-[10px] font-black uppercase tracking-widest text-zinc-400">{item.name}</div>
+                    <div className={`mt-1 text-sm font-black ${item.val.startsWith('+') ? 'text-[#00ca73]' : 'text-red-500'}`}>{item.val}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* 3. Market Sections */}
+      <section id="instruments" className="py-10 bg-white text-black">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-7">
+          {marketSections.map((market, idx) => (
+            <motion.div
+              key={market.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className={`${market.tone} rounded-[2rem] px-7 py-7 md:px-10 md:py-8`}
+            >
+              <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+                <div className="lg:col-span-5">
+                  <div className={`text-[10px] uppercase font-black tracking-[0.35em] mb-3 ${market.tone === 'bg-[#121212]' ? 'text-[#00ca73]' : 'text-[#004D34]'}`}>{market.label}</div>
+                  <h3 className={`text-3xl md:text-4xl font-semibold uppercase tracking-tight mb-4 ${market.accent}`}>{market.title}</h3>
+                  <p className={`text-sm md:text-base leading-relaxed max-w-xl ${market.tone === 'bg-[#121212]' ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                    {market.desc}
+                  </p>
+                </div>
+
+                <div className="lg:col-span-7">
+                  <div className="flex flex-wrap gap-3 lg:justify-end">
+                    {market.instruments.map((instrument) => (
+                      <span
+                        key={instrument}
+                        className={`rounded-full px-5 py-3 text-xs font-black uppercase tracking-widest ${market.tone === 'bg-[#121212]' ? 'bg-white/10 text-white' : 'bg-white text-zinc-800 shadow-sm'}`}
+                      >
+                        {instrument}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -245,7 +261,6 @@ export default function MarketPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
-              <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Transparent Pricing</div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
                 We Believe in <br/>
                 <span className="text-primary font-normal italic">Transparent Costs</span>
@@ -301,24 +316,20 @@ export default function MarketPage() {
           </div>
 
           {/* Payment Badges Grid */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-start items-start gap-4 mb-16 w-full">
             {[
               { logo: 'https://cdn-icons-png.flaticon.com/512/196/196578.png', name: 'Visa & Mastercard' },
               { logo: 'https://cdn-icons-png.flaticon.com/512/2830/2830284.png', name: 'Bank Transfers' },
-              { icon: <Wallet size={20} />, name: 'Skrill' },
-              { icon: <Zap size={20} />, name: 'Neteller' },
+              { logo: 'https://cdn-icons-png.flaticon.com/512/220/220233.png', name: 'Skrill' },
+              { logo: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png', name: 'Neteller' },
               { logo: 'https://cdn-icons-png.flaticon.com/512/814/814513.png', name: 'Local Transfers' },
               { logo: 'https://cdn-icons-png.flaticon.com/512/1086/1086741.png', name: 'STICPAY' },
               { logo: 'https://cdn-icons-png.flaticon.com/512/6021/6021946.png', name: 'Perfect Money' },
               { logo: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg', name: 'Crypto Payments' }
             ].map((pm, idx) => (
-              <div key={idx} className="bg-white border border-zinc-100 rounded-2xl w-24 h-16 flex items-center justify-center shadow-sm hover:border-nn/30 transition-all cursor-default">
-                <div className="w-12 h-8 flex items-center justify-center text-emerald-500">
-                  {pm.logo ? (
-                    <img src={pm.logo} alt={pm.name} className="max-w-full max-h-full object-contain" />
-                  ) : (
-                    pm.icon
-                  )}
+              <div key={idx} className="bg-white rounded-2xl min-w-[100px] h-16 flex items-start justify-start shadow-sm transition-all cursor-default px-4">
+                <div className="w-full h-full flex items-center justify-start text-emerald-500">
+                  <img src={pm.logo} alt={pm.name} className="max-w-full max-h-full object-contain" />
                 </div>
               </div>
             ))}
@@ -348,7 +359,6 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-16">
-            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Trading Ecosystem</div>
             <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
               Market Intelligence
             </h2>
@@ -406,9 +416,6 @@ export default function MarketPage() {
           {/* Economic Calendar Sub-section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                <CalendarDays size={24} />
-              </div>
               <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
                 Stay Ahead Of <br/><span className="text-primary font-normal italic">Market Events</span>
               </h3>
@@ -482,9 +489,6 @@ export default function MarketPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                <Cpu size={24} />
-              </div>
               <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
                 Automated Trading <br/><span className="text-primary font-normal italic">With Low Latency</span>
               </h3>
@@ -502,10 +506,6 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#CDEEDB] border border-[#CDEEDB] rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#00ca73]" />
-                <span className="text-[10px] uppercase font-black tracking-widest text-[#004D34]">Institutional Regulation</span>
-              </div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
                 Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
               </h2>

@@ -21,7 +21,7 @@ const LogoSVG = ({ isDark }: { isDark: boolean }) => (
     data-name="Layer 1" 
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 445.79 272.68" 
-    className="h-full w-auto block py-2 scale-[1.35] md:scale-[1.5] origin-left transition-all duration-300"
+    className="h-full w-auto block py-2 scale-[1.6] md:scale-[1.9] origin-left transition-all duration-300"
   >
     <g className={isDark ? "fill-zinc-800" : "fill-white"}>
       <path d="M174.54,157.15v-36.11h13.64c7.74,0,12.34,4.1,12.34,10.84,0,4.99-2.5,8.59-6.99,10.04l7.34,15.23h-5.44l-6.74-14.28h-9.24v14.28h-4.89ZM179.44,138.52h8.79c4.55,0,7.14-2.45,7.14-6.59s-2.7-6.49-7.19-6.49h-8.74v13.09Z"/>
@@ -50,7 +50,7 @@ export function Navbar() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
-  const isLightBgPage = pathname === '/partners' || pathname === '/company';
+  const isLightBgPage = pathname === '/partners' || pathname === '/company' || pathname === '/market';
 
   useEffect(() => {
     const handleScroll = () => {

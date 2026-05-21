@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Users, TrendingUp, ShieldCheck, Wallet, ArrowRight, UserPlus } from 'lucide-react';
+import { Users, Wallet, ArrowRight, UserPlus } from 'lucide-react';
 
 const traders = [
   {
@@ -36,7 +36,6 @@ export function CopyTrading() {
 
         {/* First: Centered Heading */}
         <div className="text-center mb-20">
-          <div className="text-nn font-black text-[10px] uppercase tracking-[0.4em] mb-6">Social Ecosystem</div>
           <h2 className="text-5xl md:text-7xl text-black leading-[0.95] uppercase mb-8 max-w-4xl mx-auto">
             Top Traders. <br />
             <span className="text-nn">Copy Their Profits.</span>
@@ -92,16 +91,7 @@ export function CopyTrading() {
         </div>
 
         {/* Stats Footer */}
-        <div className="mt-20 flex flex-wrap justify-center gap-10">
-          <div className="flex items-center gap-3 bg-zinc-100 px-6 py-3 rounded-full border border-zinc-200">
-            <ShieldCheck size={20} className="text-nn" />
-            <span className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em]">MAM / PAMM Support</span>
-          </div>
-          <div className="flex items-center gap-3 bg-zinc-100 px-6 py-3 rounded-full border border-zinc-200">
-            <TrendingUp size={20} className="text-nn" />
-            <span className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em]">Real-time Analytics</span>
-          </div>
-        </div>
+        <div className="mt-20" />
       </div>
     </section>
   );

@@ -19,22 +19,22 @@ export function TrustSection() {
             <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Multiple methods tailored for Asian traders. Most deposits processed instantly.</p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 mb-10">
+          <div className="flex flex-wrap justify-start items-start gap-10 md:gap-14 mb-10 w-full">
             {[
               { logo: '/icons/bank-svgrepo-com.svg', name: 'Bank Transfer' },
               { logo: '/icons/visa-svgrepo-com (1).svg', name: 'Visa' },
               { logo: '/icons/mastercard-old-svgrepo-com.svg', name: 'Mastercard' },
-              { logo: '/icons/google-pay-icon-svgrepo-com.svg', name: 'Google Pay' },
-              { logo: '/icons/icons8-bhim.svg', name: 'BHIM UPI' },
+              { logo: 'https://cdn-icons-png.flaticon.com/512/220/220233.png', name: 'Skrill' },
+              { logo: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png', name: 'Neteller' },
               { logo: '/icons/bitcoin-svgrepo-com.svg', name: 'Bitcoin' },
               { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' },
             ].map((p, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -3, scale: 1.08 }}
-                className="h-10 flex items-center justify-center transition-all cursor-default"
+                className="h-10 flex items-start justify-start transition-all cursor-default min-w-[80px]"
               >
-                <div className="max-w-[80px] max-h-full flex items-center justify-center">
+                <div className="w-full h-full flex items-start justify-start">
                   <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain filter opacity-80 hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
