@@ -407,7 +407,6 @@ export default function TradingPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
-              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
               <h2 className="text-4xl md:text-5xl font-semibold text-white uppercase mb-12 tracking-tight leading-[0.9]">
                 Start Your Journey
               </h2>

@@ -14,7 +14,6 @@ export default function CompanyPage() {
         <div className="container-standard">
           
           <div className="text-center mb-20">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Values</div>
             <h2 className="text-h2 mb-6">
               Built On <span className="text-primary font-normal italic">Solid Principles</span>
             </h2>
@@ -46,14 +45,9 @@ export default function CompanyPage() {
                 desc: "Adhering to clean global financial guidelines and anti-money laundering policies. Our operations undergo routine third-party audits to secure and maintain institutional licensing compliance."
               }
             ].map((card, idx) => (
-              <div key={idx} className="bg-zinc-50/50 border border-zinc-200/80 rounded-[2.5rem] p-8 md:p-12 hover:border-primary/40 hover:bg-zinc-50 hover:shadow-lg transition-all flex gap-6 items-start group">
-                <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
-                  {card.icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold uppercase tracking-tight text-zinc-900 mb-4">{card.title}</h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed">{card.desc}</p>
-                </div>
+              <div key={idx} className="bg-zinc-50/50 border border-zinc-200/80 rounded-[2.5rem] p-8 md:p-12 hover:border-primary/40 hover:bg-zinc-50 hover:shadow-lg transition-all group">
+                <h3 className="text-2xl font-bold uppercase tracking-tight text-zinc-900 mb-4">{card.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -67,9 +61,6 @@ export default function CompanyPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                <MapPin size={24} />
-              </div>
               <h2 className="text-h2 mb-6">
                 Our Global <br/><span className="text-primary font-normal italic">Presence</span>
               </h2>
@@ -96,7 +87,6 @@ export default function CompanyPage() {
             <div className="bg-white border border-zinc-200 shadow-xl rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden min-h-[300px] flex items-center justify-center">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,120,0.05),transparent)] pointer-events-none" />
               <div className="text-center relative z-10">
-                <div className="text-primary font-mono text-[10px] uppercase tracking-widest mb-2">Network Nodes</div>
                 <div className="text-2xl font-black uppercase text-zinc-900 mb-4">Interlinked Latency Grid</div>
                 <div className="inline-flex items-center gap-3 bg-zinc-50 border border-zinc-200 px-4 py-2 rounded-full shadow-sm">
                   <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping" />
@@ -114,7 +104,6 @@ export default function CompanyPage() {
         <div className="container-standard">
           
           <div className="text-center mb-20">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Careers</div>
             <h2 className="text-h2 mb-6">
               Join Our <span className="text-primary font-normal italic">Innovators</span>
             </h2>

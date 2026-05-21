@@ -53,7 +53,7 @@ function HomePage() {
       <CopyTrading />
       <AccountTypes />
       <MarketGrowth />
-      <BlogSection />
+      {/* <BlogSection /> Hidden for now as requested */}
       <TrustSection />
     </>
   );

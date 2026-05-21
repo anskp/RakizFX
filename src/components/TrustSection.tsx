@@ -10,11 +10,6 @@ export function TrustSection() {
       <section id="payments" className="pt-0 pb-16 bg-white text-black">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-nn/30" />
-              <div className="text-nn font-bold text-[10px] uppercase tracking-widest">Payments</div>
-              <div className="h-[1px] w-8 bg-nn/30" />
-            </div>
             <h2 className="text-3xl md:text-4xl mb-3">Fast, Secure & Flexible Payments</h2>
             <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Multiple methods tailored for Asian traders. Most deposits processed instantly.</p>
           </div>
@@ -52,37 +47,7 @@ export function TrustSection() {
         </div>
       </section>
 
-      {/* Regulation Section */}
-      <section id="regulation" className="pt-4 pb-20 bg-white relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-[#004D34]/20" />
-              <div className="text-[#00ca73] font-bold text-[10px] uppercase tracking-widest">Trust & Regulation</div>
-              <div className="h-[1px] w-8 bg-[#004D34]/20" />
-            </div>
-            <h2 className="text-3xl md:text-4xl text-[#004D34] font-black mb-4 uppercase">Your Funds Are Safe With Us</h2>
-            <p className="text-zinc-500 text-sm font-medium max-w-2xl mx-auto">Strict regulatory frameworks with segregated client funds.</p>
-          </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { icon: <ShieldCheck size={20} strokeWidth={2.5} />, name: 'Regulated Entity' },
-              { icon: <Vault size={20} strokeWidth={2.5} />, name: 'Segregated Funds' },
-              { icon: <Scale size={20} strokeWidth={2.5} />, name: 'Negative Balance Protection' },
-            ].map((p, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -2 }}
-                className="bg-gradient-to-b from-white to-white hover:from-[#CDEEDB] hover:to-white border border-zinc-200/80 hover:border-[#CDEEDB]/60 shadow-[0_10px_30px_rgba(0,0,0,0.01)] transition-all duration-300 rounded-full py-4 px-8 flex items-center gap-4 cursor-default text-[#004D34]"
-              >
-                <div className="text-[#00ca73]">{p.icon}</div>
-                <span className="font-bold text-[13px] text-zinc-800 whitespace-nowrap uppercase tracking-wide">{p.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 px-6 bg-white">
@@ -94,7 +59,6 @@ export function TrustSection() {
             className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl"
           >
             <div className="relative z-10">
-              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Get Started Today</div>
               <h2 className="text-h2 text-white mb-6">Ready to get started?</h2>
               <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">Transform your brokerage today</p>
               

@@ -14,7 +14,6 @@ export default function PartnersPage() {
         <div className="container-standard">
           
           <div className="text-center mb-20">
-            <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Programs</div>
             <h2 className="text-h2 mb-6">
               Our Partnership <br/><span className="text-primary font-normal italic">Channels</span>
             </h2>
@@ -23,32 +22,21 @@ export default function PartnersPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: <Percent className="text-primary" size={24} />,
                 title: "Introducing Broker (IB)",
                 desc: "Earn high rebate yields on every single trade referred. Access customized client spreads, multi-level payment setups, and premium backend dashboards.",
                 perks: ["per standard lot rebate", "Multi-tiered affiliate structures", "Daily rebate payouts directly in app"]
               },
               {
-                icon: <Handshake className="text-primary" size={24} />,
                 title: "CPA Affiliate Program",
                 desc: "Get industry-leading fixed payouts for introducing active depositors. Benefit from advanced landing pages, high-converting banners, and weekly audits.",
                 perks: ["High CPA commission per active user", "Exclusive localized marketing packs", "Dedicated individual account manager"]
-              },
-              {
-                icon: <Globe className="text-primary" size={24} />,
-                title: "Institutional White Label",
-                desc: "Deploy your custom branded brokerage powered by RakizFX infrastructure. Access aggregative institutional liquidity, administrative dashboards, and full setups.",
-                perks: ["Bespoke customized branding configuration", "Deep low-latency raw execution feeds", "Regulatory & operational advisory support"]
               }
             ].map((program, idx) => (
               <div key={idx} className="bg-zinc-50/50 border border-zinc-200/80 rounded-[2.5rem] p-8 md:p-10 hover:border-primary/40 hover:bg-zinc-50 hover:shadow-lg transition-all flex flex-col justify-between group">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
-                    {program.icon}
-                  </div>
                   <h3 className="text-2xl font-bold uppercase tracking-tight text-zinc-900 mb-4">{program.title}</h3>
                   <p className="text-zinc-600 text-sm leading-relaxed mb-8">{program.desc}</p>
                 </div>
@@ -80,7 +68,6 @@ export default function PartnersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
-              <div className="text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-4">Partner Infrastructure</div>
               <h2 className="text-h2 mb-6">
                 Advanced Partner <br/><span className="text-primary font-normal italic">Portal</span>
               </h2>
@@ -199,9 +186,6 @@ export default function PartnersPage() {
               }
             ].map((card, idx) => (
               <div key={idx} className="bg-zinc-50/50 border border-zinc-200/80 rounded-3xl p-6 hover:bg-zinc-50 hover:border-primary/40 hover:shadow-md transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mb-6">
-                  {card.icon}
-                </div>
                 <h3 className="text-lg font-bold uppercase tracking-tight text-zinc-900 mb-2">{card.title}</h3>
                 <p className="text-zinc-600 text-xs leading-relaxed">{card.desc}</p>
               </div>
@@ -217,7 +201,6 @@ export default function PartnersPage() {
           <div className="bg-gradient-to-b from-[#060F09] to-black border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl text-white">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] pointer-events-none rounded-full" />
             <div className="relative z-10">
-              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Elevate Your Network</div>
               <h2 className="text-h2 text-white mb-6">
                 Start Your Partnership <br/>Journey Today
               </h2>

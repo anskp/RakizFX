@@ -42,7 +42,7 @@ export function TradersSay() {
   return (
     <section className="pt-4 pb-24 bg-white border-t border-zinc-100 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-        
+
         {/* Section Heading */}
         <div className="text-center mb-16">
           <motion.div
@@ -51,9 +51,9 @@ export function TradersSay() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="text-[#00ca73] text-[10px] uppercase font-black tracking-[0.4em] mb-4">Traders Say</div>
+
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#004D34]">
-              Trusted Across <span className="text-[#00ca73] font-normal italic">Asia Pacific</span>
+              Trusted Across <span className="text-[#00ca73] font-normal italic">Traders</span>
             </h2>
           </motion.div>
         </div>
@@ -84,12 +84,12 @@ export function TradersSay() {
               {/* Author Profile */}
               <div className="flex items-center gap-4 border-t border-zinc-100 pt-6 mt-auto">
                 {/* Sharp, elegant trader profile image */}
-                <img 
-                  src={t.image} 
-                  alt={t.name} 
+                <img
+                  src={t.image}
+                  alt={t.name}
                   className="w-12 h-12 rounded-2xl object-cover border border-zinc-100 shadow-sm shrink-0"
                 />
-                
+
                 <div className="overflow-hidden">
                   <div className="flex items-center gap-2">
                     <span className="font-extrabold text-[#004D34] text-sm uppercase tracking-wide truncate">{t.name}</span>

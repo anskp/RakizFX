@@ -251,7 +251,6 @@ export default function MarketPage() {
             >
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 <div className="lg:col-span-5">
-                  <div className={`text-[10px] uppercase font-black tracking-[0.35em] mb-3 ${market.tone === 'bg-[#121212]' ? 'text-[#00ca73]' : 'text-[#004D34]'}`}>{market.label}</div>
                   <h3 className={`text-3xl md:text-4xl font-semibold uppercase tracking-tight mb-4 ${market.accent}`}>{market.title}</h3>
                   <p className={`text-sm md:text-base leading-relaxed max-w-xl ${market.tone === 'bg-[#121212]' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     {market.desc}
@@ -327,7 +326,6 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-16">
-            <div className="text-nn font-black text-[10px] uppercase tracking-[0.4em] mb-4">Funding Solutions</div>
             <h2 className="text-h2 mb-6">
               Fast & Secure <span className="text-nn font-normal italic">Funding</span>
             </h2>
@@ -337,22 +335,24 @@ export default function MarketPage() {
           </div>
 
           {/* Payment Badges Grid */}
-          <div className="flex flex-wrap justify-start items-start gap-4 mb-16 w-full">
+          {/* Payment Badges Grid */}
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 mb-16 w-full">
             {[
-              { logo: 'https://cdn-icons-png.flaticon.com/512/196/196578.png', name: 'Visa & Mastercard' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/2830/2830284.png', name: 'Bank Transfers' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/220/220233.png', name: 'Skrill' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png', name: 'Neteller' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/814/814513.png', name: 'Local Transfers' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/1086/1086741.png', name: 'STICPAY' },
-              { logo: 'https://cdn-icons-png.flaticon.com/512/6021/6021946.png', name: 'Perfect Money' },
-              { logo: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg', name: 'Crypto Payments' }
-            ].map((pm, idx) => (
-              <div key={idx} className="bg-white rounded-2xl min-w-[100px] h-16 flex items-start justify-start shadow-sm transition-all cursor-default px-4">
-                <div className="w-full h-full flex items-center justify-start text-emerald-500">
-                  <img src={pm.logo} alt={pm.name} className="max-w-full max-h-full object-contain" />
+              { logo: '/icons/bank-svgrepo-com.svg', name: 'Bank Transfer' },
+              { logo: '/icons/visa-svgrepo-com (1).svg', name: 'Visa' },
+              { logo: '/icons/mastercard-old-svgrepo-com.svg', name: 'Mastercard' },
+              { logo: '/icons/bitcoin-svgrepo-com.svg', name: 'Bitcoin' },
+              { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' },
+            ].map((p, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -3, scale: 1.08 }}
+                className="h-10 flex items-start justify-start transition-all cursor-default min-w-[80px]"
+              >
+                <div className="w-full h-full flex items-start justify-start">
+                  <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain filter opacity-80 hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -560,7 +560,6 @@ export default function MarketPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
-              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
               <h2 className="text-h2 text-white mb-6">
                 Start Your Trading <br/>Journey Today
               </h2>

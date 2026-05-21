@@ -35,7 +35,7 @@ export function CopyTrading() {
       <div className="container-standard relative z-10">
 
         {/* First: Centered Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-4">
           <h2 className="text-h2 mb-8 max-w-4xl mx-auto">
             Top Traders. <br />
             <span className="text-nn">Copy Their Profits.</span>
@@ -50,7 +50,7 @@ export function CopyTrading() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative max-w-6xl mx-auto mb-8 -mt-10 flex justify-center lg:translate-x-12 md:translate-x-6"
+          className="relative max-w-6xl mx-auto -mt-12 -mb-16 flex justify-center lg:translate-x-12 md:translate-x-6 z-0 pointer-events-none"
         >
           <div className="relative z-10 w-full flex justify-center">
             <img
@@ -62,7 +62,7 @@ export function CopyTrading() {
         </motion.div>
 
         {/* Third: Trader Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto px-4 md:px-0">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto px-4 md:px-0 relative z-10">
           {traders.map((t, i) => (
             <motion.div
               key={t.name}
@@ -90,8 +90,6 @@ export function CopyTrading() {
           ))}
         </div>
 
-        {/* Stats Footer */}
-        <div className="mt-20" />
       </div>
     </section>
   );
