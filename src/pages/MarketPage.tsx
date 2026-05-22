@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { 
   LineChart, Building2, Activity, BarChart2, Boxes, Briefcase, 
   CheckCircle
 } from 'lucide-react';
+import { LiveMarketChart } from '../components/LiveMarketChart';
+
+function EconomicCalendarWidget() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    container.innerHTML = '';
+
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      colorTheme: 'light',
+      isTransparent: true,
+      width: '100%',
+      height: '600',
+      locale: 'en',
+      importanceFilter: '-1,0,1',
+      currencyFilter: 'USD,EUR,GBP,JPY,AUD,CAD,CHF,CNY',
+    });
+    container.appendChild(script);
+
+    return () => { if (container) container.innerHTML = ''; };
+  }, []);
+
+  return (
+    <div className="tradingview-widget-container" ref={containerRef} style={{ minHeight: '600px' }}>
+      <div className="tradingview-widget-container__widget" />
+    </div>
+  );
+}
 
 export default function MarketPage() {
   // Sparkline generator helper
@@ -30,39 +63,39 @@ export default function MarketPage() {
 
   const marketData = {
     forex: [
-      { pair: 'EUR/USD', desc: 'Euro / US Dollar', price: '1.08542', change: '+0.12%', spark: [1.084, 1.0845, 1.085, 1.0848, 1.0854], isUp: true },
-      { pair: 'GBP/USD', desc: 'Pound / US Dollar', price: '1.26425', change: '+0.24%', spark: [1.261, 1.2625, 1.263, 1.2638, 1.2642], isUp: true },
-      { pair: 'USD/JPY', desc: 'US Dollar / Yen', price: '156.128', change: '-0.31%', spark: [156.6, 156.4, 156.3, 156.25, 156.12], isUp: false },
-      { pair: 'AUD/USD', desc: 'Aussie / US Dollar', price: '0.66782', change: '+0.08%', spark: [0.667, 0.6672, 0.6675, 0.6673, 0.6678], isUp: true },
-      { pair: 'USD/CAD', desc: 'US Dollar / Loonie', price: '1.36214', change: '-0.15%', spark: [1.364, 1.3635, 1.363, 1.3625, 1.3621], isUp: false },
+      { pair: 'EUR/USD', desc: 'Euro / US Dollar', price: '1.09247', change: '+0.18%', spark: [1.0905, 1.0912, 1.0918, 1.0921, 1.0925], isUp: true },
+      { pair: 'GBP/USD', desc: 'Pound / US Dollar', price: '1.27364', change: '-0.22%', spark: [1.2765, 1.2752, 1.2745, 1.2741, 1.2736], isUp: false },
+      { pair: 'USD/JPY', desc: 'US Dollar / Yen', price: '154.892', change: '+0.45%', spark: [154.25, 154.42, 154.65, 154.78, 154.89], isUp: true },
+      { pair: 'AUD/USD', desc: 'Aussie / US Dollar', price: '0.66124', change: '+0.35%', spark: [0.6590, 0.6601, 0.6605, 0.6608, 0.6612], isUp: true },
+      { pair: 'USD/CAD', desc: 'US Dollar / Loonie', price: '1.37245', change: '-0.08%', spark: [1.3735, 1.3732, 1.3728, 1.3726, 1.3725], isUp: false },
     ],
     shares: [
-      { pair: 'Apple (AAPL)', desc: 'Apple Inc.', price: '189.84', change: '+1.45%', spark: [187.2, 188.0, 188.5, 189.1, 189.84], isUp: true },
-      { pair: 'Tesla (TSLA)', desc: 'Tesla Inc.', price: '174.95', change: '-2.18%', spark: [178.5, 177.0, 175.8, 176.2, 174.95], isUp: false },
-      { pair: 'Amazon (AMZN)', desc: 'Amazon.com Inc.', price: '183.15', change: '+0.88%', spark: [181.5, 182.0, 182.2, 182.8, 183.15], isUp: true },
-      { pair: 'Nvidia (NVDA)', desc: 'NVIDIA Corporation', price: '943.50', change: '+4.20%', spark: [905.0, 915.0, 930.0, 928.0, 943.50], isUp: true },
-      { pair: 'Microsoft (MSFT)', desc: 'Microsoft Corporation', price: '421.90', change: '+0.54%', spark: [419.5, 420.2, 420.8, 421.2, 421.90], isUp: true },
+      { pair: 'Apple (AAPL)', desc: 'Apple Inc.', price: '212.34', change: '+0.85%', spark: [210.50, 211.20, 211.80, 212.10, 212.34], isUp: true },
+      { pair: 'Tesla (TSLA)', desc: 'Tesla Inc.', price: '295.67', change: '-1.45%', spark: [300.20, 298.50, 297.10, 296.50, 295.67], isUp: false },
+      { pair: 'Amazon (AMZN)', desc: 'Amazon.com Inc.', price: '205.42', change: '+1.22%', spark: [203.20, 204.10, 204.55, 205.10, 205.42], isUp: true },
+      { pair: 'Nvidia (NVDA)', desc: 'NVIDIA Corporation', price: '1,156.30', change: '+2.35%', spark: [1130.50, 1140.20, 1148.50, 1152.80, 1156.30], isUp: true },
+      { pair: 'Microsoft (MSFT)', desc: 'Microsoft Corporation', price: '458.92', change: '+0.78%', spark: [455.50, 456.80, 457.90, 458.50, 458.92], isUp: true },
     ],
     crypto: [
-      { pair: 'Bitcoin (BTC)', desc: 'Bitcoin / USD', price: '66,842.50', change: '+2.85%', spark: [65000, 65200, 65800, 66100, 66842], isUp: true },
-      { pair: 'Ethereum (ETH)', desc: 'Ethereum / USD', price: '3,492.15', change: '+1.98%', spark: [3420, 3435, 3460, 3472, 3492], isUp: true },
-      { pair: 'Solana (SOL)', desc: 'Solana / USD', price: '174.82', change: '+5.60%', spark: [165.2, 168.0, 171.5, 172.3, 174.82], isUp: true },
-      { pair: 'XRP (XRP)', desc: 'Ripple / USD', price: '0.5124', change: '-0.85%', spark: [0.518, 0.516, 0.514, 0.515, 0.512], isUp: false },
-      { pair: 'Litecoin (LTC)', desc: 'Litecoin / USD', price: '82.45', change: '+1.10%', spark: [81.5, 81.8, 82.2, 82.0, 82.45], isUp: true },
+      { pair: 'Bitcoin (BTC)', desc: 'Bitcoin / USD', price: '74,250.00', change: '+3.25%', spark: [72000, 72500, 73200, 73800, 74250], isUp: true },
+      { pair: 'Ethereum (ETH)', desc: 'Ethereum / USD', price: '4,125.40', change: '+2.65%', spark: [4020, 4060, 4090, 4110, 4125], isUp: true },
+      { pair: 'Solana (SOL)', desc: 'Solana / USD', price: '218.75', change: '+6.80%', spark: [205.00, 210.50, 215.20, 217.40, 218.75], isUp: true },
+      { pair: 'XRP (XRP)', desc: 'Ripple / USD', price: '0.5892', change: '-1.25%', spark: [0.597, 0.593, 0.591, 0.590, 0.589], isUp: false },
+      { pair: 'Litecoin (LTC)', desc: 'Litecoin / USD', price: '94.65', change: '+1.85%', spark: [92.80, 93.50, 94.10, 94.45, 94.65], isUp: true },
     ],
     indices: [
-      { pair: 'S&P 500', desc: 'US 500 Index', price: '5,308.12', change: '+0.35%', spark: [5290, 5295, 5302, 5304, 5308], isUp: true },
-      { pair: 'NASDAQ 100', desc: 'US Tech 100 Index', price: '18,674.30', change: '+0.72%', spark: [18540, 18580, 18620, 18650, 18674], isUp: true },
-      { pair: 'Dow Jones', desc: 'US 30 Index', price: '39,872.90', change: '-0.10%', spark: [39910, 39890, 39920, 39850, 39872], isUp: false },
-      { pair: 'FTSE 100', desc: 'UK 100 Index', price: '8,424.20', change: '+0.15%', spark: [8411, 8415, 8420, 8418, 8424], isUp: true },
-      { pair: 'DAX 40', desc: 'Germany 40 Index', price: '18,726.50', change: '+0.21%', spark: [18680, 18710, 18705, 18715, 18726], isUp: true },
+      { pair: 'S&P 500', desc: 'US 500 Index', price: '5,847.25', change: '+0.58%', spark: [5805, 5820, 5835, 5842, 5847], isUp: true },
+      { pair: 'NASDAQ 100', desc: 'US Tech 100 Index', price: '21,342.80', change: '+1.12%', spark: [21100, 21180, 21250, 21300, 21342], isUp: true },
+      { pair: 'Dow Jones', desc: 'US 30 Index', price: '42,568.30', change: '-0.25%', spark: [42680, 42620, 42590, 42580, 42568], isUp: false },
+      { pair: 'FTSE 100', desc: 'UK 100 Index', price: '8,756.40', change: '+0.38%', spark: [8720, 8735, 8745, 8752, 8756], isUp: true },
+      { pair: 'DAX 40', desc: 'Germany 40 Index', price: '20,485.60', change: '+0.62%', spark: [20380, 20420, 20455, 20475, 20485], isUp: true },
     ],
     metals_energies: [
-      { pair: 'Gold (XAU/USD)', desc: 'Gold Spot / USD', price: '2,421.80', change: '+1.12%', spark: [2395, 2405, 2410, 2415, 2421.8], isUp: true },
-      { pair: 'Silver (XAG/USD)', desc: 'Silver Spot / USD', price: '31.42', change: '+2.40%', spark: [30.6, 30.8, 31.1, 31.0, 31.42], isUp: true },
-      { pair: 'Brent Crude Oil', desc: 'Brent Crude Spot', price: '83.25', change: '-1.05%', spark: [84.15, 83.90, 83.60, 83.45, 83.25], isUp: false },
-      { pair: 'WTI Crude Oil', desc: 'WTI Light Sweet Crude', price: '79.12', change: '-1.25%', spark: [80.12, 79.80, 79.50, 79.35, 79.12], isUp: false },
-      { pair: 'Natural Gas', desc: 'Natural Gas Spot', price: '2.564', change: '+3.80%', spark: [2.47, 2.50, 2.52, 2.51, 2.564], isUp: true },
+      { pair: 'Gold (XAU/USD)', desc: 'Gold Spot / USD', price: '2,516.40', change: '+0.95%', spark: [2492, 2501, 2508, 2512, 2516.4], isUp: true },
+      { pair: 'Silver (XAG/USD)', desc: 'Silver Spot / USD', price: '32.18', change: '+1.85%', spark: [31.60, 31.80, 32.00, 32.10, 32.18], isUp: true },
+      { pair: 'Brent Crude Oil', desc: 'Brent Crude Spot', price: '86.42', change: '-0.85%', spark: [87.15, 86.90, 86.65, 86.55, 86.42], isUp: false },
+      { pair: 'WTI Crude Oil', desc: 'WTI Light Sweet Crude', price: '81.35', change: '-0.95%', spark: [82.05, 81.75, 81.50, 81.42, 81.35], isUp: false },
+      { pair: 'Natural Gas', desc: 'Natural Gas Spot', price: '2.845', change: '+2.15%', spark: [2.785, 2.805, 2.820, 2.835, 2.845], isUp: true },
     ]
   };
 
@@ -136,45 +169,26 @@ export default function MarketPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-40 pb-20 overflow-hidden text-black min-h-[85vh] lg:min-h-screen flex items-center">
+      <section id="overview" className="relative pt-32 pb-20 overflow-hidden text-black min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <img src="/assets/herooo.png" alt="Market Hero Background" className="w-full h-full object-cover" />
         </div>
+        {/* Light gradient fade to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent lg:w-2/3 pointer-events-none" />
 
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-left w-full pt-12">
-          <div className="max-w-2xl text-left">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-left w-full">
+          <div className="max-w-2xl lg:max-w-3xl text-left">
             <motion.div 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-h1 text-black mb-6 mt-6">
-                {"PRECISION".split("").map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-                <br/>
-                {"EXECUTION.".split("").map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
-                    className={`inline-block ${letter !== '.' ? 'text-nn' : 'text-black'}`}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
+              <h1 className="text-4xl md:text-6xl lg:text-[clamp(3.5rem,4vw,4.5rem)] font-black uppercase tracking-tight mb-5 lg:mb-6 leading-tight lg:leading-[1.05]">
+                Markets <br/>
+                <span className="text-primary font-normal italic">Across Global Markets</span>
               </h1>
 
-              <p className="text-black text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
+              <p className="text-zinc-800 text-sm md:text-base lg:text-[clamp(1.125rem,1.5vw,1.25rem)] font-medium mb-8 lg:mb-10 leading-relaxed max-w-xl lg:max-w-2xl">
                 Access over 1,000+ CFD instruments across Forex, Crypto, Stocks, and Commodities on premium ECN infrastructure.
               </p>
             </motion.div>
@@ -182,60 +196,7 @@ export default function MarketPage() {
         </div>
       </section>
 
-      {/* 2. Market Chart */}
-      <section id="chart" className="py-14 bg-white text-black">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-4">
-              <h2 className="text-h2 mb-5">
-                Live Market Movement
-              </h2>
-              <p className="text-zinc-600 text-sm md:text-base leading-relaxed max-w-md">
-                Track representative price action across currencies, equities, crypto, indices, and commodities before choosing your market.
-              </p>
-            </div>
-
-            <div className="lg:col-span-8 bg-[#f4f7f6] rounded-[2rem] p-6 md:p-8 overflow-hidden">
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div>
-                  <div className="text-xs font-black uppercase tracking-widest text-zinc-400">Composite CFD Index</div>
-                  <div className="text-3xl font-black text-[#004D34] mt-1">1,284.72</div>
-                </div>
-                <div className="rounded-full bg-white px-5 py-3 text-xs font-black text-[#00ca73] shadow-sm">+2.48%</div>
-              </div>
-
-              <svg viewBox="0 0 900 260" className="w-full h-52 md:h-64">
-                <defs>
-                  <linearGradient id="marketFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#00ca73" stopOpacity="0.22" />
-                    <stop offset="100%" stopColor="#00ca73" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0 220 L0 172 C70 166 100 112 160 126 C225 142 248 76 318 94 C390 112 410 158 476 136 C546 112 572 48 642 70 C706 90 724 132 790 104 C834 86 862 62 900 58 L900 220 Z" fill="url(#marketFill)" />
-                <path d="M0 172 C70 166 100 112 160 126 C225 142 248 76 318 94 C390 112 410 158 476 136 C546 112 572 48 642 70 C706 90 724 132 790 104 C834 86 862 62 900 58" fill="none" stroke="#00ca73" strokeWidth="8" strokeLinecap="round" />
-                {[120, 300, 480, 660, 840].map((x) => (
-                  <circle key={x} cx={x} cy={x === 660 ? 70 : x === 840 ? 74 : x === 300 ? 94 : x === 480 ? 136 : 126} r="8" fill="#004D34" />
-                ))}
-              </svg>
-
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-5">
-                {[
-                  { name: 'EUR/USD', val: '+0.12%' },
-                  { name: 'BTC/USD', val: '+2.85%' },
-                  { name: 'NASDAQ', val: '+0.72%' },
-                  { name: 'Gold', val: '+1.12%' },
-                  { name: 'Brent', val: '-1.05%' }
-                ].map((item) => (
-                  <div key={item.name} className="bg-white rounded-2xl p-4 shadow-sm">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-zinc-400">{item.name}</div>
-                    <div className={`mt-1 text-sm font-black ${item.val.startsWith('+') ? 'text-[#00ca73]' : 'text-red-500'}`}>{item.val}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LiveMarketChart />
 
       {/* 3. Market Sections */}
       <section id="instruments" className="py-10 bg-white text-black">
@@ -251,6 +212,7 @@ export default function MarketPage() {
             >
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 <div className="lg:col-span-5">
+
                   <h3 className={`text-3xl md:text-4xl font-semibold uppercase tracking-tight mb-4 ${market.accent}`}>{market.title}</h3>
                   <p className={`text-sm md:text-base leading-relaxed max-w-xl ${market.tone === 'bg-[#121212]' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     {market.desc}
@@ -281,7 +243,7 @@ export default function MarketPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-5">
-              <h2 className="text-h2 mb-6">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
                 We Believe in <br/>
                 <span className="text-primary font-normal italic">Transparent Costs</span>
               </h2>
@@ -326,7 +288,8 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center mb-16">
-            <h2 className="text-h2 mb-6">
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9]">
               Fast & Secure <span className="text-nn font-normal italic">Funding</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
@@ -335,24 +298,17 @@ export default function MarketPage() {
           </div>
 
           {/* Payment Badges Grid */}
-          {/* Payment Badges Grid */}
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 mb-16 w-full">
             {[
               { logo: '/icons/bank-svgrepo-com.svg', name: 'Bank Transfer' },
               { logo: '/icons/visa-svgrepo-com (1).svg', name: 'Visa' },
               { logo: '/icons/mastercard-old-svgrepo-com.svg', name: 'Mastercard' },
               { logo: '/icons/bitcoin-svgrepo-com.svg', name: 'Bitcoin' },
-              { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' },
-            ].map((p, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -3, scale: 1.08 }}
-                className="h-10 flex items-start justify-start transition-all cursor-default min-w-[80px]"
-              >
-                <div className="w-full h-full flex items-start justify-start">
-                  <img src={p.logo} alt={p.name} className="max-w-full max-h-full object-contain filter opacity-80 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
+              { logo: '/icons/apple-pay-svgrepo-com (1).svg', name: 'Apple Pay' }
+            ].map((pm, idx) => (
+              <div key={idx} className="h-10 flex items-center justify-center transition-all cursor-default min-w-[80px]">
+                <img src={pm.logo} alt={pm.name} className="max-w-full max-h-full object-contain filter opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              </div>
             ))}
           </div>
 
@@ -375,120 +331,34 @@ export default function MarketPage() {
         </div>
       </section>
 
-      {/* 6. Market Intelligence Tools */}
-      <section id="tools" className="py-24 bg-white text-black border-b border-zinc-200">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          
-          <div className="text-center mb-16">
-            <h2 className="text-h2 mb-6">
-              Market Intelligence
-            </h2>
-            <p className="text-zinc-600 text-base md:text-lg font-medium max-w-2xl mx-auto">
-              Stay close to market sentiment, key economic events, and curated financial news from one clean trading toolkit.
-            </p>
-          </div>
+{/* 6. Economic Calendar & Events Section */}
+       <section id="calendar-events" className="py-24 bg-white border-t border-zinc-200">
+         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+           <div className="text-center mb-12">
+             <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase text-[#004D34]">
+               Economic Calendar & Events
+             </h2>
+             <p className="text-zinc-600 text-base md:text-lg font-medium max-w-2xl mx-auto">
+               Track key global economic events, central bank decisions, and market-moving releases in real time.
+             </p>
+           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Market Sentiments',
-                desc: 'See how traders are positioned across major instruments, including long versus short percentages for Forex, Crypto, and Indices.',
-                image: '/assets/Group 56.svg'
-              },
-              {
-                title: 'Economic Calendar',
-                desc: 'Track and set alerts for key global economic events, central bank decisions, inflation data, and market-moving releases.',
-                image: '/assets/Frame 47.svg'
-              },
-              {
-                title: 'Market News',
-                desc: 'Stay updated with curated financial news and market stories that help you follow momentum across global assets.',
-                image: '/assets/Group 57.svg'
-              }
-            ].map((tool, idx) => (
-              <div key={idx} className="bg-white border border-zinc-200/80 shadow-[0_14px_40px_rgba(0,0,0,0.04)] transition-all duration-300 rounded-[1.75rem] p-6 md:p-7 min-h-[430px] flex flex-col justify-between hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,77,52,0.08)]">
-                <div className="h-56 md:h-60 flex items-center justify-center mb-8">
-                  <img
-                    src={tool.image}
-                    alt={tool.title}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
+           <div className="bg-zinc-50 border border-zinc-200 rounded-[2rem] p-6 overflow-hidden" style={{ minHeight: '500px' }}>
+             <EconomicCalendarWidget />
+           </div>
+         </div>
+       </section>
 
-                <div>
-                  <h3 className="text-xl font-black text-zinc-900 mb-3">
-                    {tool.title}
-                  </h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed">
-                    {tool.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. Economic Calendar & VPS Showcases */}
-      <section id="calendar-vps" className="py-24 bg-white border-t border-zinc-200">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-24">
-          
-          {/* Economic Calendar Sub-section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-h2 mb-6">
-                Stay Ahead Of <br/><span className="text-primary font-normal italic">Market Events</span>
-              </h2>
-              <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
-                Track major economic announcements, central bank decisions, inflation reports, employment data, and global market-moving events in real time.
-              </p>
-            </div>
-
-            {/* Mock Calendar Widget */}
-            <div className="bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-6 relative overflow-hidden shadow-sm">
-              <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-6">Today's Key Releases</div>
-              <div className="space-y-4">
-                {[
-                  { time: '14:30', currency: 'USD', event: 'CPI MoM (Consumer Price Index)', impact: 'HIGH', forecast: '0.3%', previous: '0.4%' },
-                  { time: '16:00', currency: 'GBP', event: 'BoE Governor Bailey Speaks', impact: 'MEDIUM', forecast: '-', previous: '-' },
-                  { time: '20:15', currency: 'EUR', event: 'ECB President Lagarde Speech', impact: 'HIGH', forecast: '-', previous: '-' }
-                ].map((e, idx) => (
-                  <div key={idx} className="flex flex-wrap items-center justify-between border-b border-zinc-200 pb-4 last:border-0 last:pb-0 gap-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-mono text-zinc-500 text-xs">{e.time}</span>
-                        <span className="bg-white border border-zinc-200 px-2 py-0.5 rounded text-[10px] font-black">{e.currency}</span>
-                        <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${e.impact === 'HIGH' ? 'bg-red-50 text-red-600 border border-red-200' : 'bg-yellow-50 text-yellow-600 border border-yellow-200'}`}>
-                          {e.impact}
-                        </span>
-                      </div>
-                      <div className="text-xs font-bold text-black uppercase tracking-wider">{e.event}</div>
-                    </div>
-                    <div className="flex items-center gap-4 text-[10px] font-mono">
-                      <div>
-                        <div className="text-zinc-500 uppercase">Forecast</div>
-                        <div className="font-bold text-black">{e.forecast}</div>
-                      </div>
-                      <div>
-                        <div className="text-zinc-500 uppercase">Previous</div>
-                        <div className="font-bold text-black">{e.previous}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* VPS Hosting Sub-section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-6 relative overflow-hidden shadow-sm">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-[80px]" />
-              <div className="flex items-center justify-between mb-8">
-                <div className="text-xs font-black uppercase tracking-wider text-zinc-500">Dedicated VPS Metrics</div>
-                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping" />
-              </div>
+{/* 7. VPS Showcase Section */}
+       <section id="vps" className="py-24 bg-white border-t border-zinc-200">
+         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <div className="order-2 lg:order-1 bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-6 relative overflow-hidden shadow-sm">
+               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-[80px]" />
+               <div className="flex items-center justify-between mb-8">
+                 <div className="text-xs font-black uppercase tracking-wider text-zinc-500">Dedicated VPS Metrics</div>
+                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping" />
+               </div>
 
               <div className="space-y-6">
                 {[
@@ -510,9 +380,9 @@ export default function MarketPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <h2 className="text-h2 mb-6">
+              <h3 className="text-3xl md:text-5xl font-black uppercase text-black mb-6 leading-tight">
                 Automated Trading <br/><span className="text-primary font-normal italic">With Low Latency</span>
-              </h2>
+              </h3>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
                 Run Expert Advisors and automated strategies 24/7 using dedicated VPS infrastructure with reduced downtime and enhanced execution speed.
               </p>
@@ -527,7 +397,7 @@ export default function MarketPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-h2 mb-6">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase leading-[0.9] text-black">
                 Your Security <br/><span className="text-[#00ca73] font-normal italic">Comes First</span>
               </h2>
               <p className="text-zinc-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
@@ -560,7 +430,8 @@ export default function MarketPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
-              <h2 className="text-h2 text-white mb-6">
+              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
+              <h2 className="text-4xl md:text-7xl font-bold text-white uppercase mb-6 tracking-tight leading-[0.9]">
                 Start Your Trading <br/>Journey Today
               </h2>
               <p className="text-zinc-400 text-lg md:text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">

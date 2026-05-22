@@ -50,7 +50,7 @@ export function Navbar() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
-  const isLightBgPage = pathname === '/partners' || pathname === '/company' || pathname === '/market';
+  const isLightBgPage = pathname === '/' || pathname === '/partners' || pathname === '/company' || pathname === '/market' || pathname === '/trading';
 
   useEffect(() => {
     const handleScroll = () => {

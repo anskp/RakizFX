@@ -21,7 +21,7 @@ export function Platform() {
   ];
 
   return (
-    <section id="platforms" className="py-40 bg-black">
+    <section id="platforms" className="pt-32 pb-20 lg:pt-44 lg:pb-32 bg-black min-h-[70vh] lg:min-h-[80vh] flex items-center">
       <div className="max-w-[1400px] mx-auto px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
           <motion.div 

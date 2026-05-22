@@ -141,63 +141,41 @@ export default function TradingPage() {
     <div className="bg-white text-black min-h-screen">
       
       {/* 1. Hero Section */}
-      <section id="overview" className="relative pt-32 pb-20 overflow-hidden bg-[#121212] text-white border-b border-white/5 min-h-screen flex items-center">
+      <section id="overview" className="relative pt-32 pb-20 overflow-hidden text-black min-h-screen flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 pointer-events-none"
-          style={{ backgroundImage: "url('/assets/tradinghero.png')" }}
+          style={{ backgroundImage: "url('/assets/tradinghero02.png')" }}
         />
-        {/* Transparent bottom gradient for page transition only */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#121212] pointer-events-none" />
+        {/* Light gradient fade to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent lg:w-2/3 pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 w-full">
-          <div className="max-w-2xl text-left">
+          <div className="max-w-2xl lg:max-w-3xl text-left">
             <motion.div 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-h1 text-white mb-6">
-                {"PRECISION".split("").map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-                <br/>
-                {"EXECUTION.".split("").map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 + i * 0.05, type: "spring", stiffness: 150, damping: 25 }}
-                    className={`inline-block ${letter !== '.' ? 'text-nn' : 'text-white'}`}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
+              <h1 className="text-4xl md:text-6xl lg:text-[clamp(3.5rem,4vw,4.5rem)] font-black uppercase tracking-tight mb-5 lg:mb-6 leading-tight lg:leading-[1.05]">
+                Trade Global Markets <br/>
+                <span className="text-primary font-normal italic">With Confidence</span>
               </h1>
 
-              <p className="text-zinc-300 text-base md:text-lg font-medium mb-10 leading-relaxed max-w-xl">
+              <p className="text-zinc-800 text-sm md:text-base lg:text-[clamp(1.125rem,1.5vw,1.25rem)] font-medium mb-8 lg:mb-10 leading-relaxed max-w-xl lg:max-w-2xl">
                 Access 1,000+ CFD instruments across Forex, Crypto, Stocks, and Commodities with ultra-fast execution, deep institutional liquidity, and advanced charting tools designed for modern traders.
               </p>
 
-              <div className="flex flex-wrap gap-4 justify-start">
-                <button className="bg-primary hover:scale-105 text-black font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-transform shadow-[0_20px_40px_rgba(0,255,120,0.2)]">
+              <div className="flex flex-wrap gap-4 lg:gap-5 justify-start items-center">
+                <button className="bg-nn hover:bg-nnl text-dk px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all cursor-pointer shadow-[0_5px_15px_rgba(0,202,115,0.2)] hover:scale-105">
                   Start Trading Today
                 </button>
-                <button className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition-all">
+                <button className="px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] hover:text-primary border hover:border-primary rounded-xl transition-all cursor-pointer flex items-center justify-center text-zinc-800 border-zinc-300 bg-white">
                   Try Free Demo
                 </button>
               </div>
             </motion.div>
           </div>
-
         </div>
       </section>
 
@@ -400,13 +378,36 @@ export default function TradingPage() {
       {/* 6. Social Trading Section */}
       <TradingCopySection />
 
+      {/* 7. Security Section */}
+      <section id="security" className="py-24 relative overflow-hidden bg-white text-black border-t border-zinc-200">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight uppercase leading-[0.9] text-[#004D34]">
+                Account Security
+              </h2>
+              <p className="max-w-2xl mx-auto text-zinc-600 text-sm md:text-base leading-relaxed mb-10">
+                Client protection comes first, with secure infrastructure, safeguarded funds, and platform-level controls designed to keep your trading environment resilient.
+              </p>
 
+              <div className="mx-auto max-w-4xl rounded-[2rem] bg-[#031610] overflow-hidden border border-[#0b3b2c]/60 shadow-[0_20px_60px_rgba(0,0,0,0.08)] hidden">
+                <img
+                  src="/assets/svgviewer-output.svg"
+                  alt="Crypto asset security illustration"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 9. CTA Section */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#121212] border border-white/5 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
+              <div className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">Start Your Journey</div>
               <h2 className="text-4xl md:text-5xl font-semibold text-white uppercase mb-12 tracking-tight leading-[0.9]">
                 Start Your Journey
               </h2>

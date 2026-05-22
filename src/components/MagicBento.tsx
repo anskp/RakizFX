@@ -221,44 +221,26 @@ export default function MagicBento({ noPadding = false }: { noPadding?: boolean 
           </div>
         </ParticleCard>
 
-        {/* ── TWO SMALLS ── */}
+        {/* ── TWO SMALLS (Commodities & Indices) ── */}
         <div className="card-smalls-row">
           <ParticleCard className="card-small card-small--border-glow" disabled={disabled} style={{ overflow: 'visible' }}>
-            <img src="/assets/CFDs.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="ETFs CFDs" />
+            <img src="/assets/goldandsilver01.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="Commodities" />
             <div className="absolute left-6 bottom-6 z-10 text-left">
               <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
-                ETFs CFDs
+                Commodities
               </div>
             </div>
           </ParticleCard>
 
           <ParticleCard className="card-small card-small--border-glow" disabled={disabled} style={{ overflow: 'visible' }}>
-            <img src="/assets/shares01.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="Shares" />
+            <img src="/assets/indices01.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="Indices" />
             <div className="absolute left-6 bottom-6 z-10 text-left">
               <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
-                Shares
+                Indices
               </div>
             </div>
           </ParticleCard>
         </div>
-
-        {/* ── CENTER TOP: Indices ── */}
-        <ParticleCard className={`${cardClass} card-center-top`} disabled={disabled}>
-          <img src="/assets/goldandsilver01.png" className="absolute inset-0 m-auto w-[95%] h-[95%] object-contain z-0" alt="Commodities" />
-          <div className="absolute inset-x-0 top-4 text-center">
-            <div className="text-sm md:text-lg font-black uppercase tracking-widest text-[#0d1410] leading-none">Commodities</div>
-          </div>
-        </ParticleCard>
-
-        <ParticleCard className={`${cardClass} card-center-bottom`} disabled={disabled} style={{ overflow: 'visible' }}>
-          <img src="/assets/indices01.png" className="absolute right-[-5%] bottom-[0%] w-[75%] h-[110%] object-contain z-0 pointer-events-none" alt="Indices" />
-          <div className="absolute left-6 bottom-6 z-10 text-left">
-            <div className="text-xs md:text-sm font-black uppercase tracking-widest text-[#0d1410] leading-none">
-              Indices
-            </div>
-
-          </div>
-        </ParticleCard>
 
         {/* ── RIGHT TALL: Crypto ── */}
         <ParticleCard className={`${cardClass} card-right`} disabled={disabled}>
